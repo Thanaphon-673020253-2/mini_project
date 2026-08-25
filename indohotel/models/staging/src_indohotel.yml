@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: indohotel # The name of the source, used to reference this source in dbt models
+    schema: main # The schema(dataset name) to which the source belongs. main is the default schema for DuckDB
+    description: "Raw flat files queried directly from the local workspace folder"
+    meta: # Additional metadata for the source
+      # {name} is a placeholder that automatically injects the table names listed below
+      external_location: 'datasets/{name}.csv'
+    tables:
+      - name: bookings
+      - name: daily_occupancy
+      - name: employee_performance
+      - name: employees
+      - name: event_bookings
+      - name: financial_summary
+      - name: fnb_inventory
+      - name: fnb_outlets
+      - name: fnb_transactions
+      - name: fnb_waste_log
+      - name: guests
+      - name: housekeeping_log
+      - name: ingredient_price_history
+      - name: maintenance_tickets
+      - name: payroll
+      - name: pricing_history
+      - name: properties
+      - name: recipe_bom
+      - name: role_permissions
+      - name: rooms
+      - name: spa_bookings
+      - name: staff_shifts
+      - name: venues

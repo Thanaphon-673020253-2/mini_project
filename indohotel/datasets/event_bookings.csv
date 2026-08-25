@@ -1,0 +1,1332 @@
+event_id,property_id,venue_id,client_name,event_type,event_date,venue_name,capacity_booked,total_revenue,status
+EV00001,P01,VN002,Sari & Darmana,Wedding,2023-07-15,Sunset Garden Venue,216,169364000,completed
+EV00002,P01,VN001,UD Prasasta,Corporate Meeting,2023-07-14,Nirwana Grand Ballroom,366,120189000,completed
+EV00003,P01,VN002,CV Jailani Wastuti,Gala Dinner,2023-07-06,Sunset Garden Venue,219,140874000,completed
+EV00004,P01,VN001,Perum Anggraini,Corporate Meeting,2023-07-15,Nirwana Grand Ballroom,102,52565000,completed
+EV00005,P01,VN001,PT Iswahyudi,Corporate Meeting,2023-08-22,Nirwana Grand Ballroom,354,192762000,completed
+EV00006,P01,VN001,CV Mayasari Suartini,Corporate Meeting,2023-08-06,Nirwana Grand Ballroom,229,85264000,completed
+EV00007,P01,VN001,Perum Napitupulu,Conference,2023-08-28,Nirwana Grand Ballroom,347,188673000,completed
+EV00008,P01,VN002,CV Hassanah Rahmawati Tbk,Gala Dinner,2023-08-22,Sunset Garden Venue,159,142528000,cancelled
+EV00009,P01,VN004,CV Anggraini,Corporate Meeting,2023-08-17,Frangipani Meeting Room,38,12710000,completed
+EV00010,P01,VN001,UD Mangunsong (Persero) Tbk,Conference,2023-08-10,Nirwana Grand Ballroom,334,163298000,completed
+EV00011,P01,VN002,PT Iswahyudi Tbk,Gala Dinner,2023-08-11,Sunset Garden Venue,214,160990000,completed
+EV00012,P01,VN002,UD Situmorang,Gala Dinner,2023-08-08,Sunset Garden Venue,169,162107000,completed
+EV00013,P01,VN003,Nova & Karsana,Wedding,2023-09-02,Beachfront Lawn,113,128996000,completed
+EV00014,P01,VN001,PD Nasyiah,Corporate Meeting,2023-09-20,Nirwana Grand Ballroom,367,169488000,completed
+EV00015,P01,VN001,PD Hutapea,Corporate Meeting,2023-09-23,Nirwana Grand Ballroom,262,130753000,completed
+EV00016,P01,VN001,Perum Tarihoran (Persero) Tbk,Conference,2023-09-21,Nirwana Grand Ballroom,370,217012000,completed
+EV00017,P01,VN003,PT Wijayanti,Gala Dinner,2023-09-17,Beachfront Lawn,107,85518000,cancelled
+EV00018,P01,VN003,Jaga & Labuh,Wedding,2023-09-04,Beachfront Lawn,35,36680000,completed
+EV00019,P01,VN003,Capa & Jaka,Wedding,2023-09-13,Beachfront Lawn,158,183443000,completed
+EV00020,P01,VN001,PD Setiawan,Corporate Meeting,2023-10-21,Nirwana Grand Ballroom,167,65534000,completed
+EV00021,P01,VN001,UD Marpaung Uwais Tbk,Corporate Meeting,2023-10-11,Nirwana Grand Ballroom,331,166106000,completed
+EV00022,P01,VN002,Hari & Umi,Wedding,2023-10-18,Sunset Garden Venue,53,49112000,completed
+EV00023,P01,VN001,PT Sudiati (Persero) Tbk,Corporate Meeting,2023-10-05,Nirwana Grand Ballroom,338,124127000,completed
+EV00024,P01,VN001,Farhunnisa & Jindra,Wedding,2023-10-04,Nirwana Grand Ballroom,318,350234000,completed
+EV00025,P01,VN004,PD Wibowo Saputra,Corporate Meeting,2023-10-17,Frangipani Meeting Room,50,25328000,completed
+EV00026,P01,VN001,UD Hakim Pradana,Conference,2023-10-16,Nirwana Grand Ballroom,314,179902000,completed
+EV00027,P01,VN004,UD Wacana,Corporate Meeting,2023-10-13,Frangipani Meeting Room,37,13817000,completed
+EV00028,P01,VN001,PT Prabowo Tbk,Corporate Meeting,2023-11-06,Nirwana Grand Ballroom,310,105968000,completed
+EV00029,P01,VN001,PD Widodo Yuniar,Conference,2023-11-19,Nirwana Grand Ballroom,286,139717000,completed
+EV00030,P01,VN003,CV Saptono Mandala (Persero) Tbk,Gala Dinner,2023-11-01,Beachfront Lawn,51,52299000,completed
+EV00031,P01,VN004,Perum Aryani Tbk,Corporate Meeting,2023-11-22,Frangipani Meeting Room,52,21369000,completed
+EV00032,P01,VN002,Nyoman & Ismail,Wedding,2023-11-07,Sunset Garden Venue,97,98705000,completed
+EV00033,P01,VN003,Enteng & Cici,Wedding,2023-11-09,Beachfront Lawn,100,112843000,completed
+EV00034,P01,VN001,PT Hardiansyah Kusumo (Persero) Tbk,Conference,2023-11-27,Nirwana Grand Ballroom,313,154297000,completed
+EV00035,P01,VN004,PD Riyanti Haryanto,Training/Workshop,2023-11-25,Frangipani Meeting Room,55,15400000,cancelled
+EV00036,P01,VN004,PD Riyanti Hastuti Tbk,Corporate Meeting,2023-12-16,Frangipani Meeting Room,12,5678000,cancelled
+EV00037,P01,VN004,PT Zulaika,Corporate Meeting,2023-12-23,Frangipani Meeting Room,35,13124000,completed
+EV00038,P01,VN001,Gasti & Kasusra,Wedding,2023-12-01,Nirwana Grand Ballroom,318,383232000,completed
+EV00039,P01,VN004,PT Sihombing Tbk,Corporate Meeting,2023-12-09,Frangipani Meeting Room,56,24059000,completed
+EV00040,P01,VN001,PD Adriansyah Saptono,Product Launch,2023-12-13,Nirwana Grand Ballroom,361,220336000,completed
+EV00041,P01,VN001,Perum Kurniawan Utami,Corporate Meeting,2023-12-16,Nirwana Grand Ballroom,155,69522000,cancelled
+EV00042,P01,VN001,Perum Sudiati (Persero) Tbk,Product Launch,2024-01-02,Nirwana Grand Ballroom,325,123840000,completed
+EV00043,P01,VN002,UD Marpaung Namaga,Gala Dinner,2024-01-07,Sunset Garden Venue,71,57632000,completed
+EV00044,P01,VN001,Perum Sinaga,Conference,2024-01-18,Nirwana Grand Ballroom,307,181809000,completed
+EV00045,P01,VN004,PT Kusumo Tarihoran Tbk,Product Launch,2024-01-23,Frangipani Meeting Room,38,22860000,completed
+EV00046,P01,VN001,PT Permadi Purnawati,Corporate Meeting,2024-01-21,Nirwana Grand Ballroom,280,105881000,completed
+EV00047,P01,VN003,PT Laksita,Gala Dinner,2024-01-21,Beachfront Lawn,112,99672000,completed
+EV00048,P01,VN004,Perum Mahendra,Product Launch,2024-01-26,Frangipani Meeting Room,42,23741000,completed
+EV00049,P01,VN001,Edi & Titin,Wedding,2024-01-23,Nirwana Grand Ballroom,257,239548000,completed
+EV00050,P01,VN003,Perum Marbun Saptono Tbk,Gala Dinner,2024-02-13,Beachfront Lawn,144,115524000,completed
+EV00051,P01,VN003,Indra & Ghaliyati,Wedding,2024-02-14,Beachfront Lawn,167,170930000,completed
+EV00052,P01,VN002,Yance & Himawan,Wedding,2024-02-07,Sunset Garden Venue,180,217825000,completed
+EV00053,P01,VN003,Leo & Raditya,Wedding,2024-02-07,Beachfront Lawn,170,182834000,completed
+EV00054,P01,VN002,Usyi & Salsabila,Wedding,2024-02-19,Sunset Garden Venue,158,158535000,completed
+EV00055,P01,VN001,PD Maryati Tbk,Conference,2024-02-03,Nirwana Grand Ballroom,127,58037000,completed
+EV00056,P01,VN002,Dimas & Jumari,Wedding,2024-02-10,Sunset Garden Venue,167,182203000,completed
+EV00057,P01,VN003,Ihsan & Cagak,Wedding,2024-02-22,Beachfront Lawn,118,146039000,completed
+EV00058,P01,VN001,PT Rahmawati (Persero) Tbk,Corporate Meeting,2024-02-19,Nirwana Grand Ballroom,225,96663000,completed
+EV00059,P01,VN001,PT Hidayanto Usamah,Corporate Meeting,2024-02-11,Nirwana Grand Ballroom,246,68809000,completed
+EV00060,P01,VN001,CV Hidayat,Conference,2024-03-06,Nirwana Grand Ballroom,319,173739000,completed
+EV00061,P01,VN001,UD Hidayanto,Corporate Meeting,2024-03-13,Nirwana Grand Ballroom,286,126494000,completed
+EV00062,P01,VN001,UD Winarsih Laksita,Corporate Meeting,2024-03-01,Nirwana Grand Ballroom,252,105452000,completed
+EV00063,P01,VN001,Perum Mustofa Pertiwi,Corporate Meeting,2024-03-19,Nirwana Grand Ballroom,306,111304000,completed
+EV00064,P01,VN004,CV Kusmawati Wasita (Persero) Tbk,Training/Workshop,2024-03-18,Frangipani Meeting Room,37,10983000,completed
+EV00065,P01,VN001,Dacin & Dagel,Wedding,2024-03-12,Nirwana Grand Ballroom,348,373469000,completed
+EV00066,P01,VN001,UD Anggraini Zulkarnain Tbk,Conference,2024-03-17,Nirwana Grand Ballroom,227,123582000,completed
+EV00067,P01,VN001,PT Halim,Conference,2024-03-08,Nirwana Grand Ballroom,341,212050000,completed
+EV00068,P01,VN003,Reksa & Mustika,Wedding,2024-03-08,Beachfront Lawn,137,140794000,completed
+EV00069,P01,VN001,CV Nababan,Conference,2024-03-25,Nirwana Grand Ballroom,120,64940000,completed
+EV00070,P01,VN004,Perum Hassanah Mandala,Training/Workshop,2024-03-26,Frangipani Meeting Room,34,12354000,completed
+EV00071,P01,VN004,CV Setiawan Hariyah (Persero) Tbk,Corporate Meeting,2024-04-19,Frangipani Meeting Room,13,6304000,cancelled
+EV00072,P01,VN001,PD Pudjiastuti,Conference,2024-04-10,Nirwana Grand Ballroom,303,171119000,completed
+EV00073,P01,VN004,PT Yulianti,Product Launch,2024-04-01,Frangipani Meeting Room,41,26833000,completed
+EV00074,P01,VN001,PT Prakasa,Conference,2024-04-19,Nirwana Grand Ballroom,265,168640000,completed
+EV00075,P01,VN004,PD Laksita Laksmiwati,Training/Workshop,2024-04-25,Frangipani Meeting Room,19,6037000,completed
+EV00076,P01,VN001,PD Halim Marbun,Corporate Meeting,2024-04-26,Nirwana Grand Ballroom,350,143446000,completed
+EV00077,P01,VN004,PT Wibisono Saptono Tbk,Corporate Meeting,2024-04-14,Frangipani Meeting Room,46,22916000,completed
+EV00078,P01,VN001,PD Puspita Tbk,Conference,2024-04-23,Nirwana Grand Ballroom,318,191910000,completed
+EV00079,P01,VN001,CV Sihombing Pratama,Conference,2024-04-21,Nirwana Grand Ballroom,307,159370000,completed
+EV00080,P01,VN001,Perum Namaga,Conference,2024-04-11,Nirwana Grand Ballroom,301,224116000,completed
+EV00081,P01,VN002,Banawi & Lutfan,Wedding,2024-05-27,Sunset Garden Venue,208,191471000,completed
+EV00082,P01,VN004,PT Padmasari,Corporate Meeting,2024-05-19,Frangipani Meeting Room,34,13169000,completed
+EV00083,P01,VN001,Perum Nuraini Manullang (Persero) Tbk,Corporate Meeting,2024-05-16,Nirwana Grand Ballroom,272,109697000,completed
+EV00084,P01,VN003,CV Hidayat,Gala Dinner,2024-05-23,Beachfront Lawn,139,116455000,completed
+EV00085,P01,VN004,CV Waskita,Training/Workshop,2024-06-13,Frangipani Meeting Room,35,12457000,completed
+EV00086,P01,VN001,Perum Prayoga,Corporate Meeting,2024-06-17,Nirwana Grand Ballroom,265,119217000,completed
+EV00087,P01,VN001,Perum Hutapea,Conference,2024-06-14,Nirwana Grand Ballroom,344,180810000,completed
+EV00088,P01,VN001,Perum Pratiwi Nurdiyanti Tbk,Gala Dinner,2024-06-03,Nirwana Grand Ballroom,323,372960000,completed
+EV00089,P01,VN004,CV Winarsih Tbk,Corporate Meeting,2024-06-28,Frangipani Meeting Room,39,16414000,completed
+EV00090,P01,VN001,UD Widodo Mustofa,Corporate Meeting,2024-07-23,Nirwana Grand Ballroom,340,168802000,completed
+EV00091,P01,VN002,PD Sihotang (Persero) Tbk,Gala Dinner,2024-07-14,Sunset Garden Venue,204,176553000,cancelled
+EV00092,P01,VN001,PD Oktaviani,Corporate Meeting,2024-07-25,Nirwana Grand Ballroom,341,124116000,completed
+EV00093,P01,VN003,PT Nasyiah,Gala Dinner,2024-07-26,Beachfront Lawn,54,48995000,cancelled
+EV00094,P01,VN001,Perum Saptono Mustofa,Corporate Meeting,2024-07-07,Nirwana Grand Ballroom,260,93397000,completed
+EV00095,P01,VN001,Nalar & Cahyo,Wedding,2024-07-14,Nirwana Grand Ballroom,297,389059000,completed
+EV00096,P01,VN004,UD Suryono Manullang,Corporate Meeting,2024-07-23,Frangipani Meeting Room,43,18056000,completed
+EV00097,P01,VN001,Taufik & Hesti,Wedding,2024-08-25,Nirwana Grand Ballroom,239,270055000,completed
+EV00098,P01,VN001,Perum Yolanda (Persero) Tbk,Corporate Meeting,2024-08-14,Nirwana Grand Ballroom,342,154301000,cancelled
+EV00099,P01,VN002,Ulya & Irma,Wedding,2024-08-23,Sunset Garden Venue,197,152295000,completed
+EV00100,P01,VN004,PT Mansur Tbk,Corporate Meeting,2024-08-07,Frangipani Meeting Room,42,17002000,completed
+EV00101,P01,VN001,PT Puspasari,Corporate Meeting,2024-08-17,Nirwana Grand Ballroom,155,72172000,completed
+EV00102,P01,VN004,UD Suryono Suartini,Training/Workshop,2024-08-25,Frangipani Meeting Room,50,16052000,completed
+EV00103,P01,VN004,UD Putra Usada,Training/Workshop,2024-08-13,Frangipani Meeting Room,39,13527000,completed
+EV00104,P01,VN002,Perum Lestari Tbk,Gala Dinner,2024-08-03,Sunset Garden Venue,232,154827000,completed
+EV00105,P01,VN004,PT Usada,Training/Workshop,2024-08-08,Frangipani Meeting Room,20,7499000,completed
+EV00106,P01,VN003,Slamet & Kadir,Wedding,2024-08-21,Beachfront Lawn,106,118854000,completed
+EV00107,P01,VN003,Bakidin & Adiarja,Wedding,2024-09-02,Beachfront Lawn,113,104221000,completed
+EV00108,P01,VN001,CV Uyainah Tbk,Conference,2024-09-16,Nirwana Grand Ballroom,77,35044000,completed
+EV00109,P01,VN001,PD Puspasari Aryani,Corporate Meeting,2024-09-07,Nirwana Grand Ballroom,365,163735000,completed
+EV00110,P01,VN001,PT Hutagalung,Corporate Meeting,2024-10-01,Nirwana Grand Ballroom,315,116467000,completed
+EV00111,P01,VN001,Zahra & Emin,Wedding,2024-10-02,Nirwana Grand Ballroom,275,268629000,completed
+EV00112,P01,VN001,Hafshah & Bagus,Wedding,2024-10-13,Nirwana Grand Ballroom,254,244924000,completed
+EV00113,P01,VN001,Perum Puspasari (Persero) Tbk,Product Launch,2024-10-04,Nirwana Grand Ballroom,242,184000000,completed
+EV00114,P01,VN001,CV Gunarto Samosir Tbk,Product Launch,2024-10-18,Nirwana Grand Ballroom,243,179445000,completed
+EV00115,P01,VN001,UD Pranowo,Conference,2024-10-24,Nirwana Grand Ballroom,296,165302000,completed
+EV00116,P01,VN004,PT Thamrin Purwanti,Corporate Meeting,2024-10-07,Frangipani Meeting Room,50,21055000,completed
+EV00117,P01,VN001,Perum Mangunsong Prakasa (Persero) Tbk,Conference,2024-10-10,Nirwana Grand Ballroom,77,46162000,completed
+EV00118,P01,VN002,Garang & Rudi,Wedding,2024-11-22,Sunset Garden Venue,142,150366000,completed
+EV00119,P01,VN001,CV Sitorus,Corporate Meeting,2024-11-09,Nirwana Grand Ballroom,137,68704000,completed
+EV00120,P01,VN003,Ridwan & Ulva,Wedding,2024-11-22,Beachfront Lawn,119,91983000,cancelled
+EV00121,P01,VN004,UD Manullang Kurniawan,Corporate Meeting,2024-11-11,Frangipani Meeting Room,56,23136000,completed
+EV00122,P01,VN004,PT Halimah Prasetya (Persero) Tbk,Corporate Meeting,2024-11-16,Frangipani Meeting Room,41,17423000,completed
+EV00123,P01,VN002,Viman & Naradi,Wedding,2024-11-23,Sunset Garden Venue,153,201266000,completed
+EV00124,P01,VN001,Lurhur & Jaga,Wedding,2024-11-25,Nirwana Grand Ballroom,251,301326000,completed
+EV00125,P01,VN001,PT Wahyuni Nababan,Corporate Meeting,2024-11-17,Nirwana Grand Ballroom,120,44084000,completed
+EV00126,P01,VN001,UD Setiawan Hidayat Tbk,Corporate Meeting,2024-11-26,Nirwana Grand Ballroom,339,174436000,completed
+EV00127,P01,VN001,Nardi & Siska,Wedding,2024-12-10,Nirwana Grand Ballroom,365,384845000,completed
+EV00128,P01,VN001,Perum Sitompul Dabukke (Persero) Tbk,Conference,2024-12-13,Nirwana Grand Ballroom,251,175834000,completed
+EV00129,P01,VN004,CV Prastuti Tbk,Product Launch,2024-12-09,Frangipani Meeting Room,48,40210000,completed
+EV00130,P01,VN003,Bahuwarna & Darimin,Wedding,2024-12-09,Beachfront Lawn,115,118807000,completed
+EV00131,P01,VN002,Mutia & Taswir,Wedding,2025-01-21,Sunset Garden Venue,233,292030000,completed
+EV00132,P01,VN004,UD Fujiati (Persero) Tbk,Corporate Meeting,2025-01-23,Frangipani Meeting Room,44,16409000,completed
+EV00133,P01,VN001,Perum Nainggolan Rajasa (Persero) Tbk,Conference,2025-01-02,Nirwana Grand Ballroom,124,81497000,completed
+EV00134,P01,VN001,Teddy & Ade,Wedding,2025-01-11,Nirwana Grand Ballroom,310,339905000,completed
+EV00135,P01,VN002,Eka & Genta,Wedding,2025-01-24,Sunset Garden Venue,57,56519000,completed
+EV00136,P01,VN003,Yuliana & Umi,Wedding,2025-01-01,Beachfront Lawn,107,135917000,completed
+EV00137,P01,VN002,Hartana & Ozy,Wedding,2025-01-25,Sunset Garden Venue,86,80495000,completed
+EV00138,P01,VN001,Setya & Cahyono,Wedding,2025-01-06,Nirwana Grand Ballroom,299,334509000,completed
+EV00139,P01,VN001,Titi & Mitra,Wedding,2025-01-09,Nirwana Grand Ballroom,323,428174000,completed
+EV00140,P01,VN004,PT Salahudin Tbk,Product Launch,2025-02-15,Frangipani Meeting Room,51,26228000,completed
+EV00141,P01,VN001,UD Waskita Sihombing (Persero) Tbk,Product Launch,2025-02-07,Nirwana Grand Ballroom,283,253364000,completed
+EV00142,P01,VN001,PD Widiastuti Wibowo,Corporate Meeting,2025-02-22,Nirwana Grand Ballroom,260,129232000,completed
+EV00143,P01,VN001,Perum Purnawati Sihombing,Corporate Meeting,2025-02-28,Nirwana Grand Ballroom,351,156560000,completed
+EV00144,P01,VN001,Rosman & Hani,Wedding,2025-02-15,Nirwana Grand Ballroom,355,386711000,cancelled
+EV00145,P01,VN001,UD Suwarno,Corporate Meeting,2025-02-13,Nirwana Grand Ballroom,359,134428000,completed
+EV00146,P01,VN003,Imam & Satya,Wedding,2025-02-15,Beachfront Lawn,170,191136000,completed
+EV00147,P01,VN002,Kayla & Najwa,Wedding,2025-03-20,Sunset Garden Venue,231,227383000,completed
+EV00148,P01,VN003,PD Handayani Tbk,Gala Dinner,2025-03-20,Beachfront Lawn,141,125994000,completed
+EV00149,P01,VN002,Vera & Irsad,Wedding,2025-03-22,Sunset Garden Venue,209,200288000,completed
+EV00150,P01,VN001,CV Wahyuni Hutasoit Tbk,Gala Dinner,2025-03-24,Nirwana Grand Ballroom,103,105561000,completed
+EV00151,P01,VN001,PT Prakasa Tbk,Conference,2025-03-17,Nirwana Grand Ballroom,229,81157000,cancelled
+EV00152,P01,VN001,CV Maulana Dongoran,Conference,2025-03-27,Nirwana Grand Ballroom,326,198212000,completed
+EV00153,P01,VN003,Bakiman & Jindra,Wedding,2025-03-12,Beachfront Lawn,34,32166000,completed
+EV00154,P01,VN002,Perum Hidayanto Hasanah Tbk,Gala Dinner,2025-04-14,Sunset Garden Venue,163,135488000,completed
+EV00155,P01,VN001,PD Lailasari Wacana,Conference,2025-04-14,Nirwana Grand Ballroom,282,163741000,completed
+EV00156,P01,VN001,Jinawi & Ega,Wedding,2025-04-27,Nirwana Grand Ballroom,374,365766000,completed
+EV00157,P01,VN004,PT Anggraini,Corporate Meeting,2025-04-22,Frangipani Meeting Room,48,24723000,completed
+EV00158,P01,VN001,CV Maryati Hariyah,Conference,2025-04-09,Nirwana Grand Ballroom,314,147786000,completed
+EV00159,P01,VN001,Perum Prayoga,Conference,2025-04-02,Nirwana Grand Ballroom,125,70331000,completed
+EV00160,P01,VN001,PD Mansur,Conference,2025-04-18,Nirwana Grand Ballroom,285,171423000,completed
+EV00161,P01,VN002,Wisnu & Ulya,Wedding,2025-05-24,Sunset Garden Venue,207,231733000,completed
+EV00162,P01,VN001,PD Suryatmi Tbk,Conference,2025-05-26,Nirwana Grand Ballroom,334,194931000,completed
+EV00163,P01,VN004,CV Kusmawati Hartati Tbk,Corporate Meeting,2025-05-28,Frangipani Meeting Room,11,4284000,completed
+EV00164,P01,VN001,UD Nurdiyanti Laksita,Corporate Meeting,2025-05-07,Nirwana Grand Ballroom,362,116095000,completed
+EV00165,P01,VN001,UD Farida Hutagalung,Corporate Meeting,2025-05-02,Nirwana Grand Ballroom,153,67990000,completed
+EV00166,P01,VN004,CV Saputra Tbk,Corporate Meeting,2025-05-14,Frangipani Meeting Room,24,9635000,completed
+EV00167,P01,VN004,Perum Hutapea (Persero) Tbk,Product Launch,2025-05-17,Frangipani Meeting Room,45,30842000,cancelled
+EV00168,P01,VN004,CV Winarno Mangunsong,Training/Workshop,2025-05-16,Frangipani Meeting Room,54,17975000,completed
+EV00169,P01,VN001,PT Agustina Wasita,Corporate Meeting,2025-05-15,Nirwana Grand Ballroom,375,166655000,completed
+EV00170,P01,VN002,Perum Hastuti Tbk,Gala Dinner,2025-06-11,Sunset Garden Venue,198,146532000,completed
+EV00171,P01,VN002,Bancar & Hendri,Wedding,2025-06-21,Sunset Garden Venue,69,74521000,completed
+EV00172,P01,VN004,PD Padmasari Damanik Tbk,Product Launch,2025-06-20,Frangipani Meeting Room,39,25675000,cancelled
+EV00173,P01,VN001,PT Thamrin Salahudin Tbk,Corporate Meeting,2025-06-03,Nirwana Grand Ballroom,360,165870000,completed
+EV00174,P01,VN003,Salman & Genta,Wedding,2025-06-02,Beachfront Lawn,163,110357000,cancelled
+EV00175,P01,VN001,PD Prasetya Saputra,Gala Dinner,2025-07-25,Nirwana Grand Ballroom,377,285122000,completed
+EV00176,P01,VN001,PD Dabukke Wibisono Tbk,Corporate Meeting,2025-07-02,Nirwana Grand Ballroom,301,149198000,completed
+EV00177,P01,VN001,CV Hastuti Mahendra (Persero) Tbk,Corporate Meeting,2025-07-10,Nirwana Grand Ballroom,249,110607000,completed
+EV00178,P01,VN001,Pandu & Maida,Wedding,2025-07-22,Nirwana Grand Ballroom,246,286620000,completed
+EV00179,P01,VN004,PT Yuniar,Training/Workshop,2025-07-18,Frangipani Meeting Room,54,21488000,completed
+EV00180,P01,VN001,CV Hariyah Najmudin (Persero) Tbk,Corporate Meeting,2025-07-06,Nirwana Grand Ballroom,379,183024000,completed
+EV00181,P01,VN001,PD Simbolon (Persero) Tbk,Conference,2025-07-20,Nirwana Grand Ballroom,330,172484000,cancelled
+EV00182,P01,VN004,UD Sirait Wibowo Tbk,Corporate Meeting,2025-07-16,Frangipani Meeting Room,15,6236000,completed
+EV00183,P01,VN002,Saiful & Johan,Wedding,2025-07-28,Sunset Garden Venue,81,79994000,completed
+EV00184,P01,VN002,PD Budiyanto,Gala Dinner,2025-07-05,Sunset Garden Venue,195,206083000,completed
+EV00185,P01,VN003,Ghaliyati & Bala,Wedding,2025-07-13,Beachfront Lawn,158,171047000,completed
+EV00186,P01,VN004,CV Yulianti (Persero) Tbk,Product Launch,2025-08-11,Frangipani Meeting Room,54,31476000,cancelled
+EV00187,P01,VN001,Shania & Bajragin,Wedding,2025-08-21,Nirwana Grand Ballroom,335,290801000,cancelled
+EV00188,P01,VN002,Aswani & Jumari,Wedding,2025-08-11,Sunset Garden Venue,152,176249000,completed
+EV00189,P01,VN002,Heru & Arta,Wedding,2025-08-14,Sunset Garden Venue,148,143123000,completed
+EV00190,P01,VN001,CV Mahendra Kusmawati,Conference,2025-08-07,Nirwana Grand Ballroom,166,108855000,completed
+EV00191,P01,VN003,Ulva & Dartono,Wedding,2025-08-01,Beachfront Lawn,120,167656000,completed
+EV00192,P01,VN004,PD Rajasa Uwais,Product Launch,2025-08-26,Frangipani Meeting Room,53,34451000,completed
+EV00193,P01,VN003,Gandewa & Nilam,Wedding,2025-08-24,Beachfront Lawn,110,109405000,completed
+EV00194,P01,VN004,CV Saragih,Corporate Meeting,2025-08-04,Frangipani Meeting Room,44,17026000,completed
+EV00195,P01,VN002,Darijan & Kiandra,Wedding,2025-08-07,Sunset Garden Venue,179,186578000,completed
+EV00196,P01,VN001,UD Permata,Gala Dinner,2025-08-23,Nirwana Grand Ballroom,285,294765000,completed
+EV00197,P01,VN001,PD Napitupulu Hutagalung (Persero) Tbk,Conference,2025-08-06,Nirwana Grand Ballroom,320,173370000,completed
+EV00198,P01,VN001,UD Rahimah,Corporate Meeting,2025-08-18,Nirwana Grand Ballroom,122,68115000,completed
+EV00199,P01,VN001,Perum Gunarto,Conference,2025-09-15,Nirwana Grand Ballroom,233,136615000,completed
+EV00200,P01,VN001,Perum Aryani Tbk,Corporate Meeting,2025-09-19,Nirwana Grand Ballroom,287,113174000,completed
+EV00201,P01,VN004,Perum Yuliarti,Corporate Meeting,2025-09-03,Frangipani Meeting Room,46,19631000,completed
+EV00202,P01,VN002,Mahmud & Ajiono,Wedding,2025-09-24,Sunset Garden Venue,229,270557000,completed
+EV00203,P01,VN003,Saadat & Ana,Wedding,2025-09-17,Beachfront Lawn,100,108147000,completed
+EV00204,P01,VN001,PD Tarihoran,Corporate Meeting,2025-09-17,Nirwana Grand Ballroom,78,26385000,completed
+EV00205,P01,VN004,CV Fujiati Nugroho Tbk,Corporate Meeting,2025-09-08,Frangipani Meeting Room,56,25620000,completed
+EV00206,P01,VN002,Patricia & Genta,Wedding,2025-09-12,Sunset Garden Venue,67,60829000,completed
+EV00207,P01,VN001,PD Fujiati Rahayu Tbk,Gala Dinner,2025-09-10,Nirwana Grand Ballroom,118,132962000,completed
+EV00208,P01,VN004,CV Irawan Tbk,Corporate Meeting,2025-09-09,Frangipani Meeting Room,51,20923000,completed
+EV00209,P01,VN004,CV Hariyah Purnawati Tbk,Training/Workshop,2025-09-17,Frangipani Meeting Room,38,12777000,completed
+EV00210,P01,VN003,Muni & Asmianto,Wedding,2025-09-13,Beachfront Lawn,163,161576000,completed
+EV00211,P01,VN001,UD Najmudin Laksita (Persero) Tbk,Gala Dinner,2025-10-08,Nirwana Grand Ballroom,371,388865000,completed
+EV00212,P01,VN001,UD Siregar Tbk,Corporate Meeting,2025-10-17,Nirwana Grand Ballroom,283,118313000,cancelled
+EV00213,P01,VN001,Perum Anggriawan (Persero) Tbk,Gala Dinner,2025-10-06,Nirwana Grand Ballroom,320,248624000,completed
+EV00214,P01,VN001,CV Wasita,Conference,2025-10-15,Nirwana Grand Ballroom,85,44452000,cancelled
+EV00215,P01,VN001,Perum Permadi Kusmawati Tbk,Corporate Meeting,2025-10-23,Nirwana Grand Ballroom,320,146898000,completed
+EV00216,P01,VN003,PT Iswahyudi Sihombing (Persero) Tbk,Gala Dinner,2025-10-09,Beachfront Lawn,123,111900000,completed
+EV00217,P01,VN003,Rusman & Zalindra,Wedding,2025-10-10,Beachfront Lawn,60,44052000,completed
+EV00218,P01,VN002,UD Wijayanti Prastuti,Gala Dinner,2025-10-07,Sunset Garden Venue,102,96369000,completed
+EV00219,P01,VN001,PD Puspasari Tbk,Corporate Meeting,2025-10-09,Nirwana Grand Ballroom,279,141761000,cancelled
+EV00220,P01,VN001,Perum Sitompul Thamrin Tbk,Conference,2025-10-18,Nirwana Grand Ballroom,151,116076000,cancelled
+EV00221,P01,VN002,Kemba & Luwar,Wedding,2025-10-25,Sunset Garden Venue,221,203046000,completed
+EV00222,P01,VN004,CV Lazuardi (Persero) Tbk,Corporate Meeting,2025-10-10,Frangipani Meeting Room,48,22037000,completed
+EV00223,P01,VN001,PT Nasyiah (Persero) Tbk,Conference,2025-10-25,Nirwana Grand Ballroom,327,164732000,completed
+EV00224,P01,VN001,CV Laksmiwati Saefullah,Corporate Meeting,2025-10-27,Nirwana Grand Ballroom,229,106367000,cancelled
+EV00225,P01,VN004,PT Nababan Tbk,Corporate Meeting,2025-11-14,Frangipani Meeting Room,45,16243000,completed
+EV00226,P01,VN003,Jaeman & Najam,Wedding,2025-11-01,Beachfront Lawn,167,135787000,cancelled
+EV00227,P01,VN001,UD Budiman Nasyidah,Conference,2025-11-15,Nirwana Grand Ballroom,354,235311000,completed
+EV00228,P01,VN001,UD Gunawan Habibi,Corporate Meeting,2025-11-19,Nirwana Grand Ballroom,347,146686000,completed
+EV00229,P01,VN001,CV Uyainah Tbk,Corporate Meeting,2025-11-24,Nirwana Grand Ballroom,302,134503000,completed
+EV00230,P01,VN003,PT Pertiwi,Gala Dinner,2025-11-13,Beachfront Lawn,104,88191000,completed
+EV00231,P01,VN001,PD Kuswandari Tbk,Corporate Meeting,2025-11-10,Nirwana Grand Ballroom,325,165612000,completed
+EV00232,P01,VN004,CV Habibi Tbk,Corporate Meeting,2025-11-26,Frangipani Meeting Room,53,22547000,completed
+EV00233,P01,VN001,Yahya & Darsirah,Wedding,2025-11-11,Nirwana Grand Ballroom,365,462011000,completed
+EV00234,P01,VN001,PD Lestari,Corporate Meeting,2025-12-24,Nirwana Grand Ballroom,249,98662000,completed
+EV00235,P01,VN003,Cakrajiya & Keisha,Wedding,2025-12-21,Beachfront Lawn,147,177088000,completed
+EV00236,P01,VN002,Rini & Yulia,Wedding,2025-12-26,Sunset Garden Venue,96,93001000,cancelled
+EV00237,P01,VN002,Balamantri & Gadang,Wedding,2025-12-19,Sunset Garden Venue,92,100587000,completed
+EV00238,P01,VN004,Perum Sihombing Hutasoit,Training/Workshop,2026-01-24,Frangipani Meeting Room,43,15224000,completed
+EV00239,P01,VN003,Jamal & Dasa,Wedding,2026-01-03,Beachfront Lawn,56,59155000,completed
+EV00240,P01,VN004,Perum Riyanti Safitri (Persero) Tbk,Corporate Meeting,2026-01-11,Frangipani Meeting Room,36,16755000,completed
+EV00241,P01,VN002,Elisa & Prabawa,Wedding,2026-01-14,Sunset Garden Venue,176,190218000,completed
+EV00242,P01,VN001,PD Salahudin Rahmawati Tbk,Conference,2026-01-16,Nirwana Grand Ballroom,296,190081000,cancelled
+EV00243,P01,VN002,Perum Safitri (Persero) Tbk,Gala Dinner,2026-01-11,Sunset Garden Venue,201,180301000,completed
+EV00244,P01,VN004,CV Utami,Training/Workshop,2026-01-18,Frangipani Meeting Room,46,12854000,completed
+EV00245,P01,VN001,UD Wijayanti Hutapea,Gala Dinner,2026-01-25,Nirwana Grand Ballroom,318,280713000,cancelled
+EV00246,P01,VN004,CV Natsir Puspasari,Corporate Meeting,2026-01-12,Frangipani Meeting Room,18,9016000,completed
+EV00247,P01,VN001,CV Adriansyah,Conference,2026-01-24,Nirwana Grand Ballroom,293,196376000,completed
+EV00248,P01,VN001,PD Riyanti Halimah Tbk,Corporate Meeting,2026-02-12,Nirwana Grand Ballroom,314,157036000,completed
+EV00249,P01,VN001,CV Suwarno,Conference,2026-02-02,Nirwana Grand Ballroom,271,123782000,completed
+EV00250,P01,VN001,PD Hidayanto (Persero) Tbk,Corporate Meeting,2026-02-28,Nirwana Grand Ballroom,274,117941000,completed
+EV00251,P01,VN004,Perum Wijayanti (Persero) Tbk,Corporate Meeting,2026-02-28,Frangipani Meeting Room,36,15546000,completed
+EV00252,P01,VN003,PT Palastri Prasetyo (Persero) Tbk,Gala Dinner,2026-02-16,Beachfront Lawn,159,155546000,completed
+EV00253,P01,VN004,CV Hidayanto (Persero) Tbk,Corporate Meeting,2026-02-27,Frangipani Meeting Room,53,19792000,completed
+EV00254,P01,VN003,Gamblang & Luwes,Wedding,2026-02-27,Beachfront Lawn,106,108711000,completed
+EV00255,P01,VN004,PD Maheswara Tbk,Product Launch,2026-03-08,Frangipani Meeting Room,34,25496000,completed
+EV00256,P01,VN004,PD Saputra Tbk,Product Launch,2026-03-22,Frangipani Meeting Room,53,45864000,completed
+EV00257,P01,VN004,PT Rahimah Gunarto Tbk,Product Launch,2026-03-27,Frangipani Meeting Room,37,25465000,completed
+EV00258,P01,VN002,Mariadi & Nova,Wedding,2026-03-02,Sunset Garden Venue,207,211564000,completed
+EV00259,P01,VN001,Jais & Aslijan,Wedding,2026-03-21,Nirwana Grand Ballroom,134,135509000,completed
+EV00260,P01,VN003,CV Wulandari,Gala Dinner,2026-03-28,Beachfront Lawn,39,34796000,completed
+EV00261,P01,VN004,UD Permata,Corporate Meeting,2026-04-18,Frangipani Meeting Room,20,7620000,completed
+EV00262,P01,VN004,CV Halimah,Corporate Meeting,2026-04-25,Frangipani Meeting Room,51,25658000,completed
+EV00263,P01,VN001,UD Najmudin Padmasari Tbk,Corporate Meeting,2026-04-25,Nirwana Grand Ballroom,370,143876000,completed
+EV00264,P01,VN003,Rahmi & Ani,Wedding,2026-04-01,Beachfront Lawn,122,120220000,completed
+EV00265,P01,VN004,PD Tampubolon,Corporate Meeting,2026-04-05,Frangipani Meeting Room,35,16566000,completed
+EV00266,P01,VN001,Rendy & Mulyanto,Wedding,2026-04-08,Nirwana Grand Ballroom,111,131935000,completed
+EV00267,P01,VN004,PT Marpaung Tbk,Corporate Meeting,2026-04-23,Frangipani Meeting Room,39,15865000,completed
+EV00268,P01,VN004,PD Suwarno Wijayanti Tbk,Corporate Meeting,2026-04-09,Frangipani Meeting Room,42,12936000,completed
+EV00269,P01,VN001,PD Irawan,Conference,2026-04-09,Nirwana Grand Ballroom,288,192607000,completed
+EV00270,P01,VN003,Lasmono & Johan,Wedding,2026-04-04,Beachfront Lawn,120,127788000,cancelled
+EV00271,P01,VN001,Marsudi & Daru,Wedding,2026-04-22,Nirwana Grand Ballroom,128,180804000,completed
+EV00272,P01,VN001,Respati & Dian,Wedding,2026-05-25,Nirwana Grand Ballroom,311,336752000,completed
+EV00273,P01,VN003,Ade & Tira,Wedding,2026-05-06,Beachfront Lawn,132,149425000,completed
+EV00274,P01,VN003,Halima & Wahyu,Wedding,2026-05-12,Beachfront Lawn,45,40147000,completed
+EV00275,P01,VN004,PT Nainggolan Maryati Tbk,Corporate Meeting,2026-05-08,Frangipani Meeting Room,11,4431000,completed
+EV00276,P01,VN002,Putri & Bella,Wedding,2026-05-07,Sunset Garden Venue,196,186988000,completed
+EV00277,P01,VN001,Queen & Tasdik,Wedding,2026-05-27,Nirwana Grand Ballroom,314,372774000,completed
+EV00278,P01,VN001,CV Santoso,Conference,2026-05-02,Nirwana Grand Ballroom,364,195166000,completed
+EV00279,P01,VN001,UD Farida Laksita,Conference,2026-05-20,Nirwana Grand Ballroom,290,155505000,completed
+EV00280,P01,VN001,PT Usamah,Conference,2026-05-07,Nirwana Grand Ballroom,281,171444000,completed
+EV00281,P01,VN004,CV Saragih Puspasari,Corporate Meeting,2026-05-11,Frangipani Meeting Room,52,25440000,completed
+EV00282,P01,VN004,Perum Wasita,Corporate Meeting,2026-06-25,Frangipani Meeting Room,51,18966000,confirmed
+EV00283,P01,VN002,Cengkir & Ihsan,Wedding,2026-06-21,Sunset Garden Venue,204,219965000,cancelled
+EV00284,P01,VN002,Darsirah & Virman,Wedding,2026-06-04,Sunset Garden Venue,141,152596000,completed
+EV00285,P01,VN004,CV Mandasari,Corporate Meeting,2026-06-27,Frangipani Meeting Room,53,27136000,confirmed
+EV00286,P01,VN002,Lamar & Cici,Wedding,2026-06-28,Sunset Garden Venue,148,170315000,confirmed
+EV00287,P01,VN001,PD Laksmiwati Tbk,Corporate Meeting,2026-06-10,Nirwana Grand Ballroom,310,171350000,completed
+EV00288,P01,VN004,PD Puspasari Maulana,Corporate Meeting,2026-06-09,Frangipani Meeting Room,36,19159000,completed
+EV00289,P01,VN001,CV Rahimah Melani (Persero) Tbk,Product Launch,2026-06-03,Nirwana Grand Ballroom,334,233661000,completed
+EV00290,P01,VN001,UD Agustina,Corporate Meeting,2026-06-09,Nirwana Grand Ballroom,330,98120000,completed
+EV00291,P01,VN001,Perum Santoso (Persero) Tbk,Corporate Meeting,2026-06-16,Nirwana Grand Ballroom,105,45931000,completed
+EV00292,P01,VN002,Karya & Lembah,Wedding,2026-06-13,Sunset Garden Venue,181,160237000,cancelled
+EV00293,P01,VN003,Lili & Kayla,Wedding,2026-06-20,Beachfront Lawn,145,123597000,completed
+EV00294,P01,VN004,CV Hassanah Nasyiah Tbk,Corporate Meeting,2026-06-07,Frangipani Meeting Room,13,5034000,completed
+EV00295,P01,VN002,Muhammad & Mulya,Wedding,2026-06-06,Sunset Garden Venue,194,189029000,completed
+EV00296,P02,VN005,PD Sinaga Nainggolan (Persero) Tbk,Conference,2023-07-11,Jakarta Grand Ballroom,735,460273000,completed
+EV00297,P02,VN006,Kani & Pranata,Wedding,2023-07-01,Executive Ballroom,88,67508000,completed
+EV00298,P02,VN005,PD Gunawan Simanjuntak,Conference,2023-07-06,Jakarta Grand Ballroom,556,271478000,cancelled
+EV00299,P02,VN008,PD Winarno Wijayanti (Persero) Tbk,Corporate Meeting,2023-07-15,Meeting Room B,38,20018000,completed
+EV00300,P02,VN006,PT Mahendra Mardhiyah Tbk,Corporate Meeting,2023-07-18,Executive Ballroom,198,73980000,completed
+EV00301,P02,VN005,Daliono & Tasnim,Wedding,2023-07-23,Jakarta Grand Ballroom,530,433596000,completed
+EV00302,P02,VN005,Daliono & Ellis,Wedding,2023-07-12,Jakarta Grand Ballroom,600,385621000,completed
+EV00303,P02,VN010,PT Megantara Wasita (Persero) Tbk,Corporate Meeting,2023-07-28,Boardroom,14,6869000,completed
+EV00304,P02,VN006,Cakrawala & Wakiman,Wedding,2023-07-11,Executive Ballroom,297,201430000,completed
+EV00305,P02,VN006,UD Oktaviani Tbk,Gala Dinner,2023-07-06,Executive Ballroom,301,241341000,completed
+EV00306,P02,VN006,Salsabila & Caraka,Wedding,2023-07-17,Executive Ballroom,90,85988000,completed
+EV00307,P02,VN006,Maryadi & Vivi,Wedding,2023-07-23,Executive Ballroom,217,187174000,completed
+EV00308,P02,VN005,UD Utami Laksita (Persero) Tbk,Gala Dinner,2023-07-04,Jakarta Grand Ballroom,442,431435000,completed
+EV00309,P02,VN009,CV Usamah,Product Launch,2023-07-22,Meeting Room C,27,19815000,completed
+EV00310,P02,VN005,CV Iswahyudi Tbk,Conference,2023-07-27,Jakarta Grand Ballroom,455,247510000,completed
+EV00311,P02,VN006,PT Handayani,Gala Dinner,2023-08-06,Executive Ballroom,262,136181000,cancelled
+EV00312,P02,VN006,Ganda & Zulfa,Wedding,2023-08-28,Executive Ballroom,224,267950000,completed
+EV00313,P02,VN005,PT Gunawan Tbk,Conference,2023-08-11,Jakarta Grand Ballroom,505,245088000,completed
+EV00314,P02,VN006,Balidin & Langgeng,Wedding,2023-08-25,Executive Ballroom,278,236846000,completed
+EV00315,P02,VN006,Nasim & Pangestu,Wedding,2023-08-26,Executive Ballroom,287,242000000,completed
+EV00316,P02,VN006,CV Prasasta Nuraini Tbk,Gala Dinner,2023-08-02,Executive Ballroom,133,110564000,completed
+EV00317,P02,VN009,CV Natsir Hutapea,Corporate Meeting,2023-08-21,Meeting Room C,20,8124000,completed
+EV00318,P02,VN005,Oni & Prakosa,Wedding,2023-08-08,Jakarta Grand Ballroom,691,549253000,completed
+EV00319,P02,VN009,PD Padmasari Megantara,Corporate Meeting,2023-08-20,Meeting Room C,24,10082000,completed
+EV00320,P02,VN005,PD Uyainah Rajasa,Conference,2023-08-09,Jakarta Grand Ballroom,489,279283000,completed
+EV00321,P02,VN007,UD Widiastuti Anggriawan Tbk,Product Launch,2023-08-24,Meeting Room A,45,22399000,completed
+EV00322,P02,VN009,Perum Manullang (Persero) Tbk,Corporate Meeting,2023-08-19,Meeting Room C,27,13355000,completed
+EV00323,P02,VN010,UD Rahmawati Salahudin Tbk,Corporate Meeting,2023-08-23,Boardroom,18,5785000,completed
+EV00324,P02,VN009,PD Sihombing (Persero) Tbk,Corporate Meeting,2023-08-08,Meeting Room C,16,6275000,cancelled
+EV00325,P02,VN008,PD Kurniawan Prakasa Tbk,Corporate Meeting,2023-08-06,Meeting Room B,31,13224000,completed
+EV00326,P02,VN007,Perum Sihombing Tbk,Corporate Meeting,2023-08-23,Meeting Room A,26,10592000,completed
+EV00327,P02,VN006,PD Saefullah,Conference,2023-09-09,Executive Ballroom,225,91126000,completed
+EV00328,P02,VN006,Agus & Juli,Wedding,2023-09-05,Executive Ballroom,237,203946000,completed
+EV00329,P02,VN006,Perum Mandasari,Gala Dinner,2023-09-20,Executive Ballroom,115,91632000,completed
+EV00330,P02,VN006,Kemal & Jagaraga,Wedding,2023-09-06,Executive Ballroom,322,390080000,completed
+EV00331,P02,VN010,CV Usada (Persero) Tbk,Corporate Meeting,2023-09-01,Boardroom,15,5693000,completed
+EV00332,P02,VN005,CV Utami (Persero) Tbk,Corporate Meeting,2023-09-20,Jakarta Grand Ballroom,589,195702000,completed
+EV00333,P02,VN009,UD Farida,Corporate Meeting,2023-09-22,Meeting Room C,27,14799000,completed
+EV00334,P02,VN006,Bagas & Kayla,Wedding,2023-09-16,Executive Ballroom,308,268685000,completed
+EV00335,P02,VN006,CV Iswahyudi Tbk,Gala Dinner,2023-09-08,Executive Ballroom,115,95366000,completed
+EV00336,P02,VN006,PD Natsir (Persero) Tbk,Gala Dinner,2023-09-23,Executive Ballroom,74,48495000,completed
+EV00337,P02,VN005,Eman & Ghaliyati,Wedding,2023-09-24,Jakarta Grand Ballroom,735,717734000,completed
+EV00338,P02,VN005,Opan & Febi,Wedding,2023-09-21,Jakarta Grand Ballroom,559,594432000,completed
+EV00339,P02,VN006,CV Rajasa Tbk,Conference,2023-09-25,Executive Ballroom,328,190519000,completed
+EV00340,P02,VN005,UD Latupono Tbk,Conference,2023-10-06,Jakarta Grand Ballroom,681,361291000,completed
+EV00341,P02,VN009,CV Prasetyo,Training/Workshop,2023-10-16,Meeting Room C,21,5718000,completed
+EV00342,P02,VN009,Perum Utama Iswahyudi Tbk,Corporate Meeting,2023-10-21,Meeting Room C,18,7090000,completed
+EV00343,P02,VN007,UD Nasyiah,Corporate Meeting,2023-10-27,Meeting Room A,57,19175000,completed
+EV00344,P02,VN006,Dirja & Upik,Wedding,2023-10-16,Executive Ballroom,219,212325000,completed
+EV00345,P02,VN005,UD Padmasari Tbk,Gala Dinner,2023-10-23,Jakarta Grand Ballroom,558,476087000,completed
+EV00346,P02,VN006,PT Wulandari (Persero) Tbk,Conference,2023-11-04,Executive Ballroom,234,120955000,completed
+EV00347,P02,VN005,PT Safitri Purwanti Tbk,Conference,2023-11-04,Jakarta Grand Ballroom,537,273676000,completed
+EV00348,P02,VN005,PT Usada Hariyah,Corporate Meeting,2023-11-13,Jakarta Grand Ballroom,567,246746000,completed
+EV00349,P02,VN006,PD Latupono (Persero) Tbk,Conference,2023-11-14,Executive Ballroom,309,161747000,completed
+EV00350,P02,VN005,Bakijan & Bahuraksa,Wedding,2023-11-18,Jakarta Grand Ballroom,640,698637000,completed
+EV00351,P02,VN008,PD Latupono (Persero) Tbk,Corporate Meeting,2023-11-24,Meeting Room B,43,17373000,completed
+EV00352,P02,VN010,Perum Mansur Wibisono,Training/Workshop,2023-11-04,Boardroom,12,3737000,completed
+EV00353,P02,VN006,UD Winarsih Namaga Tbk,Gala Dinner,2023-11-20,Executive Ballroom,198,189216000,completed
+EV00354,P02,VN007,PD Yolanda Januar,Corporate Meeting,2023-11-05,Meeting Room A,15,5849000,completed
+EV00355,P02,VN005,Perum Wasita Setiawan (Persero) Tbk,Gala Dinner,2023-11-01,Jakarta Grand Ballroom,187,168944000,completed
+EV00356,P02,VN009,CV Handayani Tbk,Corporate Meeting,2023-11-01,Meeting Room C,27,12241000,completed
+EV00357,P02,VN009,UD Januar Uwais,Corporate Meeting,2023-11-02,Meeting Room C,20,9073000,completed
+EV00358,P02,VN005,PT Widodo Tbk,Gala Dinner,2023-11-15,Jakarta Grand Ballroom,514,430682000,completed
+EV00359,P02,VN006,PT Hasanah Iswahyudi,Corporate Meeting,2023-11-18,Executive Ballroom,214,92443000,completed
+EV00360,P02,VN005,Tantri & Irwan,Wedding,2023-11-23,Jakarta Grand Ballroom,588,811586000,completed
+EV00361,P02,VN009,PT Sitorus,Product Launch,2023-11-22,Meeting Room C,20,12328000,completed
+EV00362,P02,VN007,CV Pratiwi Putra,Corporate Meeting,2023-11-22,Meeting Room A,30,12524000,completed
+EV00363,P02,VN007,Perum Pranowo,Corporate Meeting,2023-11-14,Meeting Room A,51,21244000,completed
+EV00364,P02,VN005,Lidya & Ian,Wedding,2023-12-03,Jakarta Grand Ballroom,493,443080000,completed
+EV00365,P02,VN005,Jaka & Maryadi,Wedding,2023-12-01,Jakarta Grand Ballroom,559,579325000,completed
+EV00366,P02,VN006,Perum Adriansyah Saefullah,Corporate Meeting,2023-12-11,Executive Ballroom,274,114409000,completed
+EV00367,P02,VN005,CV Namaga Ramadan,Conference,2023-12-17,Jakarta Grand Ballroom,596,288456000,completed
+EV00368,P02,VN006,Gantar & Darmaji,Wedding,2023-12-23,Executive Ballroom,207,206419000,completed
+EV00369,P02,VN005,Tania & Aslijan,Wedding,2023-12-08,Jakarta Grand Ballroom,559,510319000,completed
+EV00370,P02,VN008,PT Tamba Prakasa,Corporate Meeting,2023-12-24,Meeting Room B,29,11323000,completed
+EV00371,P02,VN008,PT Natsir Tbk,Product Launch,2023-12-03,Meeting Room B,45,30034000,completed
+EV00372,P02,VN009,CV Andriani,Corporate Meeting,2024-01-21,Meeting Room C,23,8048000,completed
+EV00373,P02,VN005,Ellis & Darsirah,Wedding,2024-01-17,Jakarta Grand Ballroom,569,506838000,completed
+EV00374,P02,VN008,PD Hassanah,Corporate Meeting,2024-01-13,Meeting Room B,35,12303000,completed
+EV00375,P02,VN005,Perum Rahayu (Persero) Tbk,Corporate Meeting,2024-01-15,Jakarta Grand Ballroom,710,265638000,completed
+EV00376,P02,VN005,Perum Prasetya Susanti (Persero) Tbk,Conference,2024-01-07,Jakarta Grand Ballroom,612,414921000,completed
+EV00377,P02,VN009,PD Yuniar (Persero) Tbk,Corporate Meeting,2024-01-09,Meeting Room C,9,4213000,completed
+EV00378,P02,VN006,PD Wacana,Corporate Meeting,2024-01-13,Executive Ballroom,228,117147000,completed
+EV00379,P02,VN005,Simon & Yulia,Wedding,2024-01-16,Jakarta Grand Ballroom,615,657649000,completed
+EV00380,P02,VN009,PD Handayani,Corporate Meeting,2024-01-06,Meeting Room C,17,4745000,completed
+EV00381,P02,VN006,PT Sinaga,Conference,2024-01-24,Executive Ballroom,72,38074000,completed
+EV00382,P02,VN006,PT Mahendra Saefullah,Gala Dinner,2024-01-23,Executive Ballroom,215,165901000,completed
+EV00383,P02,VN006,Qori & Rahmi,Wedding,2024-02-07,Executive Ballroom,304,388642000,completed
+EV00384,P02,VN005,PD Riyanti Tbk,Corporate Meeting,2024-02-09,Jakarta Grand Ballroom,583,222117000,completed
+EV00385,P02,VN006,Perum Suartini Astuti (Persero) Tbk,Product Launch,2024-02-27,Executive Ballroom,256,129451000,completed
+EV00386,P02,VN005,Perum Pratama,Product Launch,2024-02-23,Jakarta Grand Ballroom,743,535533000,completed
+EV00387,P02,VN006,PD Pradana Zulkarnain Tbk,Gala Dinner,2024-02-22,Executive Ballroom,234,230774000,completed
+EV00388,P02,VN005,Umaya & Raditya,Wedding,2024-02-20,Jakarta Grand Ballroom,658,601096000,completed
+EV00389,P02,VN007,PT Sihotang Aryani Tbk,Corporate Meeting,2024-02-19,Meeting Room A,73,30761000,completed
+EV00390,P02,VN008,UD Mangunsong Tbk,Corporate Meeting,2024-02-07,Meeting Room B,45,17146000,cancelled
+EV00391,P02,VN007,PT Hutasoit,Corporate Meeting,2024-02-28,Meeting Room A,62,23877000,completed
+EV00392,P02,VN005,Cengkir & Saka,Wedding,2024-02-07,Jakarta Grand Ballroom,742,681729000,cancelled
+EV00393,P02,VN005,Dadi & Panca,Wedding,2024-03-17,Jakarta Grand Ballroom,448,345374000,completed
+EV00394,P02,VN007,Perum Halim Rahmawati,Corporate Meeting,2024-03-21,Meeting Room A,28,12879000,completed
+EV00395,P02,VN010,PT Zulkarnain Tbk,Corporate Meeting,2024-03-08,Boardroom,14,5133000,completed
+EV00396,P02,VN006,PT Suwarno Rahimah Tbk,Conference,2024-03-22,Executive Ballroom,320,159340000,completed
+EV00397,P02,VN006,PT Permata (Persero) Tbk,Gala Dinner,2024-03-12,Executive Ballroom,208,124714000,completed
+EV00398,P02,VN005,Galak & Tami,Wedding,2024-03-24,Jakarta Grand Ballroom,296,335319000,completed
+EV00399,P02,VN006,CV Kurniawan Tampubolon Tbk,Conference,2024-03-14,Executive Ballroom,259,86122000,completed
+EV00400,P02,VN005,Dartono & Kalim,Wedding,2024-03-27,Jakarta Grand Ballroom,465,434756000,cancelled
+EV00401,P02,VN005,Karimah & Jabal,Wedding,2024-03-15,Jakarta Grand Ballroom,716,692785000,cancelled
+EV00402,P02,VN006,Perum Oktaviani Susanti (Persero) Tbk,Corporate Meeting,2024-03-11,Executive Ballroom,83,29932000,completed
+EV00403,P02,VN006,Ophelia & Tira,Wedding,2024-04-21,Executive Ballroom,220,205093000,completed
+EV00404,P02,VN006,PT Najmudin Tbk,Corporate Meeting,2024-04-11,Executive Ballroom,269,107031000,cancelled
+EV00405,P02,VN005,UD Tampubolon (Persero) Tbk,Conference,2024-04-23,Jakarta Grand Ballroom,483,267427000,completed
+EV00406,P02,VN008,CV Pratiwi Wahyuni,Corporate Meeting,2024-04-01,Meeting Room B,35,14416000,completed
+EV00407,P02,VN007,PT Megantara Usada (Persero) Tbk,Corporate Meeting,2024-04-07,Meeting Room A,61,24881000,completed
+EV00408,P02,VN006,Perum Pratama,Corporate Meeting,2024-04-18,Executive Ballroom,134,41146000,completed
+EV00409,P02,VN005,Parman & Salman,Wedding,2024-04-08,Jakarta Grand Ballroom,549,422237000,cancelled
+EV00410,P02,VN006,UD Manullang Uwais Tbk,Conference,2024-04-02,Executive Ballroom,262,147195000,completed
+EV00411,P02,VN005,Perum Riyanti (Persero) Tbk,Corporate Meeting,2024-04-01,Jakarta Grand Ballroom,552,186478000,completed
+EV00412,P02,VN005,Bala & Galang,Wedding,2024-04-15,Jakarta Grand Ballroom,752,627042000,completed
+EV00413,P02,VN009,Perum Hardiansyah Wulandari,Corporate Meeting,2024-04-15,Meeting Room C,21,9894000,completed
+EV00414,P02,VN006,Carub & Kenari,Wedding,2024-05-02,Executive Ballroom,272,303092000,completed
+EV00415,P02,VN005,Timbul & Tina,Wedding,2024-05-10,Jakarta Grand Ballroom,146,159485000,cancelled
+EV00416,P02,VN006,PD Sudiati Handayani Tbk,Conference,2024-05-28,Executive Ballroom,226,125430000,completed
+EV00417,P02,VN005,CV Mulyani (Persero) Tbk,Gala Dinner,2024-05-27,Jakarta Grand Ballroom,755,703958000,completed
+EV00418,P02,VN010,PD Kusumo Tbk,Corporate Meeting,2024-05-03,Boardroom,17,8131000,completed
+EV00419,P02,VN009,Perum Widiastuti Samosir (Persero) Tbk,Training/Workshop,2024-05-16,Meeting Room C,23,5647000,completed
+EV00420,P02,VN006,PD Rahimah Hakim,Conference,2024-05-10,Executive Ballroom,243,90248000,completed
+EV00421,P02,VN005,CV Sihombing,Conference,2024-05-19,Jakarta Grand Ballroom,220,127496000,completed
+EV00422,P02,VN007,CV Rajasa Siregar,Corporate Meeting,2024-05-13,Meeting Room A,57,23875000,completed
+EV00423,P02,VN010,PT Ardianto Tbk,Training/Workshop,2024-05-06,Boardroom,11,4431000,completed
+EV00424,P02,VN006,CV Mustofa Wibowo (Persero) Tbk,Conference,2024-05-05,Executive Ballroom,279,160039000,completed
+EV00425,P02,VN005,PT Widodo (Persero) Tbk,Conference,2024-05-06,Jakarta Grand Ballroom,323,209560000,completed
+EV00426,P02,VN010,PT Haryanti Hutagalung Tbk,Corporate Meeting,2024-05-10,Boardroom,11,4892000,cancelled
+EV00427,P02,VN005,Kasiyah & Sidiq,Wedding,2024-05-05,Jakarta Grand Ballroom,656,785522000,cancelled
+EV00428,P02,VN006,Karimah & Rusman,Wedding,2024-06-17,Executive Ballroom,290,319681000,completed
+EV00429,P02,VN006,Siti & Rafid,Wedding,2024-06-27,Executive Ballroom,128,143279000,completed
+EV00430,P02,VN006,PT Waskita (Persero) Tbk,Gala Dinner,2024-06-12,Executive Ballroom,97,81383000,completed
+EV00431,P02,VN005,Martaka & Gangsa,Wedding,2024-06-01,Jakarta Grand Ballroom,445,428767000,cancelled
+EV00432,P02,VN007,UD Irawan Fujiati (Persero) Tbk,Corporate Meeting,2024-06-12,Meeting Room A,48,21154000,completed
+EV00433,P02,VN005,Jinawi & Teddy,Wedding,2024-06-13,Jakarta Grand Ballroom,483,536915000,completed
+EV00434,P02,VN009,Perum Hutapea Widodo Tbk,Corporate Meeting,2024-06-23,Meeting Room C,7,2337000,completed
+EV00435,P02,VN006,Mustika & Ilyas,Wedding,2024-06-15,Executive Ballroom,272,276394000,completed
+EV00436,P02,VN005,CV Hutagalung (Persero) Tbk,Gala Dinner,2024-07-05,Jakarta Grand Ballroom,492,459603000,completed
+EV00437,P02,VN005,UD Tampubolon Yuliarti,Conference,2024-07-18,Jakarta Grand Ballroom,471,238644000,completed
+EV00438,P02,VN005,CV Jailani Maulana,Conference,2024-07-03,Jakarta Grand Ballroom,452,268923000,completed
+EV00439,P02,VN008,CV Natsir (Persero) Tbk,Corporate Meeting,2024-07-06,Meeting Room B,33,11137000,completed
+EV00440,P02,VN008,CV Utami,Corporate Meeting,2024-07-04,Meeting Room B,27,13178000,completed
+EV00441,P02,VN005,PD Pratiwi Prastuti Tbk,Conference,2024-07-20,Jakarta Grand Ballroom,450,300615000,completed
+EV00442,P02,VN010,UD Maryadi Tbk,Corporate Meeting,2024-07-02,Boardroom,5,1984000,completed
+EV00443,P02,VN005,PD Handayani,Conference,2024-07-02,Jakarta Grand Ballroom,624,312096000,completed
+EV00444,P02,VN006,Rina & Luluh,Wedding,2024-07-25,Executive Ballroom,250,214767000,completed
+EV00445,P02,VN006,Perum Hakim Tbk,Gala Dinner,2024-07-15,Executive Ballroom,112,101641000,completed
+EV00446,P02,VN007,UD Hariyah,Corporate Meeting,2024-07-03,Meeting Room A,74,25941000,completed
+EV00447,P02,VN006,PT Hakim Uwais Tbk,Conference,2024-07-05,Executive Ballroom,300,110814000,cancelled
+EV00448,P02,VN008,PT Susanti,Training/Workshop,2024-07-25,Meeting Room B,41,11741000,completed
+EV00449,P02,VN006,PD Prastuti Puspasari (Persero) Tbk,Corporate Meeting,2024-07-03,Executive Ballroom,226,107417000,completed
+EV00450,P02,VN006,Perum Yulianti Nainggolan Tbk,Conference,2024-07-19,Executive Ballroom,267,134106000,cancelled
+EV00451,P02,VN005,Nurul & Wawan,Wedding,2024-07-17,Jakarta Grand Ballroom,446,444269000,completed
+EV00452,P02,VN006,PT Hartati Jailani,Gala Dinner,2024-07-07,Executive Ballroom,270,210986000,completed
+EV00453,P02,VN005,PT Mayasari (Persero) Tbk,Corporate Meeting,2024-08-03,Jakarta Grand Ballroom,556,207493000,completed
+EV00454,P02,VN010,CV Farida,Product Launch,2024-08-03,Boardroom,6,4406000,completed
+EV00455,P02,VN007,Perum Nurdiyanti Suryatmi (Persero) Tbk,Corporate Meeting,2024-08-11,Meeting Room A,53,13881000,completed
+EV00456,P02,VN010,UD Suryono Tbk,Corporate Meeting,2024-08-05,Boardroom,18,6110000,completed
+EV00457,P02,VN005,Rendy & Murti,Wedding,2024-08-28,Jakarta Grand Ballroom,587,678453000,completed
+EV00458,P02,VN010,UD Haryanto,Corporate Meeting,2024-08-15,Boardroom,15,5848000,completed
+EV00459,P02,VN006,PT Puspita Tbk,Corporate Meeting,2024-08-04,Executive Ballroom,239,84076000,completed
+EV00460,P02,VN006,UD Wahyuni (Persero) Tbk,Corporate Meeting,2024-08-27,Executive Ballroom,245,98235000,completed
+EV00461,P02,VN005,PT Padmasari (Persero) Tbk,Gala Dinner,2024-08-15,Jakarta Grand Ballroom,144,126424000,completed
+EV00462,P02,VN006,Naradi & Lukman,Wedding,2024-08-08,Executive Ballroom,310,357923000,completed
+EV00463,P02,VN005,Talia & Zelaya,Wedding,2024-08-20,Jakarta Grand Ballroom,679,626554000,completed
+EV00464,P02,VN006,Tantri & Purwanto,Wedding,2024-08-22,Executive Ballroom,271,237627000,completed
+EV00465,P02,VN006,Perum Hutasoit Saragih,Conference,2024-09-17,Executive Ballroom,282,148952000,completed
+EV00466,P02,VN005,UD Mahendra Winarsih (Persero) Tbk,Corporate Meeting,2024-09-04,Jakarta Grand Ballroom,520,216392000,completed
+EV00467,P02,VN005,Perum Tarihoran Budiyanto Tbk,Conference,2024-09-19,Jakarta Grand Ballroom,457,286865000,completed
+EV00468,P02,VN005,CV Prabowo Tbk,Conference,2024-09-20,Jakarta Grand Ballroom,534,258181000,completed
+EV00469,P02,VN006,CV Prasetyo Mandala (Persero) Tbk,Conference,2024-09-09,Executive Ballroom,203,114394000,completed
+EV00470,P02,VN006,UD Januar,Corporate Meeting,2024-09-18,Executive Ballroom,114,48942000,cancelled
+EV00471,P02,VN006,Cinthia & Ghaliyati,Wedding,2024-09-03,Executive Ballroom,296,223910000,cancelled
+EV00472,P02,VN006,UD Safitri,Gala Dinner,2024-09-19,Executive Ballroom,232,125996000,completed
+EV00473,P02,VN005,Eluh & Michelle,Wedding,2024-09-15,Jakarta Grand Ballroom,487,419982000,completed
+EV00474,P02,VN005,Parman & Gaiman,Wedding,2024-09-28,Jakarta Grand Ballroom,302,276895000,completed
+EV00475,P02,VN005,CV Oktaviani Marbun,Conference,2024-09-26,Jakarta Grand Ballroom,157,90299000,cancelled
+EV00476,P02,VN005,Taufik & Bakianto,Wedding,2024-09-12,Jakarta Grand Ballroom,628,550494000,completed
+EV00477,P02,VN010,UD Wastuti Prakasa Tbk,Corporate Meeting,2024-09-17,Boardroom,13,4932000,completed
+EV00478,P02,VN005,Oliva & Kairav,Wedding,2024-09-25,Jakarta Grand Ballroom,225,165310000,completed
+EV00479,P02,VN010,CV Nasyidah Permadi Tbk,Corporate Meeting,2024-10-08,Boardroom,14,5099000,completed
+EV00480,P02,VN005,CV Uwais Wastuti Tbk,Gala Dinner,2024-10-17,Jakarta Grand Ballroom,555,449507000,completed
+EV00481,P02,VN005,UD Wibowo Mardhiyah Tbk,Gala Dinner,2024-10-13,Jakarta Grand Ballroom,254,224951000,completed
+EV00482,P02,VN006,CV Suartini Mandala,Corporate Meeting,2024-10-04,Executive Ballroom,105,55063000,completed
+EV00483,P02,VN005,PT Yuniar Tbk,Conference,2024-10-23,Jakarta Grand Ballroom,465,274623000,completed
+EV00484,P02,VN005,Paiman & Irma,Wedding,2024-10-27,Jakarta Grand Ballroom,325,387538000,completed
+EV00485,P02,VN010,Perum Maheswara,Corporate Meeting,2024-10-01,Boardroom,14,4198000,completed
+EV00486,P02,VN005,PT Marpaung Tbk,Conference,2024-10-26,Jakarta Grand Ballroom,703,354628000,cancelled
+EV00487,P02,VN006,Perum Maulana Fujiati (Persero) Tbk,Conference,2024-10-01,Executive Ballroom,272,107481000,completed
+EV00488,P02,VN009,PD Tampubolon Dongoran,Product Launch,2024-10-08,Meeting Room C,24,13507000,completed
+EV00489,P02,VN006,Radit & Balamantri,Wedding,2024-10-14,Executive Ballroom,241,167627000,cancelled
+EV00490,P02,VN006,Prima & Cindy,Wedding,2024-10-06,Executive Ballroom,297,211077000,completed
+EV00491,P02,VN008,CV Winarno (Persero) Tbk,Product Launch,2024-10-10,Meeting Room B,44,30931000,completed
+EV00492,P02,VN007,CV Dabukke Tbk,Corporate Meeting,2024-11-15,Meeting Room A,22,9869000,completed
+EV00493,P02,VN010,UD Maulana,Corporate Meeting,2024-11-24,Boardroom,11,5097000,completed
+EV00494,P02,VN008,PT Suwarno Halimah,Corporate Meeting,2024-11-24,Meeting Room B,38,17408000,completed
+EV00495,P02,VN006,PD Hassanah Susanti,Corporate Meeting,2024-11-02,Executive Ballroom,294,95240000,completed
+EV00496,P02,VN007,PT Budiyanto,Product Launch,2024-11-23,Meeting Room A,57,38279000,completed
+EV00497,P02,VN005,Kambali & Irfan,Wedding,2024-11-14,Jakarta Grand Ballroom,587,582089000,completed
+EV00498,P02,VN006,Eja & Hani,Wedding,2024-11-21,Executive Ballroom,262,267810000,completed
+EV00499,P02,VN008,PT Suwarno Prakasa Tbk,Corporate Meeting,2024-11-05,Meeting Room B,19,9287000,completed
+EV00500,P02,VN005,Dimaz & Bakiono,Wedding,2024-11-25,Jakarta Grand Ballroom,680,663487000,completed
+EV00501,P02,VN005,PD Uyainah Oktaviani,Gala Dinner,2024-11-17,Jakarta Grand Ballroom,508,314092000,completed
+EV00502,P02,VN005,Vinsen & Budi,Wedding,2024-11-03,Jakarta Grand Ballroom,199,124395000,completed
+EV00503,P02,VN009,PD Riyanti,Training/Workshop,2024-11-13,Meeting Room C,27,8643000,cancelled
+EV00504,P02,VN005,Perum Permata,Gala Dinner,2024-11-27,Jakarta Grand Ballroom,692,537825000,completed
+EV00505,P02,VN008,CV Siregar Aryani,Corporate Meeting,2024-12-25,Meeting Room B,30,13715000,completed
+EV00506,P02,VN005,Perum Thamrin,Gala Dinner,2024-12-27,Jakarta Grand Ballroom,504,453862000,completed
+EV00507,P02,VN009,Perum Agustina Nashiruddin,Corporate Meeting,2024-12-24,Meeting Room C,16,6463000,completed
+EV00508,P02,VN005,Titi & Uli,Wedding,2024-12-21,Jakarta Grand Ballroom,479,479031000,completed
+EV00509,P02,VN007,Perum Tarihoran,Product Launch,2024-12-28,Meeting Room A,46,30028000,completed
+EV00510,P02,VN010,Perum Palastri,Corporate Meeting,2024-12-08,Boardroom,18,8267000,completed
+EV00511,P02,VN005,Cinthia & Cinthia,Wedding,2024-12-05,Jakarta Grand Ballroom,171,164243000,completed
+EV00512,P02,VN005,PD Halimah,Gala Dinner,2024-12-28,Jakarta Grand Ballroom,151,97844000,completed
+EV00513,P02,VN006,Bakianto & Rahmi,Wedding,2024-12-12,Executive Ballroom,298,303772000,completed
+EV00514,P02,VN007,UD Ramadan Budiyanto Tbk,Corporate Meeting,2024-12-06,Meeting Room A,17,7233000,completed
+EV00515,P02,VN010,UD Permadi,Corporate Meeting,2024-12-07,Boardroom,11,4681000,completed
+EV00516,P02,VN010,Perum Sitorus,Corporate Meeting,2024-12-01,Boardroom,7,3195000,completed
+EV00517,P02,VN005,Emas & Bakidin,Wedding,2025-01-26,Jakarta Grand Ballroom,686,835625000,completed
+EV00518,P02,VN006,Perum Sirait (Persero) Tbk,Gala Dinner,2025-01-14,Executive Ballroom,105,85062000,completed
+EV00519,P02,VN007,PD Usamah Najmudin (Persero) Tbk,Corporate Meeting,2025-01-20,Meeting Room A,72,29826000,cancelled
+EV00520,P02,VN007,PD Firgantoro,Corporate Meeting,2025-01-11,Meeting Room A,53,20943000,completed
+EV00521,P02,VN010,CV Gunawan (Persero) Tbk,Corporate Meeting,2025-01-02,Boardroom,14,4643000,completed
+EV00522,P02,VN005,Bakda & Laswi,Wedding,2025-01-19,Jakarta Grand Ballroom,594,684043000,cancelled
+EV00523,P02,VN007,Perum Widodo Tbk,Corporate Meeting,2025-01-06,Meeting Room A,16,6333000,completed
+EV00524,P02,VN006,PT Yuliarti (Persero) Tbk,Conference,2025-01-21,Executive Ballroom,306,146635000,completed
+EV00525,P02,VN009,UD Hardiansyah Tbk,Training/Workshop,2025-01-26,Meeting Room C,22,7859000,completed
+EV00526,P02,VN006,Kenes & Drajat,Wedding,2025-01-12,Executive Ballroom,223,256381000,completed
+EV00527,P02,VN010,PD Wacana Tbk,Training/Workshop,2025-01-17,Boardroom,14,4161000,completed
+EV00528,P02,VN007,UD Nashiruddin Mandasari Tbk,Corporate Meeting,2025-01-03,Meeting Room A,59,23224000,completed
+EV00529,P02,VN005,Oman & Dalima,Wedding,2025-01-14,Jakarta Grand Ballroom,546,468407000,completed
+EV00530,P02,VN006,PT Anggraini (Persero) Tbk,Gala Dinner,2025-01-06,Executive Ballroom,291,231897000,completed
+EV00531,P02,VN009,Perum Najmudin Palastri Tbk,Training/Workshop,2025-01-15,Meeting Room C,11,3066000,completed
+EV00532,P02,VN006,Maras & Danang,Wedding,2025-01-27,Executive Ballroom,300,256704000,completed
+EV00533,P02,VN005,Capa & Marwata,Wedding,2025-01-25,Jakarta Grand Ballroom,586,550049000,completed
+EV00534,P02,VN005,UD Hassanah Tbk,Corporate Meeting,2025-02-12,Jakarta Grand Ballroom,533,229654000,completed
+EV00535,P02,VN006,Ganda & Yance,Wedding,2025-02-05,Executive Ballroom,195,202006000,completed
+EV00536,P02,VN005,Tirta & Nardi,Wedding,2025-02-19,Jakarta Grand Ballroom,719,890829000,completed
+EV00537,P02,VN006,PT Thamrin Susanti Tbk,Gala Dinner,2025-02-23,Executive Ballroom,240,206023000,completed
+EV00538,P02,VN006,PT Hutagalung Tbk,Corporate Meeting,2025-02-18,Executive Ballroom,209,79603000,completed
+EV00539,P02,VN005,Perum Wastuti (Persero) Tbk,Conference,2025-02-11,Jakarta Grand Ballroom,678,352482000,completed
+EV00540,P02,VN006,CV Sudiati,Gala Dinner,2025-02-22,Executive Ballroom,117,107877000,completed
+EV00541,P02,VN005,Violet & Taufik,Wedding,2025-02-25,Jakarta Grand Ballroom,599,626725000,completed
+EV00542,P02,VN007,CV Hidayat,Corporate Meeting,2025-02-22,Meeting Room A,62,26900000,completed
+EV00543,P02,VN009,UD Tarihoran Winarno,Training/Workshop,2025-02-09,Meeting Room C,19,7367000,completed
+EV00544,P02,VN006,Jessica & Atmaja,Wedding,2025-03-10,Executive Ballroom,210,198182000,completed
+EV00545,P02,VN010,PD Uwais Wahyudin,Corporate Meeting,2025-03-10,Boardroom,14,4917000,completed
+EV00546,P02,VN008,PT Pertiwi Mandala Tbk,Product Launch,2025-03-28,Meeting Room B,46,24312000,completed
+EV00547,P02,VN006,UD Yulianti Setiawan (Persero) Tbk,Corporate Meeting,2025-03-01,Executive Ballroom,260,82815000,completed
+EV00548,P02,VN006,Darsirah & Aslijan,Wedding,2025-03-22,Executive Ballroom,65,68609000,completed
+EV00549,P02,VN005,Hardana & Betania,Wedding,2025-03-19,Jakarta Grand Ballroom,441,430443000,completed
+EV00550,P02,VN009,Perum Lazuardi Saptono Tbk,Corporate Meeting,2025-03-22,Meeting Room C,17,7579000,completed
+EV00551,P02,VN006,Tri & Ikhsan,Wedding,2025-03-03,Executive Ballroom,193,267514000,completed
+EV00552,P02,VN005,Padma & Kenzie,Wedding,2025-03-17,Jakarta Grand Ballroom,539,435229000,completed
+EV00553,P02,VN005,CV Maheswara Mansur (Persero) Tbk,Corporate Meeting,2025-03-11,Jakarta Grand Ballroom,635,282501000,completed
+EV00554,P02,VN007,CV Handayani Irawan Tbk,Corporate Meeting,2025-03-08,Meeting Room A,74,31306000,completed
+EV00555,P02,VN007,PT Pudjiastuti Tbk,Corporate Meeting,2025-03-13,Meeting Room A,56,27323000,completed
+EV00556,P02,VN006,Limar & Galih,Wedding,2025-03-21,Executive Ballroom,283,216676000,completed
+EV00557,P02,VN005,UD Melani Prasetyo,Corporate Meeting,2025-03-10,Jakarta Grand Ballroom,506,144260000,completed
+EV00558,P02,VN006,CV Mandala,Conference,2025-04-02,Executive Ballroom,300,145891000,cancelled
+EV00559,P02,VN005,PD Dongoran Tarihoran,Corporate Meeting,2025-04-08,Jakarta Grand Ballroom,703,258352000,completed
+EV00560,P02,VN006,PD Puspasari (Persero) Tbk,Conference,2025-04-13,Executive Ballroom,238,127981000,completed
+EV00561,P02,VN009,PT Saragih,Corporate Meeting,2025-04-11,Meeting Room C,21,9079000,completed
+EV00562,P02,VN005,PD Novitasari Zulkarnain Tbk,Gala Dinner,2025-04-28,Jakarta Grand Ballroom,731,595764000,completed
+EV00563,P02,VN010,CV Simanjuntak,Corporate Meeting,2025-04-24,Boardroom,16,6515000,cancelled
+EV00564,P02,VN005,Suci & Cakrajiya,Wedding,2025-04-18,Jakarta Grand Ballroom,523,475683000,completed
+EV00565,P02,VN005,Uda & Wardi,Wedding,2025-04-22,Jakarta Grand Ballroom,174,189034000,completed
+EV00566,P02,VN005,Widya & Dina,Wedding,2025-05-21,Jakarta Grand Ballroom,275,556936000,completed
+EV00567,P02,VN010,CV Puspasari (Persero) Tbk,Corporate Meeting,2025-05-04,Boardroom,14,4589000,completed
+EV00568,P02,VN010,PD Mardhiyah Hakim,Corporate Meeting,2025-05-27,Boardroom,17,16450000,completed
+EV00569,P02,VN005,Perum Mangunsong,Conference,2025-05-09,Jakarta Grand Ballroom,675,375370000,completed
+EV00570,P02,VN010,CV Marpaung Tbk,Corporate Meeting,2025-05-05,Boardroom,5,2492000,completed
+EV00571,P02,VN006,UD Maryati Suryono,Gala Dinner,2025-05-05,Executive Ballroom,234,190437000,completed
+EV00572,P02,VN005,UD Napitupulu,Conference,2025-05-02,Jakarta Grand Ballroom,688,263604000,completed
+EV00573,P02,VN006,CV Utami Tbk,Conference,2025-05-03,Executive Ballroom,213,108086000,completed
+EV00574,P02,VN005,Paris & Farhunnisa,Wedding,2025-05-27,Jakarta Grand Ballroom,710,1694554000,completed
+EV00575,P02,VN007,Perum Yuniar,Corporate Meeting,2025-05-28,Meeting Room A,48,47931000,completed
+EV00576,P02,VN009,Perum Prastuti Mangunsong,Product Launch,2025-05-12,Meeting Room C,12,17945000,completed
+EV00577,P02,VN006,Perum Suartini Sirait,Conference,2025-05-01,Executive Ballroom,253,109907000,completed
+EV00578,P02,VN007,PT Hutapea,Corporate Meeting,2025-05-16,Meeting Room A,20,12797000,completed
+EV00579,P02,VN006,Perum Saptono,Gala Dinner,2025-05-07,Executive Ballroom,230,130132000,completed
+EV00580,P02,VN005,Perum Agustina Safitri,Conference,2025-05-26,Jakarta Grand Ballroom,673,674658000,completed
+EV00581,P02,VN007,PD Utami,Corporate Meeting,2025-05-18,Meeting Room A,15,13774000,completed
+EV00582,P02,VN005,UD Laksmiwati (Persero) Tbk,Conference,2025-05-23,Jakarta Grand Ballroom,505,553149000,completed
+EV00583,P02,VN006,Yessi & Rosman,Wedding,2025-06-06,Executive Ballroom,95,185829000,completed
+EV00584,P02,VN006,PD Hidayanto (Persero) Tbk,Gala Dinner,2025-06-16,Executive Ballroom,207,153144000,completed
+EV00585,P02,VN008,PD Agustina Laksmiwati,Corporate Meeting,2025-06-27,Meeting Room B,38,14291000,completed
+EV00586,P02,VN005,CV Siregar Sudiati (Persero) Tbk,Corporate Meeting,2025-06-14,Jakarta Grand Ballroom,585,170252000,completed
+EV00587,P02,VN005,Luis & Makuta,Wedding,2025-06-25,Jakarta Grand Ballroom,701,815585000,completed
+EV00588,P02,VN005,PD Mustofa Tbk,Gala Dinner,2025-06-11,Jakarta Grand Ballroom,564,490728000,completed
+EV00589,P02,VN008,UD Permadi,Corporate Meeting,2025-06-23,Meeting Room B,31,11827000,cancelled
+EV00590,P02,VN010,PT Santoso Hartati (Persero) Tbk,Training/Workshop,2025-06-14,Boardroom,5,1631000,completed
+EV00591,P02,VN005,Eko & Dagel,Wedding,2025-06-08,Jakarta Grand Ballroom,654,1836135000,completed
+EV00592,P02,VN006,UD Winarno,Gala Dinner,2025-06-28,Executive Ballroom,77,52847000,completed
+EV00593,P02,VN010,CV Manullang Simbolon Tbk,Corporate Meeting,2025-06-12,Boardroom,11,4214000,completed
+EV00594,P02,VN009,CV Mandasari Mulyani,Corporate Meeting,2025-06-12,Meeting Room C,28,12344000,completed
+EV00595,P02,VN005,PD Samosir Mandasari (Persero) Tbk,Conference,2025-06-16,Jakarta Grand Ballroom,759,388625000,completed
+EV00596,P02,VN005,PD Mayasari,Gala Dinner,2025-06-12,Jakarta Grand Ballroom,746,563494000,completed
+EV00597,P02,VN005,CV Pratama Padmasari Tbk,Corporate Meeting,2025-06-06,Jakarta Grand Ballroom,539,416958000,completed
+EV00598,P02,VN006,Bakti & Baktianto,Wedding,2025-07-04,Executive Ballroom,327,311684000,completed
+EV00599,P02,VN010,PD Riyanti Tbk,Corporate Meeting,2025-07-12,Boardroom,5,2266000,completed
+EV00600,P02,VN006,Kenzie & Gasti,Wedding,2025-07-25,Executive Ballroom,248,298247000,completed
+EV00601,P02,VN010,PT Astuti,Corporate Meeting,2025-07-10,Boardroom,15,5169000,completed
+EV00602,P02,VN005,Embuh & Karsana,Wedding,2025-07-13,Jakarta Grand Ballroom,549,550422000,completed
+EV00603,P02,VN005,PD Utama (Persero) Tbk,Conference,2025-07-04,Jakarta Grand Ballroom,166,75761000,completed
+EV00604,P02,VN006,PT Purnawati Purwanti (Persero) Tbk,Conference,2025-07-18,Executive Ballroom,303,155434000,completed
+EV00605,P02,VN006,Olga & Intan,Wedding,2025-07-10,Executive Ballroom,198,218257000,completed
+EV00606,P02,VN006,Koko & Cakrajiya,Wedding,2025-07-07,Executive Ballroom,207,180805000,completed
+EV00607,P02,VN006,Prasetyo & Clara,Wedding,2025-07-02,Executive Ballroom,195,195267000,completed
+EV00608,P02,VN005,Umay & Humaira,Wedding,2025-07-15,Jakarta Grand Ballroom,751,571993000,completed
+EV00609,P02,VN007,Perum Zulaika (Persero) Tbk,Corporate Meeting,2025-07-08,Meeting Room A,26,9120000,completed
+EV00610,P02,VN006,Edi & Dagel,Wedding,2025-07-28,Executive Ballroom,112,124878000,completed
+EV00611,P02,VN007,UD Sirait Puspita Tbk,Training/Workshop,2025-07-24,Meeting Room A,23,7732000,completed
+EV00612,P02,VN010,CV Suartini Melani,Corporate Meeting,2025-07-15,Boardroom,14,4253000,completed
+EV00613,P02,VN008,Perum Gunarto Gunawan (Persero) Tbk,Product Launch,2025-08-12,Meeting Room B,40,19010000,completed
+EV00614,P02,VN010,UD Kusmawati Maryati,Product Launch,2025-08-06,Boardroom,16,8619000,completed
+EV00615,P02,VN005,CV Sudiati Mulyani (Persero) Tbk,Conference,2025-08-23,Jakarta Grand Ballroom,701,327374000,completed
+EV00616,P02,VN010,Perum Simanjuntak (Persero) Tbk,Corporate Meeting,2025-08-25,Boardroom,12,5444000,completed
+EV00617,P02,VN006,Perum Salahudin Rahayu Tbk,Gala Dinner,2025-08-06,Executive Ballroom,229,198140000,cancelled
+EV00618,P02,VN006,Perum Salahudin Kusmawati (Persero) Tbk,Product Launch,2025-08-26,Executive Ballroom,114,63085000,completed
+EV00619,P02,VN006,UD Wulandari (Persero) Tbk,Conference,2025-08-07,Executive Ballroom,198,76669000,completed
+EV00620,P02,VN005,Perum Samosir Usamah (Persero) Tbk,Gala Dinner,2025-09-07,Jakarta Grand Ballroom,500,575646000,cancelled
+EV00621,P02,VN006,Michelle & Warta,Wedding,2025-09-05,Executive Ballroom,265,190487000,completed
+EV00622,P02,VN006,Karta & Talia,Wedding,2025-09-16,Executive Ballroom,70,56581000,completed
+EV00623,P02,VN006,PT Padmasari Kuswandari,Conference,2025-09-18,Executive Ballroom,240,110234000,completed
+EV00624,P02,VN007,Perum Usamah Safitri,Training/Workshop,2025-09-09,Meeting Room A,68,21795000,completed
+EV00625,P02,VN009,CV Zulaika Prasasta (Persero) Tbk,Corporate Meeting,2025-09-22,Meeting Room C,28,10060000,completed
+EV00626,P02,VN006,CV Budiyanto,Corporate Meeting,2025-09-17,Executive Ballroom,246,120271000,completed
+EV00627,P02,VN008,UD Andriani Maryadi Tbk,Corporate Meeting,2025-09-01,Meeting Room B,33,15521000,completed
+EV00628,P02,VN007,PD Mardhiyah Suryatmi,Corporate Meeting,2025-09-08,Meeting Room A,16,6787000,completed
+EV00629,P02,VN006,Wardaya & Bancar,Wedding,2025-09-06,Executive Ballroom,226,207148000,completed
+EV00630,P02,VN006,Perum Pranowo Purwanti,Conference,2025-09-12,Executive Ballroom,286,131990000,completed
+EV00631,P02,VN010,PD Novitasari Tbk,Corporate Meeting,2025-09-22,Boardroom,5,2481000,completed
+EV00632,P02,VN005,CV Haryanti Tbk,Conference,2025-09-12,Jakarta Grand Ballroom,538,233976000,completed
+EV00633,P02,VN006,Hamima & Nugraha,Wedding,2025-09-09,Executive Ballroom,263,245695000,completed
+EV00634,P02,VN010,Perum Laksmiwati (Persero) Tbk,Corporate Meeting,2025-09-18,Boardroom,12,3543000,completed
+EV00635,P02,VN007,UD Puspita Salahudin,Corporate Meeting,2025-09-21,Meeting Room A,71,27422000,completed
+EV00636,P02,VN010,UD Suwarno Pranowo,Training/Workshop,2025-09-26,Boardroom,5,1919000,completed
+EV00637,P02,VN010,UD Kuswandari Tampubolon Tbk,Corporate Meeting,2025-10-06,Boardroom,14,4953000,completed
+EV00638,P02,VN010,PT Pertiwi Tbk,Corporate Meeting,2025-10-23,Boardroom,12,6584000,completed
+EV00639,P02,VN010,UD Maulana Siregar (Persero) Tbk,Corporate Meeting,2025-10-10,Boardroom,15,7356000,completed
+EV00640,P02,VN006,Kamal & Candrakanta,Wedding,2025-10-20,Executive Ballroom,83,69959000,completed
+EV00641,P02,VN005,Mustofa & Tasdik,Wedding,2025-10-26,Jakarta Grand Ballroom,541,427168000,completed
+EV00642,P02,VN009,PD Prabowo (Persero) Tbk,Corporate Meeting,2025-10-21,Meeting Room C,19,6733000,completed
+EV00643,P02,VN005,Perum Saputra (Persero) Tbk,Conference,2025-10-22,Jakarta Grand Ballroom,581,283219000,completed
+EV00644,P02,VN006,Perum Rahmawati,Corporate Meeting,2025-10-08,Executive Ballroom,253,84020000,completed
+EV00645,P02,VN006,CV Hardiansyah Winarsih,Conference,2025-10-15,Executive Ballroom,94,62379000,cancelled
+EV00646,P02,VN007,CV Habibi Januar,Corporate Meeting,2025-10-02,Meeting Room A,62,26386000,completed
+EV00647,P02,VN007,UD Halimah Januar (Persero) Tbk,Training/Workshop,2025-10-28,Meeting Room A,58,19066000,completed
+EV00648,P02,VN006,Perum Manullang,Conference,2025-10-02,Executive Ballroom,282,156658000,completed
+EV00649,P02,VN007,PD Kuswandari Yulianti (Persero) Tbk,Corporate Meeting,2025-10-04,Meeting Room A,68,22199000,completed
+EV00650,P02,VN005,UD Suwarno (Persero) Tbk,Product Launch,2025-10-12,Jakarta Grand Ballroom,495,292802000,completed
+EV00651,P02,VN006,Cemani & Shania,Wedding,2025-10-12,Executive Ballroom,93,100036000,completed
+EV00652,P02,VN005,Perum Firgantoro Natsir,Conference,2025-10-16,Jakarta Grand Ballroom,467,209936000,completed
+EV00653,P02,VN008,CV Firgantoro Widodo Tbk,Corporate Meeting,2025-10-09,Meeting Room B,20,8850000,completed
+EV00654,P02,VN006,UD Firgantoro Anggriawan,Corporate Meeting,2025-10-10,Executive Ballroom,227,99496000,completed
+EV00655,P02,VN009,Perum Suartini (Persero) Tbk,Corporate Meeting,2025-10-16,Meeting Room C,26,11503000,completed
+EV00656,P02,VN006,Mumpuni & Kairav,Wedding,2025-10-01,Executive Ballroom,195,202560000,completed
+EV00657,P02,VN005,Upik & Siska,Wedding,2025-10-11,Jakarta Grand Ballroom,504,497455000,cancelled
+EV00658,P02,VN005,Hesti & Eli,Wedding,2025-10-13,Jakarta Grand Ballroom,633,618257000,completed
+EV00659,P02,VN006,CV Mayasari Hastuti Tbk,Conference,2025-10-13,Executive Ballroom,238,133056000,completed
+EV00660,P02,VN005,PT Sitompul Marpaung,Corporate Meeting,2025-10-28,Jakarta Grand Ballroom,573,266899000,completed
+EV00661,P02,VN007,UD Nashiruddin Budiman Tbk,Corporate Meeting,2025-10-25,Meeting Room A,60,18713000,completed
+EV00662,P02,VN006,Perum Wulandari (Persero) Tbk,Conference,2025-11-14,Executive Ballroom,229,136823000,completed
+EV00663,P02,VN005,Gara & Oliva,Wedding,2025-11-08,Jakarta Grand Ballroom,646,668468000,completed
+EV00664,P02,VN010,PD Mulyani Simbolon (Persero) Tbk,Training/Workshop,2025-11-15,Boardroom,18,5922000,completed
+EV00665,P02,VN005,Rama & Ulva,Wedding,2025-11-14,Jakarta Grand Ballroom,535,439529000,completed
+EV00666,P02,VN005,CV Mandala,Gala Dinner,2025-11-10,Jakarta Grand Ballroom,515,425921000,completed
+EV00667,P02,VN007,UD Prayoga Ardianto Tbk,Product Launch,2025-11-26,Meeting Room A,69,50126000,completed
+EV00668,P02,VN006,CV Hassanah Santoso Tbk,Conference,2025-11-19,Executive Ballroom,67,35381000,completed
+EV00669,P02,VN010,Perum Pertiwi (Persero) Tbk,Corporate Meeting,2025-11-11,Boardroom,14,5442000,completed
+EV00670,P02,VN006,UD Prakasa (Persero) Tbk,Conference,2025-11-23,Executive Ballroom,219,127956000,completed
+EV00671,P02,VN005,PD Samosir,Product Launch,2025-11-18,Jakarta Grand Ballroom,631,411970000,completed
+EV00672,P02,VN008,PD Mardhiyah Saragih,Corporate Meeting,2025-11-03,Meeting Room B,28,11147000,completed
+EV00673,P02,VN005,UD Uwais,Gala Dinner,2025-11-12,Jakarta Grand Ballroom,334,279278000,cancelled
+EV00674,P02,VN005,CV Mansur Kuswandari,Corporate Meeting,2025-11-25,Jakarta Grand Ballroom,280,99078000,completed
+EV00675,P02,VN005,PD Sudiati Wahyudin,Corporate Meeting,2025-11-06,Jakarta Grand Ballroom,667,251039000,completed
+EV00676,P02,VN005,Perum Halimah Nasyiah (Persero) Tbk,Gala Dinner,2025-12-06,Jakarta Grand Ballroom,479,408957000,completed
+EV00677,P02,VN009,Perum Hutapea Novitasari,Corporate Meeting,2025-12-23,Meeting Room C,8,2698000,completed
+EV00678,P02,VN006,Tugiman & Elvina,Wedding,2025-12-16,Executive Ballroom,270,277355000,completed
+EV00679,P02,VN007,PT Pratiwi (Persero) Tbk,Corporate Meeting,2025-12-21,Meeting Room A,70,29485000,completed
+EV00680,P02,VN005,Perum Mayasari,Product Launch,2025-12-16,Jakarta Grand Ballroom,314,160951000,completed
+EV00681,P02,VN006,Halim & Karen,Wedding,2025-12-22,Executive Ballroom,255,237248000,completed
+EV00682,P02,VN009,CV Simbolon Nurdiyanti,Corporate Meeting,2025-12-10,Meeting Room C,11,5609000,completed
+EV00683,P02,VN005,PT Zulaika Putra Tbk,Conference,2025-12-23,Jakarta Grand Ballroom,523,258887000,completed
+EV00684,P02,VN006,Perum Hassanah,Gala Dinner,2025-12-13,Executive Ballroom,258,198385000,completed
+EV00685,P02,VN006,PD Mustofa,Conference,2025-12-24,Executive Ballroom,228,108389000,cancelled
+EV00686,P02,VN005,PD Pratiwi Hakim Tbk,Gala Dinner,2025-12-18,Jakarta Grand Ballroom,462,380090000,completed
+EV00687,P02,VN005,Vanya & Latif,Wedding,2025-12-28,Jakarta Grand Ballroom,508,467546000,completed
+EV00688,P02,VN005,Artawan & Prima,Wedding,2025-12-11,Jakarta Grand Ballroom,536,615539000,completed
+EV00689,P02,VN007,PT Pratama (Persero) Tbk,Corporate Meeting,2025-12-23,Meeting Room A,47,14242000,completed
+EV00690,P02,VN005,PD Situmorang,Conference,2025-12-03,Jakarta Grand Ballroom,749,374265000,completed
+EV00691,P02,VN005,Cagak & Gilda,Wedding,2025-12-25,Jakarta Grand Ballroom,735,917026000,completed
+EV00692,P02,VN007,PT Halimah,Product Launch,2025-12-20,Meeting Room A,49,31067000,completed
+EV00693,P02,VN005,Atma & Kemal,Wedding,2026-01-07,Jakarta Grand Ballroom,599,448181000,completed
+EV00694,P02,VN006,Rendy & Gatra,Wedding,2026-01-04,Executive Ballroom,198,248371000,completed
+EV00695,P02,VN006,Emong & Siska,Wedding,2026-01-23,Executive Ballroom,292,307813000,completed
+EV00696,P02,VN005,UD Wibowo Hassanah Tbk,Gala Dinner,2026-01-11,Jakarta Grand Ballroom,542,542152000,completed
+EV00697,P02,VN010,PT Zulaika Wijayanti (Persero) Tbk,Corporate Meeting,2026-01-02,Boardroom,18,6543000,completed
+EV00698,P02,VN006,Silvia & Mursinin,Wedding,2026-01-02,Executive Ballroom,299,288450000,completed
+EV00699,P02,VN008,CV Nasyiah,Corporate Meeting,2026-01-16,Meeting Room B,33,15771000,completed
+EV00700,P02,VN005,Panji & Fitria,Wedding,2026-01-27,Jakarta Grand Ballroom,480,379392000,completed
+EV00701,P02,VN010,CV Adriansyah Damanik,Corporate Meeting,2026-01-22,Boardroom,15,6346000,completed
+EV00702,P02,VN006,Lembah & Wira,Wedding,2026-01-09,Executive Ballroom,206,241924000,completed
+EV00703,P02,VN006,Perum Wibowo Pradana (Persero) Tbk,Conference,2026-01-20,Executive Ballroom,316,154790000,completed
+EV00704,P02,VN010,UD Mangunsong Saefullah (Persero) Tbk,Training/Workshop,2026-01-13,Boardroom,17,6402000,completed
+EV00705,P02,VN005,PT Wijayanti,Corporate Meeting,2026-02-27,Jakarta Grand Ballroom,673,243768000,completed
+EV00706,P02,VN005,Perum Budiyanto Permadi (Persero) Tbk,Conference,2026-02-20,Jakarta Grand Ballroom,199,73811000,completed
+EV00707,P02,VN007,PT Riyanti,Corporate Meeting,2026-02-17,Meeting Room A,58,28008000,completed
+EV00708,P02,VN005,Bagas & Tugiman,Wedding,2026-02-18,Jakarta Grand Ballroom,476,509089000,completed
+EV00709,P02,VN007,CV Gunawan,Corporate Meeting,2026-02-03,Meeting Room A,53,23518000,cancelled
+EV00710,P02,VN007,PD Pradipta Namaga (Persero) Tbk,Corporate Meeting,2026-02-26,Meeting Room A,52,23360000,completed
+EV00711,P02,VN006,Balidin & Estiono,Wedding,2026-02-05,Executive Ballroom,312,340013000,completed
+EV00712,P02,VN005,Chelsea & Labuh,Wedding,2026-02-05,Jakarta Grand Ballroom,566,569430000,completed
+EV00713,P02,VN006,Jarwa & Kasiyah,Wedding,2026-02-18,Executive Ballroom,75,71318000,completed
+EV00714,P02,VN006,Makuta & Kezia,Wedding,2026-02-01,Executive Ballroom,281,247155000,completed
+EV00715,P02,VN008,CV Sihombing (Persero) Tbk,Corporate Meeting,2026-02-19,Meeting Room B,28,15022000,completed
+EV00716,P02,VN005,PD Salahudin Saefullah,Gala Dinner,2026-02-10,Jakarta Grand Ballroom,754,573241000,completed
+EV00717,P02,VN006,Perum Rahayu,Conference,2026-02-27,Executive Ballroom,267,116922000,completed
+EV00718,P02,VN005,PD Puspita Lailasari,Corporate Meeting,2026-02-04,Jakarta Grand Ballroom,582,236710000,completed
+EV00719,P02,VN005,UD Yuniar,Corporate Meeting,2026-02-09,Jakarta Grand Ballroom,565,230845000,completed
+EV00720,P02,VN005,Perum Simanjuntak Agustina Tbk,Gala Dinner,2026-02-26,Jakarta Grand Ballroom,177,172506000,completed
+EV00721,P02,VN005,UD Waluyo Nashiruddin,Gala Dinner,2026-03-11,Jakarta Grand Ballroom,550,413595000,completed
+EV00722,P02,VN005,CV Prasetyo Salahudin (Persero) Tbk,Gala Dinner,2026-03-27,Jakarta Grand Ballroom,601,339878000,completed
+EV00723,P02,VN006,PT Purwanti Zulkarnain Tbk,Conference,2026-03-26,Executive Ballroom,201,127380000,completed
+EV00724,P02,VN009,PD Prasasta Rajasa,Corporate Meeting,2026-03-14,Meeting Room C,20,7340000,completed
+EV00725,P02,VN005,UD Yuliarti Hutapea,Gala Dinner,2026-03-21,Jakarta Grand Ballroom,695,607020000,completed
+EV00726,P02,VN005,Uda & Opung,Wedding,2026-03-20,Jakarta Grand Ballroom,473,524442000,completed
+EV00727,P02,VN005,Perum Nainggolan,Gala Dinner,2026-03-04,Jakarta Grand Ballroom,536,506502000,completed
+EV00728,P02,VN006,Baktiono & Kawaca,Wedding,2026-03-06,Executive Ballroom,231,174450000,completed
+EV00729,P02,VN006,Perum Suartini Gunarto (Persero) Tbk,Conference,2026-03-23,Executive Ballroom,270,93824000,completed
+EV00730,P02,VN007,Perum Winarsih Purwanti,Corporate Meeting,2026-03-03,Meeting Room A,56,21910000,completed
+EV00731,P02,VN005,Ibrahim & Yusuf,Wedding,2026-03-12,Jakarta Grand Ballroom,615,806369000,completed
+EV00732,P02,VN009,UD Sihombing Budiman,Corporate Meeting,2026-03-27,Meeting Room C,21,7405000,completed
+EV00733,P02,VN010,CV Lazuardi Kuswandari,Corporate Meeting,2026-03-04,Boardroom,15,5601000,completed
+EV00734,P02,VN005,Jayeng & Zulaikha,Wedding,2026-03-07,Jakarta Grand Ballroom,633,764034000,completed
+EV00735,P02,VN009,PD Permadi Puspasari,Corporate Meeting,2026-03-08,Meeting Room C,16,6570000,completed
+EV00736,P02,VN008,UD Wibowo Tbk,Corporate Meeting,2026-04-11,Meeting Room B,45,22235000,completed
+EV00737,P02,VN006,Farhunnisa & Salwa,Wedding,2026-04-05,Executive Ballroom,193,175034000,completed
+EV00738,P02,VN010,UD Rajata Tbk,Product Launch,2026-04-22,Boardroom,14,7719000,completed
+EV00739,P02,VN010,PD Januar Halimah Tbk,Product Launch,2026-04-06,Boardroom,14,8334000,completed
+EV00740,P02,VN010,UD Sihotang Zulkarnain,Corporate Meeting,2026-04-20,Boardroom,14,4521000,completed
+EV00741,P02,VN005,Bakijan & Janet,Wedding,2026-04-04,Jakarta Grand Ballroom,566,498023000,completed
+EV00742,P02,VN006,Ilyas & Erik,Wedding,2026-04-02,Executive Ballroom,307,247916000,completed
+EV00743,P02,VN005,UD Puspasari,Gala Dinner,2026-04-09,Jakarta Grand Ballroom,634,566066000,completed
+EV00744,P02,VN005,UD Mangunsong Napitupulu Tbk,Conference,2026-04-28,Jakarta Grand Ballroom,534,287983000,completed
+EV00745,P02,VN006,Jagaraga & Prabu,Wedding,2026-04-11,Executive Ballroom,316,290567000,completed
+EV00746,P02,VN010,PD Pudjiastuti Yolanda,Training/Workshop,2026-04-04,Boardroom,18,6060000,completed
+EV00747,P02,VN006,UD Lestari Tbk,Corporate Meeting,2026-04-25,Executive Ballroom,289,104562000,completed
+EV00748,P02,VN006,CV Thamrin Narpati (Persero) Tbk,Corporate Meeting,2026-04-22,Executive Ballroom,110,54143000,completed
+EV00749,P02,VN006,CV Namaga Yuniar (Persero) Tbk,Product Launch,2026-04-21,Executive Ballroom,146,95041000,completed
+EV00750,P02,VN007,PT Winarsih,Corporate Meeting,2026-04-23,Meeting Room A,50,18075000,completed
+EV00751,P02,VN005,Bakti & Adinata,Wedding,2026-05-26,Jakarta Grand Ballroom,529,582878000,cancelled
+EV00752,P02,VN009,CV Usamah Pradipta (Persero) Tbk,Training/Workshop,2026-05-06,Meeting Room C,24,8378000,completed
+EV00753,P02,VN009,PT Pratama Mayasari,Corporate Meeting,2026-05-20,Meeting Room C,26,11996000,completed
+EV00754,P02,VN006,UD Halim Safitri Tbk,Conference,2026-05-05,Executive Ballroom,309,158931000,completed
+EV00755,P02,VN005,Titin & Ayu,Wedding,2026-05-28,Jakarta Grand Ballroom,458,495418000,completed
+EV00756,P02,VN007,PT Nasyidah,Corporate Meeting,2026-05-26,Meeting Room A,22,8875000,completed
+EV00757,P02,VN005,Ika & Ridwan,Wedding,2026-05-14,Jakarta Grand Ballroom,598,494444000,completed
+EV00758,P02,VN010,PT Nuraini,Product Launch,2026-05-21,Boardroom,13,6742000,completed
+EV00759,P02,VN006,Kunthara & Gabriella,Wedding,2026-05-26,Executive Ballroom,120,96704000,completed
+EV00760,P02,VN006,Kemal & Anom,Wedding,2026-05-01,Executive Ballroom,235,156332000,completed
+EV00761,P02,VN008,CV Kurniawan Kuswoyo (Persero) Tbk,Corporate Meeting,2026-05-22,Meeting Room B,39,11651000,completed
+EV00762,P02,VN006,Jaya & Harjo,Wedding,2026-05-09,Executive Ballroom,286,278458000,completed
+EV00763,P02,VN005,UD Santoso Tbk,Corporate Meeting,2026-05-10,Jakarta Grand Ballroom,706,194521000,completed
+EV00764,P02,VN010,UD Waskita,Corporate Meeting,2026-05-09,Boardroom,18,6083000,completed
+EV00765,P02,VN006,Vega & Julia,Wedding,2026-05-03,Executive Ballroom,202,183338000,completed
+EV00766,P02,VN005,CV Salahudin Hutapea,Conference,2026-06-17,Jakarta Grand Ballroom,443,253271000,completed
+EV00767,P02,VN007,PT Waskita,Corporate Meeting,2026-06-27,Meeting Room A,19,6397000,confirmed
+EV00768,P02,VN008,PD Puspasari Kusmawati (Persero) Tbk,Training/Workshop,2026-06-17,Meeting Room B,27,8183000,completed
+EV00769,P02,VN008,CV Hutasoit,Corporate Meeting,2026-06-18,Meeting Room B,28,13545000,cancelled
+EV00770,P02,VN009,PD Yuliarti Sitompul (Persero) Tbk,Corporate Meeting,2026-06-07,Meeting Room C,18,8497000,completed
+EV00771,P02,VN005,CV Prabowo,Conference,2026-06-26,Jakarta Grand Ballroom,573,357230000,confirmed
+EV00772,P02,VN010,UD Gunawan Hutagalung Tbk,Product Launch,2026-06-05,Boardroom,16,12108000,completed
+EV00773,P02,VN005,CV Sihotang,Corporate Meeting,2026-06-27,Jakarta Grand Ballroom,754,255654000,cancelled
+EV00774,P02,VN006,CV Rahmawati,Conference,2026-06-21,Executive Ballroom,288,120774000,completed
+EV00775,P02,VN007,PD Hutagalung Salahudin,Training/Workshop,2026-06-11,Meeting Room A,72,17953000,cancelled
+EV00776,P02,VN005,Gamani & Jane,Wedding,2026-06-06,Jakarta Grand Ballroom,287,259050000,completed
+EV00777,P02,VN005,Perum Wibisono Wastuti,Conference,2026-06-13,Jakarta Grand Ballroom,541,266910000,completed
+EV00778,P02,VN005,PD Mandala (Persero) Tbk,Conference,2026-06-19,Jakarta Grand Ballroom,516,293348000,completed
+EV00779,P03,VN011,PT Januar Tbk,Conference,2023-07-21,Pendopo Ballroom,220,81080000,completed
+EV00780,P03,VN011,PT Siregar Suartini,Product Launch,2023-07-25,Pendopo Ballroom,197,96288000,completed
+EV00781,P03,VN012,Paramita & Mila,Wedding,2023-07-27,Joglo Garden,130,80061000,completed
+EV00782,P03,VN011,UD Dabukke Usada Tbk,Corporate Meeting,2023-07-24,Pendopo Ballroom,174,49063000,completed
+EV00783,P03,VN013,PD Pradana Tamba Tbk,Corporate Meeting,2023-08-05,Batik Meeting Room,27,7228000,completed
+EV00784,P03,VN011,CV Zulaika Padmasari Tbk,Conference,2023-08-14,Pendopo Ballroom,70,24030000,completed
+EV00785,P03,VN011,Perum Sihombing,Product Launch,2023-08-22,Pendopo Ballroom,230,82730000,completed
+EV00786,P03,VN013,PT Hutasoit Santoso,Corporate Meeting,2023-08-19,Batik Meeting Room,16,5447000,completed
+EV00787,P03,VN011,PD Usada Mangunsong,Conference,2023-08-20,Pendopo Ballroom,257,77965000,completed
+EV00788,P03,VN012,UD Tarihoran Kurniawan (Persero) Tbk,Gala Dinner,2023-09-14,Joglo Garden,129,68539000,completed
+EV00789,P03,VN011,UD Handayani,Gala Dinner,2023-09-13,Pendopo Ballroom,249,169460000,completed
+EV00790,P03,VN013,UD Jailani (Persero) Tbk,Corporate Meeting,2023-09-03,Batik Meeting Room,29,9334000,completed
+EV00791,P03,VN011,Cayadi & Hardi,Wedding,2023-10-25,Pendopo Ballroom,264,185811000,completed
+EV00792,P03,VN011,PD Puspita Puspita Tbk,Conference,2023-10-15,Pendopo Ballroom,98,34891000,cancelled
+EV00793,P03,VN011,PT Irawan,Gala Dinner,2023-11-21,Pendopo Ballroom,214,110204000,completed
+EV00794,P03,VN013,Perum Iswahyudi Tbk,Corporate Meeting,2023-11-15,Batik Meeting Room,33,7860000,completed
+EV00795,P03,VN013,PT Siregar Zulkarnain Tbk,Corporate Meeting,2023-11-10,Batik Meeting Room,19,6530000,completed
+EV00796,P03,VN011,Cawisadi & Ina,Wedding,2023-11-26,Pendopo Ballroom,271,201748000,completed
+EV00797,P03,VN013,Perum Nurdiyanti Narpati,Corporate Meeting,2023-11-11,Batik Meeting Room,28,7774000,completed
+EV00798,P03,VN012,Yessi & Prabawa,Wedding,2023-11-08,Joglo Garden,137,100712000,completed
+EV00799,P03,VN011,CV Santoso Sihombing,Corporate Meeting,2023-12-14,Pendopo Ballroom,234,42080000,cancelled
+EV00800,P03,VN013,PD Maulana (Persero) Tbk,Training/Workshop,2023-12-05,Batik Meeting Room,35,8887000,completed
+EV00801,P03,VN013,PD Saefullah Andriani,Training/Workshop,2023-12-13,Batik Meeting Room,30,6634000,completed
+EV00802,P03,VN011,PD Hutagalung Tbk,Corporate Meeting,2023-12-06,Pendopo Ballroom,269,80012000,completed
+EV00803,P03,VN011,CV Utami Tbk,Corporate Meeting,2024-01-05,Pendopo Ballroom,267,60091000,cancelled
+EV00804,P03,VN011,PD Kurniawan Mansur,Corporate Meeting,2024-01-12,Pendopo Ballroom,268,74184000,completed
+EV00805,P03,VN011,PT Widodo Tbk,Corporate Meeting,2024-01-07,Pendopo Ballroom,182,36686000,completed
+EV00806,P03,VN012,UD Farida Sitorus Tbk,Gala Dinner,2024-01-13,Joglo Garden,128,78323000,completed
+EV00807,P03,VN012,UD Sinaga Suartini,Gala Dinner,2024-01-04,Joglo Garden,121,72572000,completed
+EV00808,P03,VN013,PD Sihotang Nugroho,Corporate Meeting,2024-01-02,Batik Meeting Room,38,8835000,completed
+EV00809,P03,VN011,UD Siregar Usada Tbk,Product Launch,2024-01-19,Pendopo Ballroom,192,86097000,completed
+EV00810,P03,VN013,UD Waluyo Setiawan,Training/Workshop,2024-01-26,Batik Meeting Room,40,9224000,completed
+EV00811,P03,VN011,UD Latupono Pratiwi (Persero) Tbk,Gala Dinner,2024-02-13,Pendopo Ballroom,240,163096000,completed
+EV00812,P03,VN011,Perum Dongoran Hariyah,Conference,2024-02-10,Pendopo Ballroom,252,91579000,completed
+EV00813,P03,VN011,PD Siregar Hidayat,Conference,2024-03-28,Pendopo Ballroom,106,33818000,completed
+EV00814,P03,VN011,Rendy & Vanesa,Wedding,2024-03-08,Pendopo Ballroom,240,190388000,completed
+EV00815,P03,VN012,Betania & Estiawan,Wedding,2024-03-17,Joglo Garden,93,68286000,completed
+EV00816,P03,VN012,Rahmi & Luluh,Wedding,2024-03-21,Joglo Garden,96,63983000,completed
+EV00817,P03,VN011,UD Wahyuni Mangunsong,Corporate Meeting,2024-03-23,Pendopo Ballroom,85,20726000,completed
+EV00818,P03,VN012,PD Hidayanto Hassanah Tbk,Gala Dinner,2024-03-01,Joglo Garden,129,75221000,completed
+EV00819,P03,VN011,Perum Mayasari Andriani (Persero) Tbk,Conference,2024-04-22,Pendopo Ballroom,69,18383000,completed
+EV00820,P03,VN011,Najib & Gasti,Wedding,2024-04-20,Pendopo Ballroom,247,157748000,completed
+EV00821,P03,VN013,PT Prayoga,Product Launch,2024-04-01,Batik Meeting Room,40,15867000,completed
+EV00822,P03,VN013,CV Yuliarti (Persero) Tbk,Corporate Meeting,2024-04-19,Batik Meeting Room,30,6103000,completed
+EV00823,P03,VN013,UD Astuti Kurniawan (Persero) Tbk,Training/Workshop,2024-04-09,Batik Meeting Room,16,2820000,completed
+EV00824,P03,VN012,Daliman & Kariman,Wedding,2024-04-19,Joglo Garden,123,81930000,completed
+EV00825,P03,VN011,Perum Maryati Puspita,Corporate Meeting,2024-04-14,Pendopo Ballroom,61,18399000,completed
+EV00826,P03,VN012,Kania & Yuni,Wedding,2024-04-11,Joglo Garden,128,79838000,completed
+EV00827,P03,VN012,Kasiyah & Ilyas,Wedding,2024-05-23,Joglo Garden,111,74358000,completed
+EV00828,P03,VN013,UD Wijaya Hariyah (Persero) Tbk,Corporate Meeting,2024-05-01,Batik Meeting Room,35,9575000,completed
+EV00829,P03,VN012,PT Laksmiwati (Persero) Tbk,Gala Dinner,2024-05-27,Joglo Garden,106,50978000,completed
+EV00830,P03,VN012,PD Hutasoit (Persero) Tbk,Gala Dinner,2024-05-10,Joglo Garden,139,95071000,completed
+EV00831,P03,VN011,UD Saragih Siregar,Conference,2024-06-16,Pendopo Ballroom,210,65616000,completed
+EV00832,P03,VN011,CV Nurdiyanti Laksmiwati Tbk,Conference,2024-06-05,Pendopo Ballroom,171,52345000,cancelled
+EV00833,P03,VN013,PT Farida Hartati Tbk,Training/Workshop,2024-06-24,Batik Meeting Room,27,5098000,completed
+EV00834,P03,VN011,Cahyanto & Limar,Wedding,2024-06-12,Pendopo Ballroom,233,144626000,completed
+EV00835,P03,VN013,PT Damanik,Corporate Meeting,2024-06-14,Batik Meeting Room,43,9029000,completed
+EV00836,P03,VN013,PT Wastuti (Persero) Tbk,Corporate Meeting,2024-06-15,Batik Meeting Room,44,10260000,completed
+EV00837,P03,VN013,Perum Natsir Puspasari,Corporate Meeting,2024-06-16,Batik Meeting Room,42,11733000,completed
+EV00838,P03,VN011,UD Purwanti Aryani,Conference,2024-07-10,Pendopo Ballroom,218,28144000,completed
+EV00839,P03,VN012,Wahyu & Jaiman,Wedding,2024-07-14,Joglo Garden,29,8870000,cancelled
+EV00840,P03,VN011,CV Nashiruddin Uyainah Tbk,Conference,2024-07-02,Pendopo Ballroom,64,8586000,completed
+EV00841,P03,VN011,PT Susanti Napitupulu Tbk,Corporate Meeting,2024-07-25,Pendopo Ballroom,83,10324000,completed
+EV00842,P03,VN013,PD Ardianto Prabowo (Persero) Tbk,Corporate Meeting,2024-07-05,Batik Meeting Room,37,5508000,completed
+EV00843,P03,VN011,Kalim & Budi,Wedding,2024-07-22,Pendopo Ballroom,272,70858000,completed
+EV00844,P03,VN011,Kezia & Damu,Wedding,2024-08-08,Pendopo Ballroom,196,62504000,cancelled
+EV00845,P03,VN011,UD Simbolon Napitupulu,Conference,2024-08-04,Pendopo Ballroom,227,38266000,cancelled
+EV00846,P03,VN011,PT Saptono Winarsih Tbk,Conference,2024-08-28,Pendopo Ballroom,200,74519000,completed
+EV00847,P03,VN012,Elvina & Sari,Wedding,2024-08-05,Joglo Garden,90,26893000,completed
+EV00848,P03,VN011,Perum Wibisono Tbk,Corporate Meeting,2024-08-21,Pendopo Ballroom,222,67730000,completed
+EV00849,P03,VN011,Lili & Darsirah,Wedding,2024-09-01,Pendopo Ballroom,206,81123000,completed
+EV00850,P03,VN013,UD Haryanti (Persero) Tbk,Corporate Meeting,2024-09-05,Batik Meeting Room,35,6009000,completed
+EV00851,P03,VN013,Perum Rahayu (Persero) Tbk,Product Launch,2024-09-12,Batik Meeting Room,43,14411000,completed
+EV00852,P03,VN011,UD Lazuardi Permadi,Gala Dinner,2024-09-22,Pendopo Ballroom,213,141346000,completed
+EV00853,P03,VN011,PT Najmudin Tbk,Conference,2024-09-16,Pendopo Ballroom,57,17314000,completed
+EV00854,P03,VN011,Perum Wibisono Andriani,Product Launch,2024-09-15,Pendopo Ballroom,224,92713000,completed
+EV00855,P03,VN011,Perum Winarno Anggraini,Conference,2024-09-09,Pendopo Ballroom,256,74884000,completed
+EV00856,P03,VN011,Hardana & Anita,Wedding,2024-09-08,Pendopo Ballroom,60,44927000,completed
+EV00857,P03,VN012,Rahmi & Gawati,Wedding,2024-09-17,Joglo Garden,125,81354000,completed
+EV00858,P03,VN012,Zulfa & Sadina,Wedding,2024-09-13,Joglo Garden,97,56602000,completed
+EV00859,P03,VN012,Perum Marbun Lestari,Gala Dinner,2024-09-21,Joglo Garden,84,53996000,completed
+EV00860,P03,VN012,Koko & Estiono,Wedding,2024-10-06,Joglo Garden,100,65653000,completed
+EV00861,P03,VN012,Hardi & Lasmono,Wedding,2024-10-16,Joglo Garden,136,93622000,completed
+EV00862,P03,VN011,Perum Habibi Tamba (Persero) Tbk,Corporate Meeting,2024-10-24,Pendopo Ballroom,276,92196000,completed
+EV00863,P03,VN011,Ajeng & Empluk,Wedding,2024-10-16,Pendopo Ballroom,205,133454000,completed
+EV00864,P03,VN011,Harsaya & Pranawa,Wedding,2024-10-02,Pendopo Ballroom,240,147899000,completed
+EV00865,P03,VN013,PD Lestari Agustina Tbk,Corporate Meeting,2024-10-24,Batik Meeting Room,34,9654000,completed
+EV00866,P03,VN011,CV Hutasoit Pratiwi (Persero) Tbk,Product Launch,2024-10-27,Pendopo Ballroom,273,125853000,completed
+EV00867,P03,VN011,UD Firmansyah Saefullah,Corporate Meeting,2024-11-26,Pendopo Ballroom,180,62045000,completed
+EV00868,P03,VN013,Perum Suwarno Narpati,Corporate Meeting,2024-11-17,Batik Meeting Room,37,7203000,completed
+EV00869,P03,VN011,Perum Lailasari Pudjiastuti (Persero) Tbk,Product Launch,2024-11-12,Pendopo Ballroom,179,88538000,completed
+EV00870,P03,VN013,UD Palastri,Training/Workshop,2024-11-20,Batik Meeting Room,36,7997000,completed
+EV00871,P03,VN012,Oskar & Halima,Wedding,2024-11-10,Joglo Garden,126,80070000,completed
+EV00872,P03,VN013,PD Palastri,Corporate Meeting,2024-12-17,Batik Meeting Room,43,10845000,completed
+EV00873,P03,VN011,Ibrani & Soleh,Wedding,2024-12-15,Pendopo Ballroom,247,167416000,completed
+EV00874,P03,VN011,Damu & Silvia,Wedding,2024-12-05,Pendopo Ballroom,187,137072000,cancelled
+EV00875,P03,VN011,Jumari & Legawa,Wedding,2025-01-27,Pendopo Ballroom,166,94964000,completed
+EV00876,P03,VN011,PD Saptono,Corporate Meeting,2025-01-11,Pendopo Ballroom,166,35048000,completed
+EV00877,P03,VN013,PT Farida (Persero) Tbk,Corporate Meeting,2025-01-20,Batik Meeting Room,42,14149000,completed
+EV00878,P03,VN012,CV Rahmawati Tampubolon,Gala Dinner,2025-01-18,Joglo Garden,110,62485000,completed
+EV00879,P03,VN013,CV Susanti Mandala (Persero) Tbk,Corporate Meeting,2025-01-01,Batik Meeting Room,28,5519000,completed
+EV00880,P03,VN012,Hendri & Banara,Wedding,2025-01-01,Joglo Garden,30,16235000,completed
+EV00881,P03,VN013,Perum Setiawan (Persero) Tbk,Training/Workshop,2025-01-21,Batik Meeting Room,44,9793000,completed
+EV00882,P03,VN012,Marsudi & Lanang,Wedding,2025-01-12,Joglo Garden,103,60937000,completed
+EV00883,P03,VN013,Perum Santoso (Persero) Tbk,Corporate Meeting,2025-02-23,Batik Meeting Room,46,12524000,cancelled
+EV00884,P03,VN011,PD Halim Saefullah,Product Launch,2025-02-18,Pendopo Ballroom,185,69411000,completed
+EV00885,P03,VN011,CV Prayoga Maulana,Corporate Meeting,2025-02-23,Pendopo Ballroom,257,56719000,completed
+EV00886,P03,VN013,CV Wastuti Tbk,Corporate Meeting,2025-02-05,Batik Meeting Room,27,7531000,completed
+EV00887,P03,VN011,CV Permata Usamah Tbk,Corporate Meeting,2025-03-16,Pendopo Ballroom,249,54020000,completed
+EV00888,P03,VN011,PD Hartati Hutagalung (Persero) Tbk,Corporate Meeting,2025-03-07,Pendopo Ballroom,196,63020000,completed
+EV00889,P03,VN013,Perum Setiawan Uwais Tbk,Product Launch,2025-03-23,Batik Meeting Room,43,17745000,completed
+EV00890,P03,VN013,UD Prastuti Adriansyah (Persero) Tbk,Corporate Meeting,2025-03-16,Batik Meeting Room,29,7155000,completed
+EV00891,P03,VN011,UD Haryanto Nasyidah Tbk,Conference,2025-03-26,Pendopo Ballroom,236,63405000,completed
+EV00892,P03,VN011,PD Prabowo Lailasari,Conference,2025-03-02,Pendopo Ballroom,195,80976000,cancelled
+EV00893,P03,VN013,UD Suryono Tbk,Training/Workshop,2025-04-20,Batik Meeting Room,37,7672000,completed
+EV00894,P03,VN013,Perum Laksita Siregar,Product Launch,2025-04-28,Batik Meeting Room,11,4877000,completed
+EV00895,P03,VN011,PT Januar,Product Launch,2025-04-08,Pendopo Ballroom,200,82792000,completed
+EV00896,P03,VN013,PT Maheswara Manullang Tbk,Corporate Meeting,2025-04-09,Batik Meeting Room,33,9120000,completed
+EV00897,P03,VN012,Vino & Abyasa,Wedding,2025-04-10,Joglo Garden,85,51283000,completed
+EV00898,P03,VN013,CV Mustofa Yulianti Tbk,Corporate Meeting,2025-05-10,Batik Meeting Room,38,9563000,completed
+EV00899,P03,VN013,UD Iswahyudi Yolanda,Corporate Meeting,2025-05-21,Batik Meeting Room,31,8006000,completed
+EV00900,P03,VN011,UD Hutasoit Tbk,Conference,2025-05-17,Pendopo Ballroom,167,48468000,cancelled
+EV00901,P03,VN011,Titi & Salwa,Wedding,2025-05-05,Pendopo Ballroom,282,160500000,completed
+EV00902,P03,VN011,PT Widodo Utami,Corporate Meeting,2025-05-20,Pendopo Ballroom,71,20812000,completed
+EV00903,P03,VN011,CV Aryani (Persero) Tbk,Conference,2025-06-27,Pendopo Ballroom,66,23954000,completed
+EV00904,P03,VN011,PT Prabowo,Gala Dinner,2025-06-18,Pendopo Ballroom,184,109015000,completed
+EV00905,P03,VN011,PT Mustofa Rahayu (Persero) Tbk,Gala Dinner,2025-06-22,Pendopo Ballroom,197,133579000,completed
+EV00906,P03,VN011,Dalima & Widya,Wedding,2025-06-26,Pendopo Ballroom,238,105378000,completed
+EV00907,P03,VN013,PT Anggriawan Siregar (Persero) Tbk,Training/Workshop,2025-06-18,Batik Meeting Room,33,9179000,completed
+EV00908,P03,VN011,CV Kuswandari Hidayanto (Persero) Tbk,Corporate Meeting,2025-06-05,Pendopo Ballroom,266,65901000,completed
+EV00909,P03,VN011,PT Jailani Jailani Tbk,Conference,2025-07-07,Pendopo Ballroom,100,33656000,completed
+EV00910,P03,VN011,Oman & Liman,Wedding,2025-07-06,Pendopo Ballroom,258,162084000,completed
+EV00911,P03,VN013,PD Mansur Yuniar,Corporate Meeting,2025-07-09,Batik Meeting Room,39,10028000,completed
+EV00912,P03,VN011,PT Nuraini Pratiwi,Conference,2025-07-20,Pendopo Ballroom,179,55225000,completed
+EV00913,P03,VN013,Perum Yulianti,Product Launch,2025-07-15,Batik Meeting Room,29,10641000,completed
+EV00914,P03,VN013,PD Tampubolon Prabowo,Training/Workshop,2025-07-02,Batik Meeting Room,40,7725000,completed
+EV00915,P03,VN011,PD Susanti Handayani,Corporate Meeting,2025-08-13,Pendopo Ballroom,259,56688000,completed
+EV00916,P03,VN011,PT Januar Mandala,Conference,2025-08-17,Pendopo Ballroom,190,58877000,completed
+EV00917,P03,VN011,Perum Winarno,Conference,2025-08-06,Pendopo Ballroom,197,62105000,completed
+EV00918,P03,VN011,Nardi & Sidiq,Wedding,2025-08-20,Pendopo Ballroom,180,130851000,completed
+EV00919,P03,VN011,CV Prayoga Tbk,Conference,2025-08-25,Pendopo Ballroom,222,81484000,completed
+EV00920,P03,VN013,CV Puspasari,Corporate Meeting,2025-08-01,Batik Meeting Room,13,3723000,completed
+EV00921,P03,VN011,Nabila & Nadine,Wedding,2025-08-10,Pendopo Ballroom,268,82456000,completed
+EV00922,P03,VN011,PT Wahyuni Tbk,Corporate Meeting,2025-08-07,Pendopo Ballroom,203,52839000,completed
+EV00923,P03,VN011,Perum Sudiati Melani,Product Launch,2025-09-26,Pendopo Ballroom,282,112211000,completed
+EV00924,P03,VN013,PD Sihombing Yuliarti,Training/Workshop,2025-09-11,Batik Meeting Room,42,10138000,completed
+EV00925,P03,VN011,CV Lailasari,Gala Dinner,2025-09-10,Pendopo Ballroom,196,132506000,cancelled
+EV00926,P03,VN011,PT Permadi Mandasari (Persero) Tbk,Gala Dinner,2025-09-02,Pendopo Ballroom,201,123385000,completed
+EV00927,P03,VN013,UD Simanjuntak,Corporate Meeting,2025-09-09,Batik Meeting Room,37,10687000,completed
+EV00928,P03,VN011,PD Purnawati Andriani,Conference,2025-09-27,Pendopo Ballroom,281,117259000,completed
+EV00929,P03,VN013,Perum Zulaika (Persero) Tbk,Training/Workshop,2025-09-22,Batik Meeting Room,33,4956000,completed
+EV00930,P03,VN011,PT Budiyanto Rahmawati (Persero) Tbk,Conference,2025-09-09,Pendopo Ballroom,206,54102000,completed
+EV00931,P03,VN011,UD Pratama,Conference,2025-10-27,Pendopo Ballroom,181,48808000,completed
+EV00932,P03,VN011,PT Widodo,Product Launch,2025-10-06,Pendopo Ballroom,190,85608000,completed
+EV00933,P03,VN013,Perum Agustina Tbk,Corporate Meeting,2025-10-28,Batik Meeting Room,19,5369000,cancelled
+EV00934,P03,VN012,Rangga & Catur,Wedding,2025-10-23,Joglo Garden,137,85887000,completed
+EV00935,P03,VN011,UD Hutasoit Saragih,Gala Dinner,2025-10-01,Pendopo Ballroom,188,77093000,completed
+EV00936,P03,VN011,Candrakanta & Calista,Wedding,2025-10-09,Pendopo Ballroom,120,68470000,completed
+EV00937,P03,VN012,Hasim & Galang,Wedding,2025-11-06,Joglo Garden,109,66913000,completed
+EV00938,P03,VN011,PD Rahmawati (Persero) Tbk,Corporate Meeting,2025-11-02,Pendopo Ballroom,242,75622000,completed
+EV00939,P03,VN011,Lukman & Zelaya,Wedding,2025-11-01,Pendopo Ballroom,241,152697000,completed
+EV00940,P03,VN012,CV Hakim Prasasta (Persero) Tbk,Gala Dinner,2025-11-13,Joglo Garden,59,39147000,cancelled
+EV00941,P03,VN011,PT Hasanah Suryatmi (Persero) Tbk,Corporate Meeting,2025-11-12,Pendopo Ballroom,183,43118000,completed
+EV00942,P03,VN011,Lasmanto & Unjani,Wedding,2025-11-17,Pendopo Ballroom,282,170532000,completed
+EV00943,P03,VN011,PT Budiman Mandala,Conference,2025-11-26,Pendopo Ballroom,213,68010000,completed
+EV00944,P03,VN012,Ajimin & Gamanto,Wedding,2025-11-05,Joglo Garden,99,67790000,completed
+EV00945,P03,VN011,Amelia & Marsito,Wedding,2025-12-06,Pendopo Ballroom,188,95165000,cancelled
+EV00946,P03,VN011,CV Wahyudin (Persero) Tbk,Conference,2025-12-12,Pendopo Ballroom,236,75892000,completed
+EV00947,P03,VN012,Kawaya & Daryani,Wedding,2025-12-15,Joglo Garden,100,66174000,completed
+EV00948,P03,VN011,UD Aryani,Conference,2025-12-09,Pendopo Ballroom,278,92669000,completed
+EV00949,P03,VN011,Perum Haryanto Tbk,Conference,2025-12-22,Pendopo Ballroom,247,85869000,completed
+EV00950,P03,VN011,PD Hasanah,Product Launch,2025-12-14,Pendopo Ballroom,259,108807000,completed
+EV00951,P03,VN012,PT Mandasari (Persero) Tbk,Gala Dinner,2025-12-18,Joglo Garden,50,27334000,completed
+EV00952,P03,VN011,CV Rajasa (Persero) Tbk,Corporate Meeting,2025-12-23,Pendopo Ballroom,246,56834000,completed
+EV00953,P03,VN011,Karimah & Vivi,Wedding,2026-01-08,Pendopo Ballroom,218,171358000,completed
+EV00954,P03,VN013,CV Melani,Training/Workshop,2026-01-25,Batik Meeting Room,39,9834000,completed
+EV00955,P03,VN013,PT Budiman,Corporate Meeting,2026-01-16,Batik Meeting Room,30,8014000,completed
+EV00956,P03,VN012,Jindra & Bakiman,Wedding,2026-01-19,Joglo Garden,137,108996000,completed
+EV00957,P03,VN011,UD Winarno Maryadi (Persero) Tbk,Conference,2026-01-15,Pendopo Ballroom,259,88910000,completed
+EV00958,P03,VN011,Perum Yolanda,Corporate Meeting,2026-02-08,Pendopo Ballroom,239,82417000,completed
+EV00959,P03,VN012,CV Sinaga Prayoga Tbk,Gala Dinner,2026-02-28,Joglo Garden,113,64091000,completed
+EV00960,P03,VN013,UD Hutagalung Tbk,Corporate Meeting,2026-02-06,Batik Meeting Room,29,8857000,completed
+EV00961,P03,VN011,Digdaya & Cindy,Wedding,2026-02-05,Pendopo Ballroom,195,140901000,completed
+EV00962,P03,VN012,CV Prasetyo,Gala Dinner,2026-02-09,Joglo Garden,139,67796000,completed
+EV00963,P03,VN011,PD Hidayat,Corporate Meeting,2026-02-04,Pendopo Ballroom,211,53866000,completed
+EV00964,P03,VN011,UD Saragih Simbolon (Persero) Tbk,Corporate Meeting,2026-02-10,Pendopo Ballroom,231,62720000,completed
+EV00965,P03,VN012,Intan & Vino,Wedding,2026-02-14,Joglo Garden,102,50147000,completed
+EV00966,P03,VN012,Agus & Okto,Wedding,2026-02-11,Joglo Garden,108,53527000,completed
+EV00967,P03,VN011,UD Pratiwi Sihombing,Corporate Meeting,2026-02-09,Pendopo Ballroom,177,48855000,completed
+EV00968,P03,VN011,PD Uwais Rahayu,Corporate Meeting,2026-02-24,Pendopo Ballroom,85,19998000,completed
+EV00969,P03,VN011,CV Palastri Prasasta (Persero) Tbk,Corporate Meeting,2026-02-26,Pendopo Ballroom,222,51295000,completed
+EV00970,P03,VN013,PD Dongoran,Training/Workshop,2026-03-25,Batik Meeting Room,37,9022000,completed
+EV00971,P03,VN013,Perum Situmorang Usada,Corporate Meeting,2026-03-09,Batik Meeting Room,37,10299000,cancelled
+EV00972,P03,VN011,UD Adriansyah,Corporate Meeting,2026-03-18,Pendopo Ballroom,269,65554000,completed
+EV00973,P03,VN013,UD Jailani Putra (Persero) Tbk,Product Launch,2026-03-20,Batik Meeting Room,44,21156000,completed
+EV00974,P03,VN011,Salman & Ani,Wedding,2026-03-07,Pendopo Ballroom,84,54364000,completed
+EV00975,P03,VN011,CV Setiawan,Conference,2026-03-22,Pendopo Ballroom,114,39334000,completed
+EV00976,P03,VN011,PT Pradipta,Corporate Meeting,2026-03-28,Pendopo Ballroom,67,12896000,completed
+EV00977,P03,VN011,Eka & Rudi,Wedding,2026-03-26,Pendopo Ballroom,248,177490000,completed
+EV00978,P03,VN011,PD Hutasoit (Persero) Tbk,Conference,2026-03-21,Pendopo Ballroom,81,24354000,completed
+EV00979,P03,VN011,PD Hutagalung Rahayu,Corporate Meeting,2026-05-20,Pendopo Ballroom,112,23990000,completed
+EV00980,P03,VN012,Jasmin & Bancar,Wedding,2026-05-12,Joglo Garden,89,68483000,completed
+EV00981,P03,VN013,CV Prakasa Siregar Tbk,Corporate Meeting,2026-05-07,Batik Meeting Room,37,9784000,cancelled
+EV00982,P03,VN013,PD Simbolon Tbk,Corporate Meeting,2026-05-19,Batik Meeting Room,33,6657000,completed
+EV00983,P03,VN011,UD Pradipta Hutagalung (Persero) Tbk,Conference,2026-06-03,Pendopo Ballroom,203,54160000,completed
+EV00984,P03,VN012,Empluk & Laila,Wedding,2026-06-14,Joglo Garden,137,101947000,completed
+EV00985,P03,VN011,CV Kurniawan,Conference,2026-06-01,Pendopo Ballroom,167,56611000,completed
+EV00986,P03,VN011,PD Hastuti Sihotang,Conference,2026-06-28,Pendopo Ballroom,82,20916000,confirmed
+EV00987,P03,VN011,Rahmat & Dimas,Wedding,2026-06-07,Pendopo Ballroom,258,209596000,completed
+EV00988,P03,VN011,CV Hartati Tbk,Product Launch,2026-06-16,Pendopo Ballroom,173,72487000,completed
+EV00989,P03,VN011,UD Lazuardi Iswahyudi (Persero) Tbk,Corporate Meeting,2026-06-19,Pendopo Ballroom,54,11109000,completed
+EV00990,P04,VN014,Yulia & Lulut,Wedding,2023-07-09,Pinus Ballroom,201,124917000,completed
+EV00991,P04,VN015,Zamira & Novi,Wedding,2023-07-07,Hillside Garden,170,122663000,completed
+EV00992,P04,VN014,CV Simbolon,Conference,2023-07-06,Pinus Ballroom,209,85556000,completed
+EV00993,P04,VN017,PT Prayoga Tamba,Product Launch,2023-07-21,Melati Meeting Room,12,5608000,completed
+EV00994,P04,VN014,Perum Hardiansyah Wastuti Tbk,Corporate Meeting,2023-07-05,Pinus Ballroom,91,20075000,completed
+EV00995,P04,VN014,Karma & Gantar,Wedding,2023-08-20,Pinus Ballroom,277,182110000,completed
+EV00996,P04,VN016,PD Hartati,Corporate Meeting,2023-08-11,Cendana Meeting Room,47,13015000,completed
+EV00997,P04,VN016,PT Hariyah Jailani,Corporate Meeting,2023-08-13,Cendana Meeting Room,56,21402000,completed
+EV00998,P04,VN016,PT Budiman Halim,Product Launch,2023-08-22,Cendana Meeting Room,22,7902000,completed
+EV00999,P04,VN014,CV Napitupulu Wacana,Conference,2023-08-23,Pinus Ballroom,307,112891000,completed
+EV01000,P04,VN016,PT Padmasari Tbk,Corporate Meeting,2023-08-25,Cendana Meeting Room,17,3855000,completed
+EV01001,P04,VN014,Cakrawala & Artawan,Wedding,2023-08-15,Pinus Ballroom,126,110089000,completed
+EV01002,P04,VN016,CV Yuliarti,Corporate Meeting,2023-08-14,Cendana Meeting Room,36,10105000,completed
+EV01003,P04,VN015,Tirta & Edi,Wedding,2023-09-12,Hillside Garden,122,74084000,cancelled
+EV01004,P04,VN014,Cengkal & Mujur,Wedding,2023-09-07,Pinus Ballroom,293,194439000,completed
+EV01005,P04,VN017,PT Hariyah,Product Launch,2023-09-21,Melati Meeting Room,25,12460000,completed
+EV01006,P04,VN014,CV Pertiwi,Conference,2023-09-23,Pinus Ballroom,258,96312000,completed
+EV01007,P04,VN014,PD Mandasari Dabukke Tbk,Conference,2023-09-08,Pinus Ballroom,76,36332000,completed
+EV01008,P04,VN014,CV Thamrin Prabowo (Persero) Tbk,Conference,2023-09-11,Pinus Ballroom,193,62889000,completed
+EV01009,P04,VN014,UD Hassanah (Persero) Tbk,Conference,2023-09-26,Pinus Ballroom,119,51902000,completed
+EV01010,P04,VN014,Perum Safitri,Corporate Meeting,2023-09-04,Pinus Ballroom,208,60845000,completed
+EV01011,P04,VN017,UD Mandasari Zulkarnain,Corporate Meeting,2023-09-12,Melati Meeting Room,20,5558000,completed
+EV01012,P04,VN014,PT Irawan Setiawan Tbk,Conference,2023-09-05,Pinus Ballroom,243,103950000,completed
+EV01013,P04,VN014,Endra & Salman,Wedding,2023-10-18,Pinus Ballroom,325,187222000,completed
+EV01014,P04,VN014,Perum Prayoga Usamah,Conference,2023-10-28,Pinus Ballroom,309,134021000,completed
+EV01015,P04,VN014,PD Tamba,Conference,2023-10-26,Pinus Ballroom,235,106422000,completed
+EV01016,P04,VN014,Perum Laksita Situmorang Tbk,Conference,2023-10-27,Pinus Ballroom,217,87037000,completed
+EV01017,P04,VN014,Prayoga & Kayun,Wedding,2023-10-08,Pinus Ballroom,300,212190000,completed
+EV01018,P04,VN016,PT Simanjuntak Riyanti,Corporate Meeting,2023-10-14,Cendana Meeting Room,51,14088000,completed
+EV01019,P04,VN015,Ismail & Asmuni,Wedding,2023-11-04,Hillside Garden,165,126273000,completed
+EV01020,P04,VN014,PT Halimah Tbk,Conference,2023-11-02,Pinus Ballroom,316,110977000,completed
+EV01021,P04,VN016,CV Januar Prayoga,Corporate Meeting,2023-11-04,Cendana Meeting Room,56,18036000,completed
+EV01022,P04,VN014,UD Nasyidah Hakim,Conference,2023-11-22,Pinus Ballroom,209,79447000,completed
+EV01023,P04,VN014,Perum Wibisono Thamrin,Corporate Meeting,2023-11-25,Pinus Ballroom,134,42296000,completed
+EV01024,P04,VN017,CV Prakasa Rahayu,Corporate Meeting,2023-12-04,Melati Meeting Room,21,6194000,completed
+EV01025,P04,VN015,Makara & Zelda,Wedding,2023-12-20,Hillside Garden,150,105689000,cancelled
+EV01026,P04,VN014,Nasim & Maya,Wedding,2023-12-09,Pinus Ballroom,271,148468000,completed
+EV01027,P04,VN017,UD Purnawati,Corporate Meeting,2023-12-12,Melati Meeting Room,29,11605000,completed
+EV01028,P04,VN014,Perum Nainggolan Lailasari,Conference,2023-12-24,Pinus Ballroom,194,72931000,completed
+EV01029,P04,VN014,CV Lestari (Persero) Tbk,Corporate Meeting,2024-01-06,Pinus Ballroom,202,57226000,completed
+EV01030,P04,VN017,PT Pradipta,Training/Workshop,2024-01-03,Melati Meeting Room,28,6558000,completed
+EV01031,P04,VN015,Natalia & Ismail,Wedding,2024-01-15,Hillside Garden,68,45953000,cancelled
+EV01032,P04,VN014,Perum Kuswandari,Corporate Meeting,2024-01-13,Pinus Ballroom,284,83184000,completed
+EV01033,P04,VN015,UD Susanti,Gala Dinner,2024-01-21,Hillside Garden,159,88612000,completed
+EV01034,P04,VN014,CV Siregar Nugroho,Conference,2024-01-05,Pinus Ballroom,270,97775000,cancelled
+EV01035,P04,VN014,PT Damanik (Persero) Tbk,Corporate Meeting,2024-01-27,Pinus Ballroom,242,72535000,completed
+EV01036,P04,VN015,Lidya & Edi,Wedding,2024-01-25,Hillside Garden,176,124589000,completed
+EV01037,P04,VN016,Perum Utama,Corporate Meeting,2024-01-02,Cendana Meeting Room,47,14480000,cancelled
+EV01038,P04,VN016,UD Wijayanti,Corporate Meeting,2024-01-26,Cendana Meeting Room,56,15504000,cancelled
+EV01039,P04,VN014,Perum Januar Sirait Tbk,Corporate Meeting,2024-02-18,Pinus Ballroom,109,32236000,completed
+EV01040,P04,VN015,Mariadi & Empluk,Wedding,2024-02-05,Hillside Garden,136,89008000,cancelled
+EV01041,P04,VN015,Galih & Taufan,Wedding,2024-02-13,Hillside Garden,134,115203000,completed
+EV01042,P04,VN016,UD Natsir Purwanti Tbk,Corporate Meeting,2024-02-05,Cendana Meeting Room,48,13793000,completed
+EV01043,P04,VN015,Ivan & Uchita,Wedding,2024-03-08,Hillside Garden,121,97533000,completed
+EV01044,P04,VN014,PD Samosir Sihombing,Gala Dinner,2024-03-03,Pinus Ballroom,299,171336000,completed
+EV01045,P04,VN014,CV Adriansyah Pertiwi,Conference,2024-03-28,Pinus Ballroom,208,88276000,completed
+EV01046,P04,VN015,Purwa & Jasmin,Wedding,2024-04-23,Hillside Garden,182,115915000,completed
+EV01047,P04,VN014,CV Suartini,Corporate Meeting,2024-04-25,Pinus Ballroom,113,37808000,completed
+EV01048,P04,VN016,Perum Prasetya (Persero) Tbk,Corporate Meeting,2024-04-28,Cendana Meeting Room,37,13426000,completed
+EV01049,P04,VN014,CV Sitompul Hutagalung (Persero) Tbk,Corporate Meeting,2024-04-16,Pinus Ballroom,291,84894000,completed
+EV01050,P04,VN016,UD Marbun (Persero) Tbk,Corporate Meeting,2024-04-20,Cendana Meeting Room,37,11208000,completed
+EV01051,P04,VN016,PD Anggriawan Tbk,Corporate Meeting,2024-04-05,Cendana Meeting Room,42,14375000,completed
+EV01052,P04,VN015,Hari & Jamil,Wedding,2024-05-09,Hillside Garden,172,151601000,completed
+EV01053,P04,VN017,UD Rajasa,Corporate Meeting,2024-05-22,Melati Meeting Room,31,11455000,completed
+EV01054,P04,VN014,PT Hardiansyah,Conference,2024-05-07,Pinus Ballroom,270,75497000,completed
+EV01055,P04,VN014,PD Andriani Marbun Tbk,Corporate Meeting,2024-05-25,Pinus Ballroom,257,68405000,completed
+EV01056,P04,VN017,PD Tampubolon Palastri Tbk,Corporate Meeting,2024-05-01,Melati Meeting Room,30,8361000,completed
+EV01057,P04,VN014,PD Permata,Corporate Meeting,2024-06-12,Pinus Ballroom,202,67501000,completed
+EV01058,P04,VN014,CV Hartati Hidayanto,Conference,2024-06-03,Pinus Ballroom,255,81563000,completed
+EV01059,P04,VN016,UD Damanik,Corporate Meeting,2024-06-27,Cendana Meeting Room,46,14879000,cancelled
+EV01060,P04,VN014,UD Jailani (Persero) Tbk,Conference,2024-06-26,Pinus Ballroom,308,91944000,completed
+EV01061,P04,VN017,CV Waluyo (Persero) Tbk,Corporate Meeting,2024-06-01,Melati Meeting Room,29,8820000,completed
+EV01062,P04,VN014,Cakrawala & Hana,Wedding,2024-06-08,Pinus Ballroom,205,137748000,completed
+EV01063,P04,VN016,UD Riyanti,Training/Workshop,2024-06-04,Cendana Meeting Room,54,12474000,completed
+EV01064,P04,VN014,PT Astuti Yolanda (Persero) Tbk,Corporate Meeting,2024-06-05,Pinus Ballroom,102,28024000,completed
+EV01065,P04,VN016,CV Habibi Januar Tbk,Corporate Meeting,2024-07-14,Cendana Meeting Room,56,20344000,completed
+EV01066,P04,VN014,CV Wasita Puspasari,Conference,2024-07-24,Pinus Ballroom,227,89657000,completed
+EV01067,P04,VN016,UD Salahudin (Persero) Tbk,Corporate Meeting,2024-07-03,Cendana Meeting Room,49,14765000,cancelled
+EV01068,P04,VN014,Dadi & Baktiadi,Wedding,2024-07-07,Pinus Ballroom,313,257255000,completed
+EV01069,P04,VN015,Panji & Kani,Wedding,2024-07-18,Hillside Garden,145,91256000,completed
+EV01070,P04,VN015,Hasna & Ami,Wedding,2024-07-07,Hillside Garden,168,130270000,completed
+EV01071,P04,VN014,PT Tarihoran Adriansyah,Gala Dinner,2024-07-01,Pinus Ballroom,292,198863000,completed
+EV01072,P04,VN016,PT Sihombing Wijayanti Tbk,Training/Workshop,2024-07-11,Cendana Meeting Room,50,10874000,completed
+EV01073,P04,VN015,Heru & Dagel,Wedding,2024-08-03,Hillside Garden,130,96770000,completed
+EV01074,P04,VN014,CV Narpati,Conference,2024-08-06,Pinus Ballroom,299,121576000,completed
+EV01075,P04,VN014,PT Kusmawati (Persero) Tbk,Conference,2024-08-05,Pinus Ballroom,276,88207000,completed
+EV01076,P04,VN016,PD Halimah Tbk,Corporate Meeting,2024-08-11,Cendana Meeting Room,49,8989000,completed
+EV01077,P04,VN014,Tania & Karta,Wedding,2024-08-15,Pinus Ballroom,204,134337000,cancelled
+EV01078,P04,VN014,Cemplunk & Suci,Wedding,2024-08-02,Pinus Ballroom,275,193759000,completed
+EV01079,P04,VN014,CV Uwais Wibowo Tbk,Conference,2024-08-01,Pinus Ballroom,318,142469000,completed
+EV01080,P04,VN014,PD Gunawan Saptono,Conference,2024-08-12,Pinus Ballroom,214,76618000,completed
+EV01081,P04,VN015,Tasnim & Wadi,Wedding,2024-09-10,Hillside Garden,165,86132000,completed
+EV01082,P04,VN014,CV Santoso (Persero) Tbk,Gala Dinner,2024-09-05,Pinus Ballroom,325,157322000,completed
+EV01083,P04,VN014,PT Hutasoit Winarsih,Conference,2024-09-20,Pinus Ballroom,255,103818000,completed
+EV01084,P04,VN015,Malik & Gilda,Wedding,2024-10-17,Hillside Garden,169,128290000,completed
+EV01085,P04,VN014,Perum Pradana Puspasari (Persero) Tbk,Conference,2024-10-17,Pinus Ballroom,289,130602000,completed
+EV01086,P04,VN014,Prayitna & Elisa,Wedding,2024-11-05,Pinus Ballroom,204,168888000,completed
+EV01087,P04,VN015,Raihan & Gabriella,Wedding,2024-11-25,Hillside Garden,37,21101000,completed
+EV01088,P04,VN016,Perum Prakasa Kusmawati Tbk,Corporate Meeting,2024-11-25,Cendana Meeting Room,34,11462000,completed
+EV01089,P04,VN016,PD Firmansyah,Training/Workshop,2024-11-21,Cendana Meeting Room,36,8728000,completed
+EV01090,P04,VN014,PT Hassanah Natsir,Corporate Meeting,2024-11-24,Pinus Ballroom,246,51164000,completed
+EV01091,P04,VN017,CV Nababan Mahendra,Product Launch,2024-11-22,Melati Meeting Room,29,12900000,completed
+EV01092,P04,VN014,Bakiadi & Slamet,Wedding,2024-11-12,Pinus Ballroom,199,112113000,completed
+EV01093,P04,VN015,Candrakanta & Wani,Wedding,2024-12-04,Hillside Garden,39,34622000,completed
+EV01094,P04,VN014,Tedi & Hadi,Wedding,2024-12-23,Pinus Ballroom,288,183431000,completed
+EV01095,P04,VN014,Perum Rajata Simanjuntak,Corporate Meeting,2024-12-08,Pinus Ballroom,251,61000000,completed
+EV01096,P04,VN014,PT Wibisono,Corporate Meeting,2024-12-16,Pinus Ballroom,312,85830000,completed
+EV01097,P04,VN014,Perum Simbolon Saefullah Tbk,Conference,2025-01-08,Pinus Ballroom,301,143679000,completed
+EV01098,P04,VN017,Perum Rahmawati,Corporate Meeting,2025-01-15,Melati Meeting Room,23,6921000,completed
+EV01099,P04,VN014,Elisa & Salman,Wedding,2025-01-18,Pinus Ballroom,249,155816000,cancelled
+EV01100,P04,VN014,Darmanto & Radit,Wedding,2025-01-17,Pinus Ballroom,278,225032000,completed
+EV01101,P04,VN017,CV Purnawati Rahmawati,Product Launch,2025-01-22,Melati Meeting Room,9,3792000,completed
+EV01102,P04,VN015,Lalita & Daliono,Wedding,2025-01-15,Hillside Garden,177,114960000,completed
+EV01103,P04,VN017,Perum Januar,Corporate Meeting,2025-02-22,Melati Meeting Room,24,7013000,completed
+EV01104,P04,VN014,Perum Situmorang Tbk,Corporate Meeting,2025-02-01,Pinus Ballroom,324,82830000,completed
+EV01105,P04,VN016,PD Yolanda Tbk,Training/Workshop,2025-02-18,Cendana Meeting Room,52,11422000,completed
+EV01106,P04,VN017,PT Natsir Saefullah Tbk,Corporate Meeting,2025-02-27,Melati Meeting Room,23,7905000,completed
+EV01107,P04,VN016,Perum Sudiati Zulaika,Product Launch,2025-02-05,Cendana Meeting Room,39,16776000,completed
+EV01108,P04,VN015,Zulfa & Rangga,Wedding,2025-02-28,Hillside Garden,177,112141000,completed
+EV01109,P04,VN016,PD Sitompul,Training/Workshop,2025-02-02,Cendana Meeting Room,53,10821000,cancelled
+EV01110,P04,VN016,PT Kusmawati Santoso,Training/Workshop,2025-02-01,Cendana Meeting Room,52,8970000,completed
+EV01111,P04,VN017,PT Sirait Tbk,Training/Workshop,2025-02-08,Melati Meeting Room,32,6501000,completed
+EV01112,P04,VN014,UD Lestari (Persero) Tbk,Corporate Meeting,2025-03-24,Pinus Ballroom,93,21644000,completed
+EV01113,P04,VN015,Jaga & Embuh,Wedding,2025-03-23,Hillside Garden,80,61414000,completed
+EV01114,P04,VN015,Limar & Timbul,Wedding,2025-03-03,Hillside Garden,163,99404000,completed
+EV01115,P04,VN016,UD Agustina (Persero) Tbk,Product Launch,2025-04-18,Cendana Meeting Room,37,19861000,completed
+EV01116,P04,VN014,PD Prabowo Wasita,Conference,2025-04-22,Pinus Ballroom,212,89242000,completed
+EV01117,P04,VN014,Perum Wahyudin Hakim (Persero) Tbk,Product Launch,2025-04-28,Pinus Ballroom,330,103310000,completed
+EV01118,P04,VN017,UD Mayasari,Corporate Meeting,2025-04-28,Melati Meeting Room,19,6195000,completed
+EV01119,P04,VN017,CV Novitasari Purnawati (Persero) Tbk,Corporate Meeting,2025-04-22,Melati Meeting Room,24,7463000,completed
+EV01120,P04,VN014,CV Pangestu Hakim,Gala Dinner,2025-04-11,Pinus Ballroom,279,163722000,completed
+EV01121,P04,VN015,Jamil & Atmaja,Wedding,2025-04-08,Hillside Garden,113,73903000,completed
+EV01122,P04,VN014,PT Tarihoran Napitupulu Tbk,Conference,2025-04-15,Pinus Ballroom,280,119378000,completed
+EV01123,P04,VN015,Okto & Wisnu,Wedding,2025-04-22,Hillside Garden,167,148308000,completed
+EV01124,P04,VN017,PT Zulaika Dabukke (Persero) Tbk,Corporate Meeting,2025-05-17,Melati Meeting Room,21,6123000,completed
+EV01125,P04,VN016,PD Riyanti Tbk,Product Launch,2025-05-20,Cendana Meeting Room,51,22126000,cancelled
+EV01126,P04,VN014,Garang & Warta,Wedding,2025-05-06,Pinus Ballroom,235,146434000,completed
+EV01127,P04,VN015,Lidya & Ika,Wedding,2025-06-19,Hillside Garden,78,67146000,completed
+EV01128,P04,VN016,UD Marpaung Tbk,Corporate Meeting,2025-06-16,Cendana Meeting Room,14,2428000,completed
+EV01129,P04,VN014,Yunita & Cemeti,Wedding,2025-06-03,Pinus Ballroom,316,204579000,completed
+EV01130,P04,VN014,PT Winarno (Persero) Tbk,Conference,2025-06-14,Pinus Ballroom,271,77165000,completed
+EV01131,P04,VN017,Perum Prabowo Prasetya,Corporate Meeting,2025-06-06,Melati Meeting Room,29,6120000,completed
+EV01132,P04,VN016,CV Santoso Yulianti,Training/Workshop,2025-06-09,Cendana Meeting Room,42,11597000,completed
+EV01133,P04,VN014,Perum Damanik Zulaika (Persero) Tbk,Conference,2025-07-26,Pinus Ballroom,200,68392000,completed
+EV01134,P04,VN016,CV Yuliarti Natsir (Persero) Tbk,Corporate Meeting,2025-07-27,Cendana Meeting Room,42,13211000,completed
+EV01135,P04,VN014,Ikin & Johan,Wedding,2025-07-16,Pinus Ballroom,318,189423000,completed
+EV01136,P04,VN015,UD Anggraini Tbk,Gala Dinner,2025-07-21,Hillside Garden,160,95799000,completed
+EV01137,P04,VN017,PD Ramadan (Persero) Tbk,Training/Workshop,2025-07-12,Melati Meeting Room,27,6308000,completed
+EV01138,P04,VN017,UD Wastuti Nurdiyanti Tbk,Corporate Meeting,2025-07-26,Melati Meeting Room,32,7674000,completed
+EV01139,P04,VN015,Laila & Damu,Wedding,2025-07-26,Hillside Garden,173,126322000,completed
+EV01140,P04,VN014,Perum Wijayanti,Conference,2025-07-11,Pinus Ballroom,225,95233000,completed
+EV01141,P04,VN014,Perum Yuliarti Tbk,Conference,2025-07-14,Pinus Ballroom,310,128622000,completed
+EV01142,P04,VN014,PT Laksmiwati (Persero) Tbk,Corporate Meeting,2025-08-01,Pinus Ballroom,113,31901000,completed
+EV01143,P04,VN016,UD Uyainah Tbk,Product Launch,2025-08-14,Cendana Meeting Room,12,6222000,completed
+EV01144,P04,VN014,UD Yolanda Tbk,Conference,2025-08-10,Pinus Ballroom,128,54388000,completed
+EV01145,P04,VN014,Harimurti & Eja,Wedding,2025-09-24,Pinus Ballroom,107,67579000,completed
+EV01146,P04,VN014,PT Rahimah Waskita,Product Launch,2025-09-17,Pinus Ballroom,95,36067000,completed
+EV01147,P04,VN014,Tania & Manah,Wedding,2025-09-09,Pinus Ballroom,231,164346000,cancelled
+EV01148,P04,VN014,Wulan & Estiono,Wedding,2025-09-20,Pinus Ballroom,245,172583000,completed
+EV01149,P04,VN014,PD Sihombing,Gala Dinner,2025-10-02,Pinus Ballroom,116,68993000,cancelled
+EV01150,P04,VN014,PD Waskita Tbk,Product Launch,2025-10-17,Pinus Ballroom,282,169566000,completed
+EV01151,P04,VN017,Perum Pertiwi,Training/Workshop,2025-10-17,Melati Meeting Room,23,5951000,completed
+EV01152,P04,VN014,UD Prasetya Nasyidah,Product Launch,2025-11-10,Pinus Ballroom,246,131102000,completed
+EV01153,P04,VN016,UD Mayasari Salahudin (Persero) Tbk,Product Launch,2025-11-14,Cendana Meeting Room,42,21277000,completed
+EV01154,P04,VN016,UD Kuswoyo Halimah,Training/Workshop,2025-11-09,Cendana Meeting Room,11,2493000,completed
+EV01155,P04,VN017,UD Purwanti Najmudin,Corporate Meeting,2025-11-07,Melati Meeting Room,24,6414000,completed
+EV01156,P04,VN017,PT Prasetya Tbk,Corporate Meeting,2025-11-13,Melati Meeting Room,19,6455000,completed
+EV01157,P04,VN015,Ivan & Luwes,Wedding,2025-11-21,Hillside Garden,37,29548000,completed
+EV01158,P04,VN015,Saadat & Mujur,Wedding,2025-11-07,Hillside Garden,144,96954000,completed
+EV01159,P04,VN017,UD Padmasari Tbk,Corporate Meeting,2025-11-21,Melati Meeting Room,22,4561000,cancelled
+EV01160,P04,VN014,PT Halimah Habibi (Persero) Tbk,Conference,2025-11-09,Pinus Ballroom,96,40336000,completed
+EV01161,P04,VN014,CV Mardhiyah Lazuardi Tbk,Conference,2025-11-17,Pinus Ballroom,271,123059000,completed
+EV01162,P04,VN016,PD Habibi (Persero) Tbk,Training/Workshop,2025-11-02,Cendana Meeting Room,47,9670000,completed
+EV01163,P04,VN014,CV Siregar Wasita,Gala Dinner,2025-11-13,Pinus Ballroom,294,199601000,cancelled
+EV01164,P04,VN015,Kamaria & Vinsen,Wedding,2025-11-15,Hillside Garden,180,153820000,completed
+EV01165,P04,VN015,UD Najmudin Hutapea,Gala Dinner,2025-12-23,Hillside Garden,136,92316000,completed
+EV01166,P04,VN015,UD Usamah Nugroho Tbk,Gala Dinner,2025-12-26,Hillside Garden,172,105806000,completed
+EV01167,P04,VN014,PT Hartati,Corporate Meeting,2025-12-02,Pinus Ballroom,294,75508000,completed
+EV01168,P04,VN016,CV Narpati (Persero) Tbk,Corporate Meeting,2025-12-20,Cendana Meeting Room,50,11848000,completed
+EV01169,P04,VN014,PT Mustofa Susanti Tbk,Product Launch,2025-12-01,Pinus Ballroom,117,48812000,completed
+EV01170,P04,VN014,PD Aryani Kuswandari Tbk,Corporate Meeting,2025-12-19,Pinus Ballroom,326,121415000,completed
+EV01171,P04,VN017,PT Nasyidah,Corporate Meeting,2025-12-17,Melati Meeting Room,25,5528000,completed
+EV01172,P04,VN014,UD Budiman Sinaga,Conference,2025-12-03,Pinus Ballroom,144,68499000,completed
+EV01173,P04,VN014,PT Wastuti Ardianto,Conference,2025-12-24,Pinus Ballroom,326,159249000,completed
+EV01174,P04,VN017,CV Situmorang Saragih,Corporate Meeting,2025-12-20,Melati Meeting Room,30,8882000,completed
+EV01175,P04,VN016,PT Winarno Mardhiyah,Corporate Meeting,2025-12-09,Cendana Meeting Room,47,17187000,completed
+EV01176,P04,VN014,CV Haryanto (Persero) Tbk,Product Launch,2025-12-10,Pinus Ballroom,310,144270000,completed
+EV01177,P04,VN014,UD Hasanah Tbk,Gala Dinner,2025-12-04,Pinus Ballroom,295,177227000,completed
+EV01178,P04,VN014,CV Siregar Lestari Tbk,Corporate Meeting,2025-12-13,Pinus Ballroom,199,53166000,completed
+EV01179,P04,VN015,Harimurti & Gambira,Wedding,2025-12-10,Hillside Garden,180,123024000,completed
+EV01180,P04,VN017,PT Pradana Prasetyo (Persero) Tbk,Corporate Meeting,2026-01-06,Melati Meeting Room,29,9325000,completed
+EV01181,P04,VN017,PT Rahmawati Mayasari,Corporate Meeting,2026-01-22,Melati Meeting Room,30,7211000,completed
+EV01182,P04,VN014,PT Utama Yulianti,Conference,2026-01-25,Pinus Ballroom,142,48359000,completed
+EV01183,P04,VN014,PD Uyainah,Conference,2026-02-13,Pinus Ballroom,330,126362000,completed
+EV01184,P04,VN014,Perum Oktaviani (Persero) Tbk,Conference,2026-02-23,Pinus Ballroom,319,117885000,completed
+EV01185,P04,VN017,PT Yolanda,Corporate Meeting,2026-02-02,Melati Meeting Room,22,6060000,completed
+EV01186,P04,VN015,PT Latupono,Gala Dinner,2026-02-13,Hillside Garden,146,99877000,completed
+EV01187,P04,VN014,Rafi & Tirta,Wedding,2026-03-13,Pinus Ballroom,249,136958000,completed
+EV01188,P04,VN017,PT Pudjiastuti Ramadan Tbk,Product Launch,2026-03-13,Melati Meeting Room,27,11522000,completed
+EV01189,P04,VN014,CV Usamah Anggriawan,Conference,2026-03-10,Pinus Ballroom,212,56035000,completed
+EV01190,P04,VN014,PD Wijayanti (Persero) Tbk,Corporate Meeting,2026-04-24,Pinus Ballroom,266,73310000,completed
+EV01191,P04,VN014,Perum Sudiati (Persero) Tbk,Corporate Meeting,2026-04-01,Pinus Ballroom,282,92938000,completed
+EV01192,P04,VN014,PT Melani Safitri (Persero) Tbk,Corporate Meeting,2026-04-23,Pinus Ballroom,138,44758000,completed
+EV01193,P04,VN014,PT Kurniawan Tbk,Product Launch,2026-04-05,Pinus Ballroom,319,130402000,cancelled
+EV01194,P04,VN014,Perum Pangestu Saptono,Conference,2026-04-17,Pinus Ballroom,84,40093000,completed
+EV01195,P04,VN016,UD Wasita Sihombing,Corporate Meeting,2026-04-04,Cendana Meeting Room,16,5220000,completed
+EV01196,P04,VN016,PT Pudjiastuti Mandasari,Training/Workshop,2026-05-24,Cendana Meeting Room,13,3770000,completed
+EV01197,P04,VN015,Heryanto & Yuni,Wedding,2026-05-19,Hillside Garden,74,44000000,completed
+EV01198,P04,VN015,Yono & Mitra,Wedding,2026-05-15,Hillside Garden,151,111510000,completed
+EV01199,P04,VN014,PT Budiman Winarsih,Conference,2026-05-20,Pinus Ballroom,328,131889000,completed
+EV01200,P04,VN014,PT Pertiwi,Corporate Meeting,2026-05-19,Pinus Ballroom,325,105021000,completed
+EV01201,P04,VN015,Ulva & Aurora,Wedding,2026-05-25,Hillside Garden,139,90143000,cancelled
+EV01202,P04,VN016,PT Melani Hutagalung,Product Launch,2026-05-08,Cendana Meeting Room,38,17509000,completed
+EV01203,P04,VN014,UD Yuniar,Gala Dinner,2026-05-27,Pinus Ballroom,199,119792000,completed
+EV01204,P04,VN014,PD Sihombing Saptono,Conference,2026-05-26,Pinus Ballroom,210,79429000,cancelled
+EV01205,P04,VN015,Wisnu & Baktianto,Wedding,2026-05-23,Hillside Garden,143,108843000,completed
+EV01206,P04,VN015,Daliono & Gantar,Wedding,2026-05-09,Hillside Garden,151,106963000,completed
+EV01207,P04,VN014,UD Tarihoran,Product Launch,2026-06-14,Pinus Ballroom,272,122352000,completed
+EV01208,P04,VN015,Victoria & Luis,Wedding,2026-06-21,Hillside Garden,150,99349000,completed
+EV01209,P04,VN014,PT Kuswoyo Gunawan (Persero) Tbk,Corporate Meeting,2026-06-09,Pinus Ballroom,287,73682000,completed
+EV01210,P04,VN014,CV Sitompul Tamba,Conference,2026-06-19,Pinus Ballroom,317,145390000,completed
+EV01211,P04,VN014,Perum Santoso Iswahyudi Tbk,Gala Dinner,2026-06-16,Pinus Ballroom,232,167302000,cancelled
+EV01212,P04,VN015,CV Latupono Tbk,Gala Dinner,2026-06-17,Hillside Garden,182,94070000,cancelled
+EV01213,P05,VN018,PD Saputra Winarno Tbk,Conference,2023-07-07,Ombak Ballroom,190,94021000,completed
+EV01214,P05,VN020,CV Kusumo Mustofa (Persero) Tbk,Training/Workshop,2023-07-02,Gili Meeting Room,29,10048000,completed
+EV01215,P05,VN020,PT Agustina Rahayu,Training/Workshop,2023-07-22,Gili Meeting Room,36,9880000,completed
+EV01216,P05,VN019,Ade & Jelita,Wedding,2023-07-11,Beach Wedding Lawn,141,164637000,completed
+EV01217,P05,VN019,Violet & Taufik,Wedding,2023-08-22,Beach Wedding Lawn,43,42527000,completed
+EV01218,P05,VN020,Perum Wibowo Tamba,Product Launch,2023-08-22,Gili Meeting Room,14,7024000,completed
+EV01219,P05,VN018,CV Laksmiwati,Conference,2023-08-17,Ombak Ballroom,160,78829000,completed
+EV01220,P05,VN020,PT Zulkarnain Farida (Persero) Tbk,Corporate Meeting,2023-08-28,Gili Meeting Room,36,12611000,completed
+EV01221,P05,VN018,Budi & Karman,Wedding,2023-08-20,Ombak Ballroom,147,144921000,completed
+EV01222,P05,VN020,PT Wastuti (Persero) Tbk,Training/Workshop,2023-08-09,Gili Meeting Room,28,9221000,completed
+EV01223,P05,VN019,Ulva & Murti,Wedding,2023-09-09,Beach Wedding Lawn,139,127762000,completed
+EV01224,P05,VN018,PD Wijayanti,Corporate Meeting,2023-10-20,Ombak Ballroom,231,91735000,completed
+EV01225,P05,VN018,PD Situmorang Wijayanti,Gala Dinner,2023-10-15,Ombak Ballroom,198,145619000,completed
+EV01226,P05,VN020,CV Puspita Suryatmi (Persero) Tbk,Training/Workshop,2023-10-22,Gili Meeting Room,25,6575000,completed
+EV01227,P05,VN018,CV Mayasari,Gala Dinner,2023-11-10,Ombak Ballroom,103,96929000,completed
+EV01228,P05,VN018,PD Marbun Hutagalung Tbk,Gala Dinner,2023-11-20,Ombak Ballroom,162,120525000,completed
+EV01229,P05,VN020,CV Sitompul Tbk,Corporate Meeting,2023-11-17,Gili Meeting Room,37,13741000,completed
+EV01230,P05,VN020,Perum Prasetyo,Corporate Meeting,2023-12-23,Gili Meeting Room,34,14294000,completed
+EV01231,P05,VN018,PD Prakasa Hutapea Tbk,Conference,2023-12-20,Ombak Ballroom,235,97184000,completed
+EV01232,P05,VN020,Perum Hassanah Irawan Tbk,Corporate Meeting,2023-12-06,Gili Meeting Room,25,9282000,completed
+EV01233,P05,VN018,UD Lazuardi Mandasari (Persero) Tbk,Conference,2024-01-17,Ombak Ballroom,170,70687000,completed
+EV01234,P05,VN018,PD Zulkarnain,Conference,2024-01-10,Ombak Ballroom,137,60994000,completed
+EV01235,P05,VN020,Perum Pudjiastuti,Product Launch,2024-01-04,Gili Meeting Room,32,16349000,completed
+EV01236,P05,VN019,Abyasa & Cemplunk,Wedding,2024-01-16,Beach Wedding Lawn,130,107038000,completed
+EV01237,P05,VN020,Perum Purwanti (Persero) Tbk,Corporate Meeting,2024-02-06,Gili Meeting Room,30,7494000,completed
+EV01238,P05,VN018,UD Utama Habibi (Persero) Tbk,Corporate Meeting,2024-02-28,Ombak Ballroom,233,87415000,completed
+EV01239,P05,VN018,UD Purwanti Safitri Tbk,Product Launch,2024-02-22,Ombak Ballroom,164,97401000,completed
+EV01240,P05,VN019,PD Latupono (Persero) Tbk,Gala Dinner,2024-03-02,Beach Wedding Lawn,45,35183000,completed
+EV01241,P05,VN018,Tiara & Ibun,Wedding,2024-03-07,Ombak Ballroom,159,113713000,completed
+EV01242,P05,VN020,UD Thamrin,Corporate Meeting,2024-04-22,Gili Meeting Room,22,9902000,completed
+EV01243,P05,VN018,Perum Nurdiyanti Tbk,Conference,2024-04-13,Ombak Ballroom,85,38213000,completed
+EV01244,P05,VN020,PT Marbun,Training/Workshop,2024-04-14,Gili Meeting Room,27,10757000,completed
+EV01245,P05,VN018,CV Wasita Kurniawan Tbk,Conference,2024-04-15,Ombak Ballroom,138,62535000,completed
+EV01246,P05,VN020,CV Lazuardi Wijaya,Corporate Meeting,2024-05-13,Gili Meeting Room,9,2715000,completed
+EV01247,P05,VN020,PD Nainggolan Sirait,Corporate Meeting,2024-05-14,Gili Meeting Room,23,8019000,completed
+EV01248,P05,VN018,PD Gunawan,Product Launch,2024-05-14,Ombak Ballroom,205,109209000,completed
+EV01249,P05,VN019,PD Haryanti,Gala Dinner,2024-05-24,Beach Wedding Lawn,123,76292000,cancelled
+EV01250,P05,VN018,Tiara & Maria,Wedding,2024-05-26,Ombak Ballroom,163,141396000,completed
+EV01251,P05,VN019,Clara & Embuh,Wedding,2024-07-03,Beach Wedding Lawn,84,61931000,completed
+EV01252,P05,VN018,PT Nuraini Hardiansyah Tbk,Corporate Meeting,2024-07-28,Ombak Ballroom,194,66381000,completed
+EV01253,P05,VN018,Perum Nugroho Prastuti (Persero) Tbk,Product Launch,2024-07-14,Ombak Ballroom,172,99987000,completed
+EV01254,P05,VN020,PT Wibisono Wahyuni,Product Launch,2024-07-15,Gili Meeting Room,30,21329000,completed
+EV01255,P05,VN020,Perum Winarno Tbk,Training/Workshop,2024-08-26,Gili Meeting Room,27,8907000,completed
+EV01256,P05,VN019,Ophelia & Zaenab,Wedding,2024-08-10,Beach Wedding Lawn,117,112936000,completed
+EV01257,P05,VN018,UD Widodo Siregar,Conference,2024-09-14,Ombak Ballroom,216,114477000,completed
+EV01258,P05,VN018,PD Mansur (Persero) Tbk,Conference,2024-09-06,Ombak Ballroom,237,147624000,completed
+EV01259,P05,VN018,Perum Mulyani Salahudin Tbk,Product Launch,2024-09-19,Ombak Ballroom,154,102582000,completed
+EV01260,P05,VN020,CV Pranowo Oktaviani,Corporate Meeting,2024-09-20,Gili Meeting Room,36,9664000,completed
+EV01261,P05,VN020,UD Wulandari (Persero) Tbk,Training/Workshop,2024-09-11,Gili Meeting Room,29,9734000,completed
+EV01262,P05,VN018,Perum Namaga Uyainah,Gala Dinner,2024-09-15,Ombak Ballroom,182,126098000,completed
+EV01263,P05,VN019,Mariadi & Daru,Wedding,2024-10-04,Beach Wedding Lawn,108,118049000,completed
+EV01264,P05,VN018,Perum Kuswandari Tbk,Corporate Meeting,2024-10-19,Ombak Ballroom,172,44131000,completed
+EV01265,P05,VN018,PD Budiman (Persero) Tbk,Gala Dinner,2024-10-27,Ombak Ballroom,182,180695000,completed
+EV01266,P05,VN019,Asirwanda & Prabowo,Wedding,2024-10-19,Beach Wedding Lawn,97,90456000,completed
+EV01267,P05,VN018,PT Winarsih Hakim,Conference,2024-10-10,Ombak Ballroom,162,82293000,cancelled
+EV01268,P05,VN018,Heru & Kasusra,Wedding,2024-11-23,Ombak Ballroom,201,194786000,completed
+EV01269,P05,VN019,UD Zulaika Ramadan,Gala Dinner,2024-11-19,Beach Wedding Lawn,86,78938000,completed
+EV01270,P05,VN019,Erik & Bancar,Wedding,2024-11-26,Beach Wedding Lawn,89,108335000,completed
+EV01271,P05,VN018,Zahra & Lantar,Wedding,2024-11-21,Ombak Ballroom,145,140514000,completed
+EV01272,P05,VN018,Perum Firmansyah Tamba,Conference,2024-11-28,Ombak Ballroom,177,87420000,completed
+EV01273,P05,VN018,Utama & Damu,Wedding,2024-12-28,Ombak Ballroom,205,169816000,completed
+EV01274,P05,VN018,Perum Wibisono Prakasa,Conference,2024-12-21,Ombak Ballroom,181,78330000,completed
+EV01275,P05,VN020,PT Wibowo Tbk,Training/Workshop,2024-12-17,Gili Meeting Room,36,10649000,completed
+EV01276,P05,VN018,UD Puspasari Habibi (Persero) Tbk,Corporate Meeting,2025-01-09,Ombak Ballroom,189,67495000,completed
+EV01277,P05,VN018,CV Safitri Tbk,Corporate Meeting,2025-01-13,Ombak Ballroom,61,27601000,completed
+EV01278,P05,VN018,Ihsan & Rahmi,Wedding,2025-02-04,Ombak Ballroom,165,127920000,completed
+EV01279,P05,VN019,Perum Palastri (Persero) Tbk,Gala Dinner,2025-02-22,Beach Wedding Lawn,100,98197000,cancelled
+EV01280,P05,VN020,UD Hassanah Nugroho,Corporate Meeting,2025-03-05,Gili Meeting Room,34,11924000,completed
+EV01281,P05,VN020,CV Natsir,Corporate Meeting,2025-03-18,Gili Meeting Room,32,15303000,completed
+EV01282,P05,VN018,PD Gunarto,Corporate Meeting,2025-03-05,Ombak Ballroom,151,52281000,completed
+EV01283,P05,VN020,UD Puspita Saptono (Persero) Tbk,Corporate Meeting,2025-04-07,Gili Meeting Room,35,13243000,completed
+EV01284,P05,VN020,Perum Rajasa Ardianto,Corporate Meeting,2025-05-22,Gili Meeting Room,29,10974000,completed
+EV01285,P05,VN018,PD Mangunsong (Persero) Tbk,Gala Dinner,2025-05-19,Ombak Ballroom,102,94462000,completed
+EV01286,P05,VN018,Gaiman & Mariadi,Wedding,2025-05-05,Ombak Ballroom,189,214404000,completed
+EV01287,P05,VN018,Perum Wijayanti,Gala Dinner,2025-05-13,Ombak Ballroom,208,212533000,completed
+EV01288,P05,VN018,PD Pertiwi Tbk,Conference,2025-05-04,Ombak Ballroom,218,114417000,completed
+EV01289,P05,VN020,UD Novitasari,Corporate Meeting,2025-05-15,Gili Meeting Room,33,13402000,completed
+EV01290,P05,VN018,CV Nurdiyanti Hidayat,Conference,2025-06-11,Ombak Ballroom,194,87872000,completed
+EV01291,P05,VN020,PD Palastri Nasyiah,Corporate Meeting,2025-06-28,Gili Meeting Room,33,14448000,cancelled
+EV01292,P05,VN018,PT Tampubolon Prasetya (Persero) Tbk,Conference,2025-06-04,Ombak Ballroom,206,122063000,completed
+EV01293,P05,VN018,UD Tarihoran Tbk,Corporate Meeting,2025-06-23,Ombak Ballroom,229,78696000,completed
+EV01294,P05,VN018,Perum Nuraini Kusmawati,Conference,2025-07-02,Ombak Ballroom,222,93863000,completed
+EV01295,P05,VN019,PT Winarsih,Gala Dinner,2025-07-07,Beach Wedding Lawn,132,112991000,completed
+EV01296,P05,VN018,PD Permadi (Persero) Tbk,Corporate Meeting,2025-07-12,Ombak Ballroom,234,92877000,cancelled
+EV01297,P05,VN018,UD Wibowo,Conference,2025-07-05,Ombak Ballroom,138,64671000,completed
+EV01298,P05,VN020,PD Rajasa,Corporate Meeting,2025-08-19,Gili Meeting Room,10,3036000,completed
+EV01299,P05,VN018,PT Maryati Tbk,Corporate Meeting,2025-08-28,Ombak Ballroom,101,33188000,cancelled
+EV01300,P05,VN018,Dian & Ciaobella,Wedding,2025-08-11,Ombak Ballroom,193,138389000,completed
+EV01301,P05,VN018,PD Gunawan Sihombing (Persero) Tbk,Conference,2025-08-01,Ombak Ballroom,183,72205000,completed
+EV01302,P05,VN020,Perum Hutasoit (Persero) Tbk,Product Launch,2025-09-22,Gili Meeting Room,29,14293000,cancelled
+EV01303,P05,VN020,Perum Nasyidah Ardianto,Corporate Meeting,2025-09-15,Gili Meeting Room,14,4131000,completed
+EV01304,P05,VN020,CV Winarsih,Corporate Meeting,2025-09-03,Gili Meeting Room,16,6202000,completed
+EV01305,P05,VN018,PD Jailani Putra,Product Launch,2025-10-28,Ombak Ballroom,167,87674000,completed
+EV01306,P05,VN018,PT Mangunsong Dongoran Tbk,Gala Dinner,2025-10-23,Ombak Ballroom,179,106508000,completed
+EV01307,P05,VN018,PT Irawan (Persero) Tbk,Corporate Meeting,2025-11-21,Ombak Ballroom,203,93732000,completed
+EV01308,P05,VN018,CV Ramadan,Conference,2025-11-08,Ombak Ballroom,214,93982000,completed
+EV01309,P05,VN018,Perum Pradana,Corporate Meeting,2025-11-09,Ombak Ballroom,168,68850000,completed
+EV01310,P05,VN019,Kariman & Rahman,Wedding,2025-11-24,Beach Wedding Lawn,118,103262000,completed
+EV01311,P05,VN018,Prayoga & Umay,Wedding,2025-12-09,Ombak Ballroom,213,156647000,completed
+EV01312,P05,VN018,PD Sihotang Budiyanto Tbk,Gala Dinner,2025-12-04,Ombak Ballroom,163,136615000,completed
+EV01313,P05,VN018,Vanesa & Dasa,Wedding,2025-12-06,Ombak Ballroom,104,99818000,completed
+EV01314,P05,VN018,Fathonah & Adinata,Wedding,2025-12-18,Ombak Ballroom,65,57877000,cancelled
+EV01315,P05,VN019,Perum Gunawan,Gala Dinner,2025-12-09,Beach Wedding Lawn,32,25994000,completed
+EV01316,P05,VN018,UD Mardhiyah,Corporate Meeting,2026-01-06,Ombak Ballroom,164,59172000,completed
+EV01317,P05,VN020,UD Sihombing,Product Launch,2026-01-24,Gili Meeting Room,26,14656000,completed
+EV01318,P05,VN018,UD Farida,Corporate Meeting,2026-02-18,Ombak Ballroom,82,24675000,completed
+EV01319,P05,VN019,PD Wijayanti Dabukke Tbk,Gala Dinner,2026-02-21,Beach Wedding Lawn,106,66412000,completed
+EV01320,P05,VN018,Perum Prasetya Mansur,Conference,2026-02-17,Ombak Ballroom,170,58824000,completed
+EV01321,P05,VN019,Purwa & Hafshah,Wedding,2026-03-20,Beach Wedding Lawn,125,127374000,completed
+EV01322,P05,VN018,CV Salahudin Tbk,Corporate Meeting,2026-04-08,Ombak Ballroom,234,89012000,completed
+EV01323,P05,VN018,Perum Puspita,Conference,2026-04-26,Ombak Ballroom,163,90361000,completed
+EV01324,P05,VN020,PT Gunarto Ardianto,Corporate Meeting,2026-04-07,Gili Meeting Room,27,11444000,completed
+EV01325,P05,VN018,Karen & Mutia,Wedding,2026-05-21,Ombak Ballroom,72,72545000,cancelled
+EV01326,P05,VN018,Perum Pudjiastuti Hutasoit Tbk,Corporate Meeting,2026-05-15,Ombak Ballroom,187,70328000,completed
+EV01327,P05,VN018,UD Prabowo Zulkarnain,Conference,2026-05-05,Ombak Ballroom,161,69903000,completed
+EV01328,P05,VN018,CV Nashiruddin Prasetya,Conference,2026-06-26,Ombak Ballroom,220,119002000,confirmed
+EV01329,P05,VN018,CV Latupono (Persero) Tbk,Conference,2026-06-18,Ombak Ballroom,200,110195000,completed
+EV01330,P05,VN020,Perum Hariyah,Training/Workshop,2026-06-09,Gili Meeting Room,7,1910000,completed
+EV01331,P05,VN018,UD Winarsih,Corporate Meeting,2026-06-06,Ombak Ballroom,155,58308000,completed
