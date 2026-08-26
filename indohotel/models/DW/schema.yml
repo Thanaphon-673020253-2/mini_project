@@ -1,0 +1,413 @@
+version: 2
+
+models:
+  # ==========================================
+  # DIMENSION TABLES
+  # ==========================================
+  - name: dim_date
+    description: "Date dimension table containing calendar attributes, seasonal classifications, and weekend flags."
+    columns:
+      - name: date_key
+        description: "Surrogate primary key for date (e.g., YYYYMMDD format as integer or date)."
+        data_type: integer
+        tests:
+          - unique
+          - not_null
+      - name: full_date
+        description: "The actual calendar date."
+        data_type: date
+        tests:
+          - unique
+          - not_null
+      - name: day_of_week
+        description: "Day of the week name (e.g., Monday, Tuesday)."
+        data_type: string
+      - name: month_name
+        description: "Full month name (e.g., January, February)."
+        data_type: string
+      - name: quarter
+        description: "Calendar quarter (Q1, Q2, Q3, Q4)."
+        data_type: string
+      - name: year
+        description: "Four-digit calendar year."
+        data_type: integer
+      - name: is_weekend
+        description: "Boolean flag indicating if the day is Saturday or Sunday."
+        data_type: boolean
+      - name: season
+        description: "Seasonal classification (e.g., High Season, Low Season, Peak Season)."
+        data_type: string
+
+  - name: dim_property
+    description: "Property dimension table containing hotel/resort master attributes."
+    columns:
+      - name: property_key
+        description: "Surrogate primary key for property."
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: property_id
+        description: "Business key from source system."
+        data_type: string
+        tests:
+          - not_null
+      - name: property_name
+        description: "Name of the hotel or property."
+        data_type: string
+      - name: city
+        description: "City where the property is located."
+        data_type: string
+      - name: region
+        description: "Geographic region or province."
+        data_type: string
+      - name: star_rating
+        description: "Hotel star classification rating."
+        data_type: numeric
+      - name: total_rooms
+        description: "Total room count capacity of the property."
+        data_type: integer
+
+  - name: dim_guest
+    description: "Guest dimension table containing customer demographics and loyalty tiers."
+    columns:
+      - name: guest_key
+        description: "Surrogate primary key for guest."
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: guest_id
+        description: "Business key from source system."
+        data_type: string
+        tests:
+          - not_null
+      - name: full_name
+        description: "Full name of the guest."
+        data_type: string
+      - name: nationality
+        description: "Nationality of the guest."
+        data_type: string
+      - name: is_domestic
+        description: "Boolean flag indicating if the guest is a domestic traveler."
+        data_type: boolean
+      - name: loyalty_tier
+        description: "Loyalty program level (e.g., Bronze, Silver, Gold, Platinum)."
+        data_type: string
+      - name: registered_date
+        description: "Date the guest registered in the system."
+        data_type: date
+
+  - name: dim_room
+    description: "Room dimension table containing individual room details and physical specifications."
+    columns:
+      - name: room_key
+        description: "Surrogate primary key for room."
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: room_id
+        description: "Business key from source system."
+        data_type: string
+        tests:
+          - not_null
+      - name: room_number
+        description: "Physical room number or code."
+        data_type: string
+      - name: room_type
+        description: "Category of room (e.g., Deluxe, Suite, Standard)."
+        data_type: string
+      - name: floor
+        description: "Floor number where the room is located."
+        data_type: integer
+
+  - name: dim_employee
+    description: "Employee dimension table containing staff and operational personnel attributes."
+    columns:
+      - name: employee_key
+        description: "Surrogate primary key for employee."
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: employee_id
+        description: "Business key from source system."
+        data_type: string
+        tests:
+          - not_null
+      - name: full_name
+        description: "Full name of the employee."
+        data_type: string
+      - name: role_title
+        description: "Job title or position."
+        data_type: string
+      - name: department
+        description: "Department name (e.g., Housekeeping, Front Desk, F&B)."
+        data_type: string
+
+  - name: dim_fnb_outlet
+    description: "Food and Beverage outlet dimension table containing restaurant, bar, and café attributes."
+    columns:
+      - name: outlet_key
+        description: "Surrogate primary key for F&B outlet."
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: outlet_id
+        description: "Business key from source system."
+        data_type: string
+        tests:
+          - not_null
+      - name: outlet_name
+        description: "Name of the dining outlet or bar."
+        data_type: string
+      - name: outlet_type
+        description: "Type of outlet (e.g., Fine Dining, Buffet, Pool Bar, Room Service)."
+        data_type: string
+      - name: property_id
+        description: "Associated property business key."
+        data_type: string
+
+  - name: dim_venue
+    description: "Venue dimension table containing event spaces, halls, and spa facility details."
+    columns:
+      - name: venue_key
+        description: "Surrogate primary key for venue."
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: venue_id
+        description: "Business key from source system."
+        data_type: string
+        tests:
+          - not_null
+      - name: venue_name
+        description: "Name of the venue or function space."
+        data_type: string
+      - name: venue_type
+        description: "Type of venue (e.g., Ballroom, Meeting Room, Spa Treatment Room)."
+        data_type: string
+      - name: capacity
+        description: "Standard seating/guest capacity."
+        data_type: integer
+      - name: max_capacity
+        description: "Maximum allowable capacity."
+        data_type: integer
+      - name: area_sqm
+        description: "Area size of the venue in square meters."
+        data_type: numeric
+
+  # ==========================================
+  # FACT TABLES
+  # ==========================================
+  - name: fact_hotel_bookings
+    description: "Fact table recording room booking transactions, revenue, and length of stay metrics."
+    columns:
+      - name: booking_id
+        description: "Degenerate dimension / Business transaction identifier."
+        data_type: string
+        tests:
+          - not_null
+      - name: date_key
+        description: "Foreign key referencing dim_date (typically Check-in date or Booking date)."
+        data_type: integer
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: property_key
+        description: "Foreign key referencing dim_property."
+        data_type: string
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_property')
+              field: property_key
+      - name: guest_key
+        description: "Foreign key referencing dim_guest."
+        data_type: string
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_guest')
+              field: guest_key
+      - name: room_key
+        description: "Foreign key referencing dim_room."
+        data_type: string
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_room')
+              field: room_key
+      - name: booking_amount
+        description: "Gross booking amount before discounts."
+        data_type: numeric
+      - name: discount_amount
+        description: "Total discount applied to the booking."
+        data_type: numeric
+      - name: total_revenue
+        description: "Net revenue realized from the booking."
+        data_type: numeric
+      - name: nights
+        description: "Number of nights stayed."
+        data_type: integer
+      - name: room_count
+        description: "Number of rooms booked in this transaction."
+        data_type: integer
+      - name: lead_time_days
+        description: "Days between booking date and check-in date."
+        data_type: integer
+      - name: is_canceled
+        description: "Flag indicating if the reservation was canceled."
+        data_type: boolean
+      - name: is_checked_in
+        description: "Flag indicating if the guest has checked in."
+        data_type: boolean
+
+  - name: fact_fnb_operations
+    description: "Fact table recording F&B sales transactions, cost of goods sold (COGS), and waste costs."
+    columns:
+      - name: date_key
+        description: "Foreign key referencing dim_date."
+        data_type: integer
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: property_key
+        description: "Foreign key referencing dim_property."
+        data_type: string
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_property')
+              field: property_key
+      - name: guest_key
+        description: "Foreign key referencing dim_guest (nullable for non-resident walk-ins)."
+        data_type: string
+        tests:
+          - relationships:
+              to: ref('dim_guest')
+              field: guest_key
+      - name: outlet_key
+        description: "Foreign key referencing dim_fnb_outlet."
+        data_type: string
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_fnb_outlet')
+              field: outlet_key
+      - name: employee_key
+        description: "Foreign key referencing dim_employee (staff member handling the order)."
+        data_type: string
+        tests:
+          - relationships:
+              to: ref('dim_employee')
+              field: employee_key
+      - name: sales_amount
+        description: "Total sales revenue generated."
+        data_type: numeric
+      - name: cost_of_goods_sold
+        description: "Direct cost of ingredients and materials for products sold."
+        data_type: numeric
+      - name: waste_cost
+        description: "Cost of wasted or expired inventory associated with operations."
+        data_type: numeric
+      - name: transaction_count
+        description: "Total number of transactions or orders."
+        data_type: integer
+
+  - name: fact_hotel_operations_hr
+    description: "Fact table recording operational performance, maintenance ticket activity, and payroll allocations."
+    columns:
+      - name: date_key
+        description: "Foreign key referencing dim_date."
+        data_type: integer
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: property_key
+        description: "Foreign key referencing dim_property."
+        data_type: string
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_property')
+              field: property_key
+      - name: employee_key
+        description: "Foreign key referencing dim_employee."
+        data_type: string
+        tests:
+          - relationships:
+              to: ref('dim_employee')
+              field: employee_key
+      - name: room_key
+        description: "Foreign key referencing dim_room (if applicable for housekeeping or room maintenance)."
+        data_type: string
+        tests:
+          - relationships:
+              to: ref('dim_room')
+              field: room_key
+      - name: payroll_amount
+        description: "Payroll expense allocated."
+        data_type: numeric
+      - name: performance_score
+        description: "Employee performance review evaluation score."
+        data_type: numeric
+      - name: maintenance_cost
+        description: "Total maintenance repair and spare parts cost."
+        data_type: numeric
+      - name: maintenance_ticket_count
+        description: "Number of maintenance tickets logged or processed."
+        data_type: integer
+
+  - name: fact_ancillary_services
+    description: "Fact table tracking extra property services revenue including Spa and Event bookings."
+    columns:
+      - name: date_key
+        description: "Foreign key referencing dim_date."
+        data_type: integer
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: property_key
+        description: "Foreign key referencing dim_property."
+        data_type: string
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_property')
+              field: property_key
+      - name: guest_key
+        description: "Foreign key referencing dim_guest."
+        data_type: string
+        tests:
+          - relationships:
+              to: ref('dim_guest')
+              field: guest_key
+      - name: venue_key
+        description: "Foreign key referencing dim_venue."
+        data_type: string
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_venue')
+              field: venue_key
+      - name: spa_revenue
+        description: "Revenue earned from spa packages and services."
+        data_type: numeric
+      - name: event_revenue
+        description: "Revenue generated from venue and event hosting."
+        data_type: numeric
+      - name: attendees_count
+        description: "Number of attendees for the booked event or service."
+        data_type: integer
