@@ -1,0 +1,5 @@
+.venv/
+
+*.duckdb
+dev.duckdb
+indohotel/dev.duckdb

@@ -1,0 +1,121 @@
+item_name,ingredient_id,qty_per_portion
+Nasi Goreng Nirwana,ING001,0.5127
+Nasi Goreng Nirwana,ING009,0.1538
+Nasi Goreng Nirwana,ING003,0.2051
+Nasi Goreng Nirwana,ING006,0.0513
+Nasi Goreng Nirwana,ING007,0.0513
+Nasi Goreng Nirwana,ING010,0.0769
+Nasi Goreng Nirwana,ING029,0.0513
+Mie Goreng Seafood,ING011,0.3144
+Mie Goreng Seafood,ING005,0.1677
+Mie Goreng Seafood,ING018,0.1258
+Mie Goreng Seafood,ING006,0.0419
+Mie Goreng Seafood,ING010,0.0629
+Mie Goreng Seafood,ING008,0.021
+Gado-Gado,ING018,0.7666
+Gado-Gado,ING009,0.213
+Gado-Gado,ING006,0.0639
+Gado-Gado,ING008,0.0426
+Gado-Gado,ING012,0.0426
+Sate Ayam Madura,ING003,0.6465
+Sate Ayam Madura,ING029,0.1293
+Sate Ayam Madura,ING007,0.0862
+Sate Ayam Madura,ING006,0.0431
+Sate Ayam Madura,ING030,0.0431
+Rendang Daging,ING002,0.2495
+Rendang Daging,ING028,0.1663
+Rendang Daging,ING006,0.0554
+Rendang Daging,ING007,0.0416
+Rendang Daging,ING030,0.0277
+Rendang Daging,ING008,0.0208
+Ikan Bakar Sambal Matah,ING004,0.511
+Ikan Bakar Sambal Matah,ING006,0.1022
+Ikan Bakar Sambal Matah,ING007,0.0818
+Ikan Bakar Sambal Matah,ING010,0.0409
+Ikan Bakar Sambal Matah,ING030,0.0204
+Udang Saus Padang,ING005,0.5674
+Udang Saus Padang,ING006,0.1135
+Udang Saus Padang,ING020,0.1418
+Udang Saus Padang,ING008,0.0567
+Udang Saus Padang,ING010,0.0567
+Ayam Betutu,ING003,1.0128
+Ayam Betutu,ING030,0.1013
+Ayam Betutu,ING006,0.1013
+Ayam Betutu,ING028,0.1688
+Ayam Betutu,ING007,0.0675
+Club Sandwich,ING011,0.2058
+Club Sandwich,ING003,0.1647
+Club Sandwich,ING009,0.0823
+Club Sandwich,ING018,0.1029
+Club Sandwich,ING015,0.0412
+Club Sandwich,ING014,0.0617
+Beef Burger,ING002,0.1885
+Beef Burger,ING011,0.1005
+Beef Burger,ING014,0.0377
+Beef Burger,ING018,0.0503
+Beef Burger,ING020,0.0377
+Beef Burger,ING015,0.0126
+Margherita Pizza,ING011,0.2855
+Margherita Pizza,ING014,0.1835
+Margherita Pizza,ING020,0.1427
+Margherita Pizza,ING015,0.0408
+Caesar Salad,ING018,0.5274
+Caesar Salad,ING014,0.1055
+Caesar Salad,ING009,0.1055
+Caesar Salad,ING015,0.0352
+French Fries,ING019,0.6505
+French Fries,ING010,0.1626
+Soto Ayam,ING003,0.4732
+Soto Ayam,ING018,0.1972
+Soto Ayam,ING030,0.0394
+Soto Ayam,ING009,0.1183
+Soto Ayam,ING007,0.0394
+Nasi Campur Bali,ING001,0.8186
+Nasi Campur Bali,ING003,0.4548
+Nasi Campur Bali,ING018,0.2729
+Nasi Campur Bali,ING006,0.091
+Nasi Campur Bali,ING028,0.1364
+Nasi Campur Bali,ING030,0.0455
+Kopi Tubruk,ING016,0.0517
+Kopi Tubruk,ING012,0.0287
+Cappuccino,ING016,0.034
+Cappuccino,ING013,0.2038
+Cappuccino,ING012,0.0136
+Es Teh Manis,ING017,0.0206
+Es Teh Manis,ING012,0.0823
+Es Teh Manis,ING027,0.6171
+Fresh Orange Juice,ING022,0.371
+Fresh Orange Juice,ING012,0.0148
+Fresh Orange Juice,ING027,0.1484
+Mineral Water,ING024,0.593
+Bintang Beer,ING025,0.4703
+House Wine Glass,ING026,0.1784
+Mojito,ING023,0.233
+Mojito,ING024,0.699
+Mojito,ING027,0.932
+Mojito,ING022,0.1864
+Pina Colada,ING023,0.2873
+Pina Colada,ING028,0.3831
+Pina Colada,ING022,0.2873
+Pina Colada,ING027,0.9576
+Sunset Cocktail,ING023,0.1234
+Sunset Cocktail,ING026,0.141
+Sunset Cocktail,ING022,0.0881
+Sunset Cocktail,ING027,0.3172
+Es Campur Nirwana,ING022,0.3076
+Es Campur Nirwana,ING028,0.1231
+Es Campur Nirwana,ING012,0.0615
+Es Campur Nirwana,ING027,0.5127
+Chocolate Lava Cake,ING021,0.0767
+Chocolate Lava Cake,ING011,0.0639
+Chocolate Lava Cake,ING009,0.0639
+Chocolate Lava Cake,ING015,0.0511
+Chocolate Lava Cake,ING012,0.0383
+Fresh Fruit Platter,ING022,0.4622
+Pisang Goreng Keju,ING022,0.2364
+Pisang Goreng Keju,ING011,0.0657
+Pisang Goreng Keju,ING014,0.0394
+Pisang Goreng Keju,ING010,0.0525
+Panna Cotta,ING013,0.6212
+Panna Cotta,ING012,0.1242
+Panna Cotta,ING022,0.2071
