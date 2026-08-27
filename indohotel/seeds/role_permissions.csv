@@ -1,0 +1,43 @@
+role_title,data_domain,access_scope,permission_type
+Front Office Staff,reservation,own_property,read_write
+Revenue Manager,reservation,own_property,read_write
+Revenue Manager,corporate_master,own_property,read
+F&B Staff,fnb,own_property,read_write
+F&B Manager,fnb,own_property,read_write
+F&B Manager,corporate_master,own_property,read
+Housekeeping Staff,facility,own_property,read_write
+Housekeeping Manager,facility,own_property,read_write
+Maintenance Staff,facility,own_property,read_write
+Maintenance Manager,facility,own_property,read_write
+Maintenance Manager,corporate_master,own_property,read
+Spa & Event Staff,spa_event,own_property,read_write
+Spa & Event Manager,spa_event,own_property,read_write
+Spa & Event Manager,corporate_master,own_property,read
+HR Staff,hr,own_property,read_write
+HR Manager,hr,own_property,read_write
+HR Manager,corporate_master,own_property,read
+Finance Staff,financial,own_property,read_write
+Finance Manager,financial,own_property,read_write
+General Manager,reservation,own_property,read
+General Manager,fnb,own_property,read
+General Manager,facility,own_property,read
+General Manager,spa_event,own_property,read
+General Manager,hr,own_property,read
+General Manager,financial,own_property,read
+General Manager,corporate_master,own_property,read
+Corporate Finance Director,financial,all_properties,read
+Corporate Finance Director,corporate_master,all_properties,read
+Corporate Revenue Director,reservation,all_properties,read
+Corporate Revenue Director,financial,all_properties,read
+Corporate HR Director,hr,all_properties,read_write
+Corporate HR Director,corporate_master,all_properties,read
+Corporate Operations Director,facility,all_properties,read
+Corporate Operations Director,fnb,all_properties,read
+Corporate Operations Director,spa_event,all_properties,read
+CEO,reservation,all_properties,read
+CEO,fnb,all_properties,read
+CEO,facility,all_properties,read
+CEO,spa_event,all_properties,read
+CEO,hr,all_properties,read
+CEO,financial,all_properties,read
+CEO,corporate_master,all_properties,read

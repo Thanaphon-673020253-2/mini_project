@@ -1,0 +1,18 @@
+outlet_id,property_id,outlet_name,outlet_type
+OUT001,P01,Sunset Restaurant,Restaurant
+OUT002,P01,Beach Bar,Bar
+OUT003,P01,Pool Bar,Bar
+OUT004,P01,In-Room Dining Bali,Room Service
+OUT005,P02,Nusantara All-Day Dining,Restaurant
+OUT006,P02,Lobby Lounge,Bar
+OUT007,P02,Skyline Rooftop Bar,Bar
+OUT008,P02,In-Room Dining Jakarta,Room Service
+OUT009,P03,Joglo Restaurant,Restaurant
+OUT010,P03,Heritage Lobby Cafe,Bar
+OUT011,P03,In-Room Dining Yogyakarta,Room Service
+OUT012,P04,Pinus Restaurant,Restaurant
+OUT013,P04,Garden Cafe,Bar
+OUT014,P04,In-Room Dining Bandung,Room Service
+OUT015,P05,Ombak Restaurant,Restaurant
+OUT016,P05,Sunset Beach Bar,Bar
+OUT017,P05,In-Room Dining Lombok,Room Service
