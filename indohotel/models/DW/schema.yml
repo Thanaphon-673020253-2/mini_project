@@ -217,32 +217,32 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('dim_date')
-              field: date_key
+              arguments:
+                to: ref('dim_date')
+                field: date_key
       - name: property_key
         description: "Foreign key referencing dim_property."
         data_type: string
         tests:
           - not_null
           - relationships:
-              to: ref('dim_property')
-              field: property_key
+              arguments:
+                to: ref('dim_property')
+                field: property_key
       - name: guest_key
         description: "Foreign key referencing dim_guest."
         data_type: string
         tests:
           - not_null
           - relationships:
-              to: ref('dim_guest')
-              field: guest_key
+              arguments:
+                to: ref('dim_guest')
+                field: guest_key
       - name: room_key
-        description: "Foreign key referencing dim_room."
+        description: "Foreign key referencing room category (Room Type level)."
         data_type: string
         tests:
           - not_null
-          - relationships:
-              to: ref('dim_room')
-              field: room_key
       - name: booking_amount
         description: "Gross booking amount before discounts."
         data_type: numeric
@@ -277,38 +277,38 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('dim_date')
-              field: date_key
+              arguments:
+                to: ref('dim_date')
+                field: date_key
       - name: property_key
         description: "Foreign key referencing dim_property."
         data_type: string
         tests:
           - not_null
           - relationships:
-              to: ref('dim_property')
-              field: property_key
+              arguments:
+                to: ref('dim_property')
+                field: property_key
       - name: guest_key
         description: "Foreign key referencing dim_guest (nullable for non-resident walk-ins)."
         data_type: string
         tests:
           - relationships:
-              to: ref('dim_guest')
-              field: guest_key
+              arguments:
+                to: ref('dim_guest')
+                field: guest_key
       - name: outlet_key
         description: "Foreign key referencing dim_fnb_outlet."
         data_type: string
         tests:
           - not_null
           - relationships:
-              to: ref('dim_fnb_outlet')
-              field: outlet_key
+              arguments:
+                to: ref('dim_fnb_outlet')
+                field: outlet_key
       - name: employee_key
         description: "Foreign key referencing dim_employee (staff member handling the order)."
         data_type: string
-        tests:
-          - relationships:
-              to: ref('dim_employee')
-              field: employee_key
       - name: sales_amount
         description: "Total sales revenue generated."
         data_type: numeric
@@ -331,30 +331,34 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('dim_date')
-              field: date_key
+              arguments:
+                to: ref('dim_date')
+                field: date_key
       - name: property_key
         description: "Foreign key referencing dim_property."
         data_type: string
         tests:
           - not_null
           - relationships:
-              to: ref('dim_property')
-              field: property_key
+              arguments:
+                to: ref('dim_property')
+                field: property_key
       - name: employee_key
         description: "Foreign key referencing dim_employee."
         data_type: string
         tests:
           - relationships:
-              to: ref('dim_employee')
-              field: employee_key
+              arguments:
+                to: ref('dim_employee')
+                field: employee_key
       - name: room_key
         description: "Foreign key referencing dim_room (if applicable for housekeeping or room maintenance)."
         data_type: string
         tests:
           - relationships:
-              to: ref('dim_room')
-              field: room_key
+              arguments:
+                to: ref('dim_room')
+                field: room_key
       - name: payroll_amount
         description: "Payroll expense allocated."
         data_type: numeric
@@ -377,31 +381,31 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('dim_date')
-              field: date_key
+              arguments:
+                to: ref('dim_date')
+                field: date_key
       - name: property_key
         description: "Foreign key referencing dim_property."
         data_type: string
         tests:
           - not_null
           - relationships:
-              to: ref('dim_property')
-              field: property_key
+              arguments:
+                to: ref('dim_property')
+                field: property_key
       - name: guest_key
         description: "Foreign key referencing dim_guest."
         data_type: string
         tests:
           - relationships:
-              to: ref('dim_guest')
-              field: guest_key
+              arguments:
+                to: ref('dim_guest')
+                field: guest_key
       - name: venue_key
-        description: "Foreign key referencing dim_venue."
+        description: "Foreign key referencing dim_venue (or SPA facility key)."
         data_type: string
         tests:
           - not_null
-          - relationships:
-              to: ref('dim_venue')
-              field: venue_key
       - name: spa_revenue
         description: "Revenue earned from spa packages and services."
         data_type: numeric

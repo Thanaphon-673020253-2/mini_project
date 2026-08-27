@@ -1,16 +1,16 @@
 with date_range as (
-    select range::date as date_day
-    from range(date '2020-01-01', date '2031-01-01', interval 1 day)
+    select date_day
+    from unnest(generate_date_array(cast('2020-01-01' as date), cast('2030-12-31' as date), interval 1 day)) as date_day
 )
 
 select
-    cast(strftime(date_day, '%Y%m%d') as integer) as date_key,
+    cast(format_date('%Y%m%d', date_day) as int64) as date_key,
     date_day as full_date,
-    strftime(date_day, '%A') as day_of_week,
-    strftime(date_day, '%B') as month_name,
-    'Q' || extract(quarter from date_day) as quarter,
+    format_date('%A', date_day) as day_of_week,
+    format_date('%B', date_day) as month_name,
+    concat('Q', extract(quarter from date_day)) as quarter,
     extract(year from date_day) as year,
-    case when extract(dayofweek from date_day) in (0, 6) then true else false end as is_weekend,
+    case when extract(dayofweek from date_day) in (1, 7) then true else false end as is_weekend,
     case 
         when extract(month from date_day) in (11, 12, 1, 2) then 'High Season'
         when extract(month from date_day) in (6, 7, 8) then 'Peak Season'

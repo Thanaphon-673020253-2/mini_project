@@ -1,5 +1,5 @@
 select
-    md5(cast(guest_id as varchar)) as guest_key,
+    md5(cast(guest_id as string)) as guest_key,
     guest_id,
     full_name,
     nationality,

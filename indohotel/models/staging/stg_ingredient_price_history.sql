@@ -4,5 +4,5 @@ with source as (
 )
 select
     *,
-    current_localtimestamp() as ingestion_timestamp
+    current_timestamp() as ingestion_timestamp
 from source

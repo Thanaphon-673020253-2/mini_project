@@ -1,5 +1,5 @@
 select
-    md5(cast(outlet_id as varchar)) as outlet_key,
+    md5(cast(outlet_id as string)) as outlet_key,
     outlet_id,
     outlet_name,
     outlet_type,

@@ -9,7 +9,7 @@ with stg_fnb_transactions as (
 stg_fnb_waste_log as (
     select 
         w.outlet_id,
-        w.date,
+        cast(w.date as date) as waste_date,
         sum(w.quantity_wasted * coalesce(i.unit_cost, 0)) as total_waste_cost
     from {{ ref('stg_fnb_waste_log') }} w
     left join {{ ref('stg_fnb_inventory') }} i 
@@ -18,11 +18,11 @@ stg_fnb_waste_log as (
 )
 
 select
-    cast(strftime(t.transaction_datetime, '%Y%m%d') as integer) as date_key,
-    md5(cast(t.property_id as varchar)) as property_key,
-    md5(cast(t.guest_id as varchar)) as guest_key,
-    md5(cast(t.outlet_id as varchar)) as outlet_key,
-    null as employee_key,
+    cast(format_date('%Y%m%d', cast(t.transaction_datetime as date)) as int64) as date_key,
+    md5(cast(t.property_id as string)) as property_key,
+    md5(cast(t.guest_id as string)) as guest_key,
+    md5(cast(t.outlet_id as string)) as outlet_key,
+    cast(null as string) as employee_key,
     t.total_price as sales_amount,
     (t.quantity * t.unit_price) as cost_of_goods_sold,
     coalesce(w.total_waste_cost, 0) as waste_cost,
@@ -30,4 +30,4 @@ select
 from stg_fnb_transactions t
 left join stg_fnb_waste_log w
     on t.outlet_id = w.outlet_id 
-   and cast(t.transaction_datetime as date) = cast(w.date as date)
+   and cast(t.transaction_datetime as date) = w.waste_date

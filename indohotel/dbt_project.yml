@@ -38,3 +38,18 @@ models:
       +materialized: table
     staging:
       +materialized: table
+seeds:
+  indohotel:
+    daily_occupancy:
+      +column_types:
+        adr: float64
+        revpar: float64
+        occupancy_rate: float64
+    fnb_inventory:
+      +column_types:
+        unit_cost: float64
+        current_stock: float64
+        reorder_level: float64
+    ingredient_price_history:
+      +column_types:
+        unit_cost: float64

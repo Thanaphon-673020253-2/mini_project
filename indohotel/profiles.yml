@@ -2,6 +2,9 @@ indohotel:
   target: dev
   outputs:
     dev:
-      type: duckdb
-      path: dev.duckdb
+      type: bigquery
+      method: service-account
+      project: unique-bebop-506816-f5  # ใส่ Project ID จากหน้า GCP ของคุณ
+      dataset: main
       threads: 4
+      keyfile: W:\Learn_Program\mini_project\unique-bebop-506816-f5-895745f57e73.json # เปลี่ยนเป็น Path ที่เก็บไฟล์ JSON จริงของคุณ

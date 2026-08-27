@@ -1,5 +1,5 @@
 select
-    md5(cast(property_id as varchar)) as property_key,
+    md5(cast(property_id as string)) as property_key,
     property_id,
     property_name,
     city,

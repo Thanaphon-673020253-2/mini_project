@@ -22,10 +22,10 @@ stg_maintenance_tickets as (
 )
 
 select
-    cast(strftime(coalesce(m.ticket_date, current_date), '%Y%m%d') as integer) as date_key,
-    md5(cast(coalesce(m.property_id, p.property_id) as varchar)) as property_key,
-    md5(cast(coalesce(m.assigned_staff_id, p.employee_id) as varchar)) as employee_key,
-    md5(cast(m.room_id as varchar)) as room_key,
+    cast(format_date('%Y%m%d', coalesce(m.ticket_date, current_date())) as int64) as date_key,
+    md5(cast(coalesce(m.property_id, p.property_id) as string)) as property_key,
+    md5(cast(coalesce(m.assigned_staff_id, p.employee_id) as string)) as employee_key,
+    md5(cast(m.room_id as string)) as room_key,
     coalesce(p.net_salary, 0) as payroll_amount,
     perf.score as performance_score,
     coalesce(m.total_maintenance_cost, 0) as maintenance_cost,

@@ -1,5 +1,5 @@
 select
-    md5(cast(room_id as varchar)) as room_key,
+    md5(cast(room_id as string)) as room_key,
     room_id,
     room_number,
     room_type,
