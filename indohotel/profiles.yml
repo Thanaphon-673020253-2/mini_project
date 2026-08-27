@@ -1,0 +1,7 @@
+indohotel:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: /workspaces/mini_project/indohotel/dev.duckdb
+      threads: 4

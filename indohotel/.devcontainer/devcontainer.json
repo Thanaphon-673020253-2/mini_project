@@ -1,0 +1,7 @@
+{
+  "name": "indohotel",
+  "postCreateCommand": "pip install -r requirements.txt",
+  "remoteEnv": {
+    "DBT_PROFILES_DIR": "${containerWorkspaceFolder}"
+  }
+}

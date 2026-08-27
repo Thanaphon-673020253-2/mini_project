@@ -3,3 +3,7 @@
 *.duckdb
 dev.duckdb
 indohotel/dev.duckdb
+
+# DuckDB
+indohotel/*.duckdb
+indohotel/*.duckdb.wal
