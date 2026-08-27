@@ -1,9 +1,17 @@
+# Python
 .venv/
+__pycache__/
+*.pyc
 
-*.duckdb
-dev.duckdb
-indohotel/dev.duckdb
+# dbt
+target/
+dbt_packages/
+logs/
 
 # DuckDB
-indohotel/*.duckdb
-indohotel/*.duckdb.wal
+*.duckdb
+*.duckdb.wal
+
+# Environment
+.env
+.env.*
