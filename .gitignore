@@ -1,17 +1,48 @@
+# =========================
 # Python
+# =========================
 .venv/
+venv/
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
 # dbt
+# =========================
 target/
 dbt_packages/
 logs/
+dbt.log
 
+# =========================
 # DuckDB
+# =========================
 *.duckdb
 *.duckdb.wal
+*.duckdb.tmp
 
-# Environment
-.env
-.env.*
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Streamlit
+# =========================
+.streamlit/secrets.toml
