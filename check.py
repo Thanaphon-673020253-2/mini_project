@@ -1,34 +1,18 @@
 import os
 import duckdb
 
-# 1. กำหนดพาธไฟล์ฐานข้อมูล
-db_path = "indohotel/indohotel.duckdb"
-
-# 2. เช็กว่าไฟล์มีอยู่จริงหรือไม่ก่อนเชื่อมต่อ
-if not os.path.exists(db_path):
-    print(f"❌ หาไฟล์ไม่พบที่: {os.path.abspath(db_path)}")
-    print("กรุณาตรวจสอบว่าอยู่ในโฟลเดอร์ W:\\Learn_Program\\mini_project และมีไฟล์ indohotel/dev.duckdb อยู่จริง")
-else:
-    # 3. เชื่อมต่อฐานข้อมูล
-    conn = duckdb.connect(db_path)
-
-    # 4. ดึงรายชื่อ Table ใน schema 'main'
-    tables = conn.execute("SELECT table_name FROM information_schema.tables WHERE table_schema = 'main'").fetchall()
-
-    print("Tables in dev.duckdb:")
-    if not tables:
-        print("  (ไม่พบข้อมูล Table ใน schema 'main')")
-    else:
-        for table in tables:
-            print(f"  - {table[0]}")
-
-    print("\n" + "=" * 80)
-
-    # 5. ดึงข้อมูล 20 แถวแรกแปลงเป็น DataFrame โดยตรง
-    try:
-        df2 = conn.execute("SELECT * FROM main.stg_bookings LIMIT 20").df()
-        print(df2)
-    except Exception as e:
-        print(f"เกิดข้อผิดพลาดขณะ Query: {e}")
-
+def check_fact():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(base_dir, "indohotel", "dev.duckdb")
+    conn = duckdb.connect(db_path, read_only=True)
+    conn.execute("SET search_path = 'main';")
+    
+    # ดูรายชื่อคอลัมน์ทั้งหมดใน fact_hotel_bookings
+    cols = conn.execute("DESCRIBE main.fact_hotel_bookings").df()
+    print("Columns in fact_hotel_bookings:")
+    print(cols[['column_name', 'column_type']])
+    
     conn.close()
+
+if __name__ == "__main__":
+    check_fact()

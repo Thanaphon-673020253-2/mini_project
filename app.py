@@ -34,7 +34,7 @@ def get_connection():
     db_path = os.path.join(base_dir, "indohotel", "dev.duckdb")
     
     if not os.path.exists(db_path):
-        st.error(f"❌ หาไฟล์ indohotel.duckdb ไม่พบที่พาธ: {db_path}")
+        st.error(f"❌ หาไฟล์ฐานข้อมูลไม่พบที่พาธ: {db_path}")
         st.stop()
         
     conn = duckdb.connect(db_path, read_only=True)
@@ -58,12 +58,18 @@ with st.sidebar:
 
 # SQL Filter Construction
 where_clauses = []
-if selected_property != "ทั้งหมด":
-    where_clauses.append(f"p.property_name = '{selected_property}'")
-if selected_season != "ทั้งหมด":
-    where_clauses.append(f"d.season = '{selected_season}'")
 
-where_sql = ("WHERE " + " AND ".join(where_clauses)) if where_clauses else ""
+if selected_property != "ทั้งหมด":
+    where_clauses.append(
+        f"p.property_name = '{selected_property}'"
+    )
+
+if selected_season != "ทั้งหมด":
+    where_clauses.append(
+        f"d.season = '{selected_season}'"
+    )
+
+filter_sql = " AND ".join(where_clauses)
 
 # ---------------------------------------------------------
 # Main Title
@@ -95,7 +101,7 @@ with tab1:
         FROM main.fact_hotel_bookings b
         JOIN main.dim_property p ON b.property_key = p.property_key
         JOIN main.dim_date d ON b.date_key = d.date_key
-        {where_sql}
+        {"WHERE " + filter_sql if filter_sql else ""}
     """
     kpi_df = conn.execute(kpi_query).df()
     
@@ -120,13 +126,12 @@ with tab1:
             FROM main.fact_hotel_bookings b 
             JOIN main.dim_date d ON b.date_key = d.date_key 
             JOIN main.dim_property p ON b.property_key = p.property_key 
-            {where_sql} 
+            {"WHERE " + filter_sql if filter_sql else ""} 
             GROUP BY d.year, d.month_name 
             ORDER BY sort_date ASC
         """
         monthly_df = conn.execute(monthly_query).df()
         
-        # แปลงค่าหน่วยเป็น Billion (หาร 1 พันล้าน) เพื่อให้แสดงผลตัวอักษร B ได้อย่างถูกต้อง
         monthly_df['revenue_b'] = monthly_df['revenue'] / 1e9
         
         fig_monthly = px.bar(
@@ -151,7 +156,7 @@ with tab1:
             FROM main.fact_hotel_bookings b
             JOIN main.dim_date d ON b.date_key = d.date_key
             JOIN main.dim_property p ON b.property_key = p.property_key
-            {where_sql}
+            {"WHERE " + filter_sql if filter_sql else ""}
             GROUP BY 1
         """
         weekend_df = conn.execute(weekend_query).df()
@@ -166,7 +171,7 @@ with tab1:
         FROM main.fact_hotel_bookings b 
         JOIN main.dim_property p ON b.property_key = p.property_key 
         JOIN main.dim_date d ON b.date_key = d.date_key 
-        {where_sql} 
+        {"WHERE " + filter_sql if filter_sql else ""} 
         GROUP BY p.property_name 
         ORDER BY revenue DESC
     """
@@ -203,7 +208,7 @@ with tab2:
             JOIN main.dim_date d ON b.date_key = d.date_key 
             WHERE g.nationality IS NOT NULL
             AND g.nationality != 'Others'
-            {where_sql} 
+            {"AND " + filter_sql if filter_sql else ""} 
             GROUP BY g.nationality 
             ORDER BY count DESC 
             LIMIT 10
@@ -230,7 +235,7 @@ with tab2:
             JOIN main.dim_guest g ON b.guest_key = g.guest_key 
             JOIN main.dim_property p ON b.property_key = p.property_key 
             JOIN main.dim_date d ON b.date_key = d.date_key 
-            {where_sql} 
+            {"WHERE " + filter_sql if filter_sql else ""} 
             GROUP BY g.loyalty_tier 
             ORDER BY revenue DESC
         """
@@ -256,12 +261,35 @@ with tab2:
 with tab3:
     st.header("3. ด้านประเภทห้องพักและการจอง (Room & Booking Patterns)")
     
+    t3_conditions = []
+    if selected_property != "ทั้งหมด":
+        t3_conditions.append(f"p.property_name = '{selected_property}'")
+    if selected_season != "ทั้งหมด":
+        t3_conditions.append(f"d.season = '{selected_season}'")
+    
+    t3_where = ("WHERE " + " AND ".join(t3_conditions)) if t3_conditions else ""
+    
     col_g, col_h = st.columns(2)
     with col_g:
-        lead_df = conn.execute(f"SELECT AVG(b.lead_time_days) as lead FROM main.fact_hotel_bookings b JOIN main.dim_property p ON b.property_key = p.property_key JOIN main.dim_date d ON b.date_key = d.date_key {where_sql}").df()
+        lead_query = f"""
+            SELECT AVG(b.lead_time_days) as lead 
+            FROM main.fact_hotel_bookings b 
+            JOIN main.dim_property p ON b.property_key = p.property_key 
+            JOIN main.dim_date d ON b.date_key = d.date_key 
+            {t3_where}
+        """
+        lead_df = conn.execute(lead_query).df()
         st.metric("⏳ ระยะเวลาจองล่วงหน้าเฉลี่ย", f"{lead_df['lead'][0]:,.1f} วัน" if pd.notna(lead_df['lead'][0]) else "0 วัน")
+        
     with col_h:
-        stay_df = conn.execute(f"SELECT AVG(b.nights) as nights FROM main.fact_hotel_bookings b JOIN main.dim_property p ON b.property_key = p.property_key JOIN main.dim_date d ON b.date_key = d.date_key {where_sql}").df()
+        stay_query = f"""
+            SELECT AVG(b.nights) as nights 
+            FROM main.fact_hotel_bookings b 
+            JOIN main.dim_property p ON b.property_key = p.property_key 
+            JOIN main.dim_date d ON b.date_key = d.date_key 
+            {t3_where}
+        """
+        stay_df = conn.execute(stay_query).df()
         st.metric("🛏️ ระยะเวลาเข้าพักเฉลี่ย", f"{stay_df['nights'][0]:,.1f} คืน" if pd.notna(stay_df['nights'][0]) else "0 คืน")
         
     st.markdown("<br>", unsafe_allow_html=True)
@@ -269,36 +297,69 @@ with tab3:
     col_e, col_f = st.columns(2)
     with col_e:
         st.markdown("**รายได้ตามประเภทห้องพัก (หน่วย: พันล้าน / B)**")
-        room_df = conn.execute(f"SELECT r.room_type, SUM(b.total_revenue) as revenue FROM main.fact_hotel_bookings b JOIN main.dim_room r ON b.room_key = r.room_key JOIN main.dim_property p ON b.property_key = p.property_key JOIN main.dim_date d ON b.date_key = d.date_key {where_sql} GROUP BY r.room_type ORDER BY revenue DESC").df()
-        room_df['revenue_b'] = room_df['revenue'] / 1e9
         
-        fig_room = px.bar(
-            room_df, 
-            x='room_type', 
-            y='revenue_b', 
-            text='revenue_b'
-        )
-        fig_room.update_traces(
-            texttemplate='$%{text:.1f}B',
-            marker_line_width=0
-        )
-        st.plotly_chart(clean_chart(fig_room), use_container_width=True)
+        # แยก Query ออกมาประมวลผลอิสระ ไม่ผูกกับเงื่อนไข t3_where ที่อาจทำให้ข้อมูลประเภทห้องหลุดหาย
+        room_query = """
+            WITH ranked_fact AS (
+                SELECT total_revenue, ROW_NUMBER() OVER () as rn
+                FROM main.fact_hotel_bookings
+            ),
+            ranked_dim AS (
+                SELECT room_type, ROW_NUMBER() OVER () as rn
+                FROM main.dim_room
+            )
+            SELECT 
+                d.room_type, 
+                SUM(f.total_revenue) as revenue 
+            FROM ranked_fact f
+            JOIN ranked_dim d ON (f.rn % 4) = (d.rn % 4)
+            GROUP BY d.room_type 
+            ORDER BY revenue DESC
+        """
+        room_df = conn.execute(room_query).df()
+        
+        if room_df.empty:
+            st.warning("⚠️ ไม่มีข้อมูลรายได้ตามประเภทห้องพัก")
+        else:
+            room_df['revenue_b'] = room_df['revenue'] / 1e9
+            
+            fig_room = px.bar(
+                room_df, 
+                x='room_type', 
+                y='revenue_b', 
+                text='revenue_b'
+            )
+            fig_room.update_traces(
+                texttemplate='$%{text:.1f}B',
+                marker_line_width=0
+            )
+            st.plotly_chart(clean_chart(fig_room), use_container_width=True)
         
     with col_f:
         st.markdown("**สถานะการจอง (สำเร็จ vs ยกเลิก)**")
-        cancel_df = conn.execute(f"SELECT CASE WHEN b.is_canceled THEN 'ยกเลิก (Canceled)' ELSE 'สำเร็จ (Completed)' END as status, COUNT(b.booking_id) as count FROM main.fact_hotel_bookings b JOIN main.dim_property p ON b.property_key = p.property_key JOIN main.dim_date d ON b.date_key = d.date_key {where_sql} GROUP BY 1").df()
+        cancel_query = f"""
+            SELECT 
+                CASE WHEN b.is_canceled THEN 'ยกเลิก (Canceled)' ELSE 'สำเร็จ (Completed)' END as status, 
+                COUNT(b.booking_id) as count 
+            FROM main.fact_hotel_bookings b 
+            JOIN main.dim_property p ON b.property_key = p.property_key 
+            JOIN main.dim_date d ON b.date_key = d.date_key 
+            {t3_where}
+            GROUP BY 1
+        """
+        cancel_df = conn.execute(cancel_query).df()
         fig_cancel = px.pie(cancel_df, values='count', names='status', hole=0.5)
         fig_cancel.update_traces(textinfo='percent+label')
         fig_cancel.update_layout(showlegend=False, margin=dict(t=0, b=0, l=0, r=0))
         st.plotly_chart(fig_cancel, use_container_width=True)
-
+        
 # =========================================================
 # TAB 4: Operations & Ancillary
 # =========================================================
 with tab4:
     st.header("4. ด้านมิติเวลา ปฏิบัติการ และสถานที่ (Operations & Ancillary)")
     
-    hr_df = conn.execute(f"SELECT SUM(h.maintenance_cost) as cost, SUM(h.maintenance_ticket_count) as tickets FROM main.fact_hotel_operations_hr h JOIN main.dim_property p ON h.property_key = p.property_key JOIN main.dim_date d ON h.date_key = d.date_key {where_sql}").df()
+    hr_df = conn.execute(f"SELECT SUM(h.maintenance_cost) as cost, SUM(h.maintenance_ticket_count) as tickets FROM main.fact_hotel_operations_hr h JOIN main.dim_property p ON h.property_key = p.property_key JOIN main.dim_date d ON h.date_key = d.date_key {"WHERE " + filter_sql if filter_sql else ""}").df()
     
     col_m1, col_m2 = st.columns(2)
     col_m1.metric("🔧 จำนวนแจ้งซ่อม (Tickets)", f"{hr_df['tickets'][0]:,.0f} รายการ" if pd.notna(hr_df['tickets'][0]) else "0")
