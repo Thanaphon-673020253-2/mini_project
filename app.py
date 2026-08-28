@@ -194,7 +194,7 @@ with tab2:
     
     col_c, col_d = st.columns(2)
     with col_c:
-        st.markdown("**Top 5 สัญชาติลูกค้าสูงสุด**")
+        st.markdown("**Top 10 สัญชาติลูกค้าสูงสุด**")
         nat_query = f"""
             SELECT g.nationality, COUNT(b.booking_id) as count 
             FROM main.fact_hotel_bookings b 
@@ -204,7 +204,7 @@ with tab2:
             {where_sql} 
             GROUP BY g.nationality 
             ORDER BY count DESC 
-            LIMIT 5
+            LIMIT 10
         """
         nat_df = conn.execute(nat_query).df()
         fig_nat = px.bar(
