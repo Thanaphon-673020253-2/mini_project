@@ -28,6 +28,7 @@ else:
     try:
         df2 = conn.execute("SELECT nationality, COUNT(*) AS total_guests FROM main.dim_guest GROUP BY nationality").df()
         print(df2)
+        #df2.to_csv("output.csv", index=False)
     except Exception as e:
         print(f"เกิดข้อผิดพลาดขณะ Query: {e}")
 

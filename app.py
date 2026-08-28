@@ -201,6 +201,8 @@ with tab2:
             JOIN main.dim_guest g ON b.guest_key = g.guest_key 
             JOIN main.dim_property p ON b.property_key = p.property_key 
             JOIN main.dim_date d ON b.date_key = d.date_key 
+            WHERE g.nationality IS NOT NULL
+            AND g.nationality != 'Others'
             {where_sql} 
             GROUP BY g.nationality 
             ORDER BY count DESC 
