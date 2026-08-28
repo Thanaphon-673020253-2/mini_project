@@ -25,7 +25,6 @@ dbt.log
 # =========================
 # DuckDB
 # =========================
-*.duckdb
 *.duckdb.wal
 *.duckdb.tmp
 
