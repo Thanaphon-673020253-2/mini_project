@@ -84,7 +84,7 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "📊 1. รายได้และผลประกอบการ (Q1-Q4)", 
     "👥 2. ลูกค้าและพฤติกรรม (Q5, Q6, Q8, Q11)", 
     "🛏️ 3. ห้องพักและการจอง (Q9, Q10, Q12)", 
-    "📅 4. มิติเวลาและฤดูกาล (Q13-Q14)",
+    "📅 4. มิติเวลาและสถานที่ (Q13-Q14)",
     "⚙️ 5. ปฏิบัติการและสถานที่ (Q7, Q15)"
 ])
 
@@ -94,6 +94,7 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
 with tab1:
     st.header("1. ด้านรายได้และผลประกอบการ (Revenue & Performance)")
     
+    # Q1 Metrics
     q1_df = conn.execute(f"""
         SELECT 
             SUM(b.total_revenue) as total_rev,
@@ -104,35 +105,74 @@ with tab1:
         {where_stmt}
     """).df()
     
-    q3_df = conn.execute(f"""
-        WITH guest_ancillary AS (
-            SELECT DISTINCT guest_key FROM main.fact_fnb_operations
-            UNION
-            SELECT DISTINCT guest_key FROM main.fact_ancillary_services
-        )
-        SELECT 
-            COUNT(DISTINCT b.guest_key) as total_guests,
-            COUNT(DISTINCT ga.guest_key) as cross_guests,
-            (COALESCE(SUM(f.sales_amount), 0) + COALESCE(SUM(a.spa_revenue + a.event_revenue), 0)) / NULLIF(COUNT(DISTINCT b.booking_id), 0) as avg_ancillary
-        FROM main.fact_hotel_bookings b
-        JOIN main.dim_date d ON b.date_key = d.date_key
-        JOIN main.dim_property p ON b.property_key = p.property_key
-        LEFT JOIN guest_ancillary ga ON b.guest_key = ga.guest_key
-        LEFT JOIN main.fact_fnb_operations f ON b.guest_key = f.guest_key AND b.date_key = f.date_key
-        LEFT JOIN main.fact_ancillary_services a ON b.guest_key = a.guest_key AND b.date_key = a.date_key
-        {where_stmt}
-    """).df()
-    
-    total_g = q3_df['total_guests'][0] if not q3_df.empty and pd.notna(q3_df['total_guests'][0]) else 0
-    cross_g = q3_df['cross_guests'][0] if not q3_df.empty and pd.notna(q3_df['cross_guests'][0]) else 0
-    cross_pct = (cross_g / total_g * 100) if total_g > 0 else 0
-    
-    c1, c2, c3, c4 = st.columns(4)
+    c1, c2 = st.columns(2)
     c1.metric("ข้อ 1: ยอดขายรวม (Total Revenue)", f"Rp {q1_df['total_rev'][0]:,.0f}" if not q1_df.empty and pd.notna(q1_df['total_rev'][0]) else "Rp 0")
     c2.metric("ข้อ 1: จำนวนคืนที่จอง (Nights)", f"{q1_df['total_nights'][0]:,.0f} คืน" if not q1_df.empty and pd.notna(q1_df['total_nights'][0]) else "0 คืน")
-    c3.metric("ข้อ 3: อัตรา Cross-selling F&B/Spa", f"{cross_pct:.1f}%")
-    c4.metric("ข้อ 3: รายได้เสริมเฉลี่ย/การเข้าพัก", f"Rp {q3_df['avg_ancillary'][0]:,.0f}" if not q3_df.empty and pd.notna(q3_df['avg_ancillary'][0]) else "Rp 0")
     
+    st.markdown("---")
+    
+    # Q3 Breakdown (ดึงตรงจาก Fact Tables และใช้นับจำนวนแถวของ Event & Venue)
+    st.markdown("**ข้อ 3: สัดส่วนรายได้และผู้ใช้บริการเสริม แยกตามประเภทบริการ**")
+    q3_df = conn.execute(f"""
+        SELECT 
+            'Food & Beverage' AS service_type,
+            COALESCE(SUM(f.sales_amount), 0) AS revenue,
+            COUNT(DISTINCT f.guest_key) AS guest_count
+        FROM main.fact_fnb_operations f
+        JOIN main.dim_date d ON f.date_key = d.date_key
+        JOIN main.dim_property p ON f.property_key = p.property_key
+        {where_stmt}
+        
+        UNION ALL
+        
+        SELECT 
+            'Spa & Wellness' AS service_type,
+            COALESCE(SUM(a.spa_revenue), 0) AS revenue,
+            COUNT(DISTINCT CASE WHEN a.spa_revenue > 0 THEN a.guest_key END) AS guest_count
+        FROM main.fact_ancillary_services a
+        JOIN main.dim_date d ON a.date_key = d.date_key
+        JOIN main.dim_property p ON a.property_key = p.property_key
+        {where_stmt}
+        
+        UNION ALL
+        
+        SELECT 
+            'Event & Venue' AS service_type,
+            COALESCE(SUM(a.event_revenue), 0) AS revenue,
+            COUNT(CASE WHEN a.event_revenue > 0 THEN 1 END) AS guest_count
+        FROM main.fact_ancillary_services a
+        JOIN main.dim_date d ON a.date_key = d.date_key
+        JOIN main.dim_property p ON a.property_key = p.property_key
+        {where_stmt}
+        ORDER BY revenue DESC
+    """).df()
+
+    if not q3_df.empty:
+        m1, m2, m3 = st.columns(3)
+        for idx, row in q3_df.iterrows():
+            target_col = [m1, m2, m3][idx]
+            rev_billions = row['revenue'] / 1e9
+            unit_label = "รายการจัดงาน" if row['service_type'] == 'Event & Venue' else "ผู้ใช้บริการ"
+            target_col.metric(
+                label=f"บริการ {row['service_type']}",
+                value=f"Rp {rev_billions:,.2f}B",
+                delta=f"{row['guest_count']:,} {unit_label}"
+            )
+        
+        q3_df['revenue_b'] = q3_df['revenue'] / 1e9
+        fig_q3 = px.bar(
+            q3_df, 
+            x='service_type', 
+            y='revenue_b', 
+            text='revenue_b',
+            color='service_type',
+            labels={'service_type': 'ประเภทบริการเสริม', 'revenue_b': 'รายได้ (พันล้านรูเปียห์)'}
+        )
+        fig_q3.update_traces(texttemplate='Rp %{y:.2f}B')
+        st.plotly_chart(clean_chart(fig_q3), use_container_width=True)
+    else:
+        st.info("ไม่พบข้อมูลบริการเสริมตามเงื่อนไขที่เลือก")
+
     st.markdown("---")
     
     col_a, col_b = st.columns(2)
@@ -258,7 +298,7 @@ with tab2:
             st.info("ไม่พบข้อมูลระยะเวลาเข้าพักเฉลี่ย")
 
 # =========================================================
-# TAB 3: Room & Booking Patterns (ข้อ 9, 10, 12 - FIXED Q12 STATUS)
+# TAB 3: Room & Booking Patterns (ข้อ 9, 10, 12)
 # =========================================================
 with tab3:
     st.header("3. ด้านประเภทห้องพักและการจอง (Room & Booking Patterns)")
@@ -302,7 +342,6 @@ with tab3:
         
     with col_h:
         st.markdown("**ข้อ 12: อัตราการยกเลิกการจอง (%) แยกตามประเภทห้องพัก**")
-        # แก้ไขการเช็กสถานะยกเลิกด้วย 'cancelled' (สะกดด้วย ll)
         q12_df = conn.execute(f"""
             SELECT 
                 s.room_type,
@@ -331,10 +370,10 @@ with tab4:
     
     col_i, col_j = st.columns([2, 1])
     with col_i:
-        st.markdown("**ข้อ 13: แนวโน้มรายได้ตามช่วงเดือน / ฤดูกาล**")
+        st.markdown("**ข้อ 13: แนวโน้มรายได้ตามช่วงเดือน / ฤดูกาล (เรียงต่อกันตามลำดับเวลา)**")
         q13_df = conn.execute(f"""
             SELECT 
-                d.month_name,
+                CAST(d.year AS VARCHAR) || ' ' || d.month_name AS year_month,
                 MIN(d.date_key) as sort_key,
                 SUM(b.total_revenue) / 1e9 as revenue_b
             FROM main.fact_hotel_bookings b
@@ -343,9 +382,17 @@ with tab4:
             {where_stmt}
             GROUP BY d.year, d.month_name ORDER BY sort_key
         """).df()
+        
         if not q13_df.empty:
-            fig_q13 = px.line(q13_df, x='month_name', y='revenue_b', markers=True)
+            fig_q13 = px.line(
+                q13_df, 
+                x='year_month', 
+                y='revenue_b', 
+                markers=True,
+                labels={'year_month': 'ช่วงเวลา (ปี เดือน)', 'revenue_b': 'รายได้ (พันล้านรูเปียห์)'}
+            )
             fig_q13.update_traces(line_color='#1f77b4', line_width=3)
+            fig_q13.update_xaxes(type='category', tickangle=-45)
             st.plotly_chart(clean_chart(fig_q13), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูลแนวโน้มรายได้")
@@ -370,7 +417,7 @@ with tab4:
             st.info("ไม่พบข้อมูลสัดส่วนวันธรรมดา/วันหยุด")
 
 # =========================================================
-# TAB 5: Operations & Venues (ข้อ 7, 15 - FIXED Q15 MAX_CAPACITY)
+# TAB 5: Operations & Venues (ข้อ 7, 15)
 # =========================================================
 with tab5:
     st.header("5. ด้านปฏิบัติการและสถานที่จัดงาน (Operations & Venues)")
@@ -396,7 +443,6 @@ with tab5:
 
     with col_l:
         st.markdown("**ข้อ 15: ประสิทธิภาพสถานที่จัดงาน (Venue Type) และรายได้ต่อความจุ (Max Capacity)**")
-        # เปลี่ยนจากการใช้ area_sqm ที่เป็น NULL ไปใช้ max_capacity แทน
         q15_df = conn.execute(f"""
             SELECT 
                 v.venue_type,
