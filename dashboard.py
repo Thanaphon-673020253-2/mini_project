@@ -13,13 +13,13 @@ st.set_page_config(
     layout="wide"
 )
 
-# ฟังก์ชันตกแต่งกราฟให้ดูคลีน (Minimalist Chart)
 def clean_chart(fig):
+    """ฟังก์ชันตกแต่งกราฟให้ดูคลีน (Minimalist Chart)"""
     fig.update_layout(
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        xaxis=(dict(showgrid=False, title="")),
-        yaxis=(dict(showgrid=False, title="")),
+        xaxis=dict(showgrid=False, title=""),
+        yaxis=dict(showgrid=False, title=""),
         showlegend=True,
         margin=dict(t=40, b=20, l=10, r=10)
     )
@@ -106,7 +106,7 @@ with tab1:
     st.header("ด้านรายได้และผลประกอบการ (Revenue & Performance)")
     
     # ข้อ 1
-    st.subheader("📌ยอดขายรวม และจำนวนคืนที่ถูกจองทั้งหมด")
+    st.subheader("📌 ยอดขายรวม และจำนวนคืนที่ถูกจองทั้งหมด")
     q1_query = f"""
         SELECT 
             SUM(b.total_revenue) as total_revenue,
@@ -118,15 +118,15 @@ with tab1:
     """
     q1_df = conn.execute(q1_query).df()
     c1, c2 = st.columns(2)
-    c1.metric("💰 ยอดขายรวมทั้งหมด", f"{q1_df['total_revenue'][0]:,.0f}" if pd.notna(q1_df['total_revenue'][0]) else "Rp 0")
-    c2.metric("🌙 จำนวนคืนที่ถูกจองทั้งหมด", f"{q1_df['total_nights'][0]:,.0f} คืน" if pd.notna(q1_df['total_nights'][0]) else "0 คืน")
+    c1.metric("💰 ยอดขายรวมทั้งหมด", f"Rp {q1_df['total_revenue'][0]:,.0f}" if not q1_df.empty and pd.notna(q1_df['total_revenue'][0]) else "Rp 0")
+    c2.metric("🌙 จำนวนคืนที่ถูกจองทั้งหมด", f"{q1_df['total_nights'][0]:,.0f} คืน" if not q1_df.empty and pd.notna(q1_df['total_nights'][0]) else "0 คืน")
     st.markdown("---")
 
     col_a, col_b = st.columns(2)
     
     # ข้อ 2
     with col_a:
-        st.subheader("📌อัตราการเข้าพักเฉลี่ย (Occupancy Rate) แยกตามสาขา")
+        st.subheader("📌 อัตราการเข้าพักเฉลี่ย (Occupancy Rate) แยกตามสาขา")
         q2_query = f"""
             SELECT 
                 p.property_name,
@@ -138,7 +138,7 @@ with tab1:
             GROUP BY p.property_name
             ORDER BY occupancy_rate DESC
         """
-        q2_df = conn.execute(q2_query).df() # <-- เติม .df() ตรงนี้
+        q2_df = conn.execute(q2_query).df()
         if q2_df is not None and not q2_df.empty:
             fig_q2 = px.bar(q2_df, x='property_name', y='occupancy_rate', text='occupancy_rate', title="Occupancy Rate (%)")
             fig_q2.update_traces(texttemplate='%{text:.2f}%', marker_color='#1f77b4')
@@ -148,7 +148,7 @@ with tab1:
 
     # ข้อ 4
     with col_b:
-        st.subheader("📌รายได้เฉลี่ยต่อห้องพักที่มีทั้งหมด (RevPAR)")
+        st.subheader("📌 รายได้เฉลี่ยต่อห้องพักที่มีทั้งหมด (RevPAR)")
         q4_query = f"""
             SELECT 
                 p.property_name,
@@ -161,7 +161,7 @@ with tab1:
             ORDER BY revpar DESC
         """
         q4_df = conn.execute(q4_query).df()
-        if not q4_df.empty:
+        if q4_df is not None and not q4_df.empty:
             fig_q4 = px.bar(q4_df, x='property_name', y='revpar', text='revpar', title="RevPAR (IDR)")
             fig_q4.update_traces(texttemplate='%{text:,.0f}', marker_color='#2ca02c')
             st.plotly_chart(clean_chart(fig_q4), width='stretch')
@@ -171,7 +171,7 @@ with tab1:
     st.markdown("---")
     
     # ข้อ 3
-    st.subheader("📌การใช้บริการข้ามสาย (Cross-selling: F&B / Spa) และรายได้เสริมเฉลี่ยต่อการเข้าพัก")
+    st.subheader("📌 การใช้บริการข้ามสาย (Cross-selling: F&B / Spa) และรายได้เสริมเฉลี่ยต่อการเข้าพัก")
     q3_query = f"""
         WITH booking_guests AS (
             SELECT DISTINCT b.guest_key, b.date_key, b.booking_id
@@ -207,10 +207,10 @@ with tab1:
     """
     q3_df = conn.execute(q3_query).df()
     c3_1, c3_2 = st.columns(2)
-    cross_pct = q3_df['cross_sell_pct'][0] if not q3_df.empty and pd.notna(q3_df['cross_sell_pct'][0]) else 0
-    anc_rev = q3_df['avg_ancillary_revenue'][0] if not q3_df.empty and pd.notna(q3_df['avg_ancillary_revenue'][0]) else 0
+    cross_pct = q3_df['cross_sell_pct'][0] if q3_df is not None and not q3_df.empty and pd.notna(q3_df['cross_sell_pct'][0]) else 0
+    anc_rev = q3_df['avg_ancillary_revenue'][0] if q3_df is not None and not q3_df.empty and pd.notna(q3_df['avg_ancillary_revenue'][0]) else 0
     c3_1.metric("🔄 สัดส่วนลูกค้าที่ใช้ F&B/Spa (Cross-selling)", f"{cross_pct:,.2f}%")
-    c3_2.metric("💵 รายได้เสริมเฉลี่ยต่อการเข้าพัก", f"{anc_rev:,.0f}")
+    c3_2.metric("💵 รายได้เสริมเฉลี่ยต่อการเข้าพัก", f"Rp {anc_rev:,.0f}")
 
 # =========================================================
 # TAB 2: Customer Analysis (Q5 - Q8)
@@ -222,7 +222,7 @@ with tab2:
     
     # ข้อ 5
     with col_q5:
-        st.subheader("📌มูลค่าลูกค้า (LTV) และอัตราการกลับมาพักซ้ำ ตามระดับสมาชิก")
+        st.subheader("📌 มูลค่าลูกค้า (LTV) ตามระดับสมาชิก")
         q5_query = f"""
             SELECT 
                 g.loyalty_tier,
@@ -237,45 +237,47 @@ with tab2:
             GROUP BY g.loyalty_tier
             ORDER BY ltv_revenue DESC
         """
-        q5_df = conn.execute(q5_query).df() # <-- เติม .df() ตรงนี้
-    
-    if q5_df is not None and not q5_df.empty:
-        fig_q5 = px.bar(
-            q5_df, 
-            x='loyalty_tier', 
-            y='ltv_revenue', 
-            text='ltv_revenue', 
-            title="รายได้แยกตามระดับสมาชิก (Loyalty Tier)"
-        )
-        fig_q5.update_traces(texttemplate='%{text:,.0f}')
-        st.plotly_chart(clean_chart(fig_q5), width='stretch')
+        q5_df = conn.execute(q5_query).df()
+        if q5_df is not None and not q5_df.empty:
+            fig_q5 = px.bar(
+                q5_df, 
+                x='loyalty_tier', 
+                y='ltv_revenue', 
+                text='ltv_revenue', 
+                title="รายได้แยกตามระดับสมาชิก (Loyalty Tier)"
+            )
+            fig_q5.update_traces(texttemplate='Rp %{text:,.0f}')
+            st.plotly_chart(clean_chart(fig_q5), width='stretch')
+        else:
+            st.info("ไม่พบข้อมูลสัดส่วนสมาชิก")
 
-    # ข้อ 6 (แก้ไขเพื่อป้องกัน ValueError เมื่อไม่มีข้อมูล)
+    # ข้อ 6
     with col_q6:
+        st.subheader("📌 สัดส่วน Top 5 สัญชาติ")
         q6_query = f"""
             SELECT 
                 g.nationality,
                 COUNT(b.booking_id) as total_bookings
             FROM main.fact_hotel_bookings b
             JOIN main.dim_guest g ON b.guest_key = g.guest_key
-        JOIN main.dim_property p ON b.property_key = p.property_key
-        JOIN main.dim_date d ON b.date_key = d.date_key
-        {where_stmt} AND g.nationality IS NOT NULL AND g.nationality != 'Others'
-        GROUP BY g.nationality
-        ORDER BY total_bookings DESC
-        LIMIT 5
-    """
-    q6_df = conn.execute(q6_query).df() # <-- เพิ่ม .df() ตรงนี้
-    
-    if q6_df is not None and not q6_df.empty:
-        fig_q6 = px.pie(q6_df, values='total_bookings', names='nationality', title="สัดส่วน Top 5 สัญชาติ", hole=0.4)
-        st.plotly_chart(fig_q6, width='stretch')
-    else:
-        st.info("ไม่พบข้อมูลสัญชาติสำหรับเงื่อนไขที่เลือก")
-    
-    # ข้อ 7 (แก้ไข day_of_week_name -> day_of_week)
+            JOIN main.dim_property p ON b.property_key = p.property_key
+            JOIN main.dim_date d ON b.date_key = d.date_key
+            {where_stmt} AND g.nationality IS NOT NULL AND g.nationality != 'Others'
+            GROUP BY g.nationality
+            ORDER BY total_bookings DESC
+            LIMIT 5
+        """
+        q6_df = conn.execute(q6_query).df()
+        if q6_df is not None and not q6_df.empty:
+            fig_q6 = px.pie(q6_df, values='total_bookings', names='nationality', title="สัดส่วน Top 5 สัญชาติ", hole=0.4)
+            st.plotly_chart(fig_q6, width='stretch')
+        else:
+            st.info("ไม่พบข้อมูลสัญชาติสำหรับเงื่อนไขที่เลือก")
+
+    st.markdown("---")
+
     # ข้อ 7
-    st.subheader("📌ช่วงเวลาภาระงานแน่นที่สุด (Peak Operations)")
+    st.subheader("📌 ช่วงเวลาภาระงานแน่นที่สุด (Peak Operations)")
     q7_query = f"""
         SELECT 
             d.day_of_week as day_name,
@@ -300,9 +302,10 @@ with tab2:
     else:
         st.info("ไม่มีข้อมูลภาระงาน")
 
+    st.markdown("---")
+
     # ข้อ 8
-    # ข้อ 8
-    st.subheader("📌เปรียบเทียบพฤติกรรมการจองและการใช้จ่าย (ต่างชาติ vs ในประเทศ)")
+    st.subheader("📌 เปรียบเทียบพฤติกรรมการจองและการใช้จ่าย (ต่างชาติ vs ในประเทศ)")
     q8_query = f"""
         SELECT 
             CASE WHEN g.nationality = 'Indonesia' THEN 'Domestic (ในประเทศ)' ELSE 'International (ต่างชาติ)' END as guest_origin,
@@ -316,12 +319,12 @@ with tab2:
         {where_stmt} AND g.nationality IS NOT NULL
         GROUP BY 1
     """
-    q8_df = conn.execute(q8_query).df() # <-- เติม .df() ตรงนี้
+    q8_df = conn.execute(q8_query).df()
     if q8_df is not None and not q8_df.empty:
         c8_1, c8_2 = st.columns(2)
         with c8_1:
             fig_q8_1 = px.bar(q8_df, x='guest_origin', y='avg_spending', text='avg_spending', title="ค่าใช้จ่ายเฉลี่ยต่อการจอง (IDR)")
-            fig_q8_1.update_traces(texttemplate='%{text:,.0f}', marker_color='#9467bd')
+            fig_q8_1.update_traces(texttemplate='Rp %{text:,.0f}', marker_color='#9467bd')
             st.plotly_chart(clean_chart(fig_q8_1), width='stretch')
         with c8_2:
             fig_q8_2 = px.bar(q8_df, x='guest_origin', y='avg_lead_time', text='avg_lead_time', title="ระยะเวลาจองล่วงหน้าเฉลี่ย (วัน)")
@@ -340,7 +343,7 @@ with tab3:
     
     # ข้อ 9
     with col_q9:
-        st.subheader("📌ประเภทห้องพัก (Room Type) ยอดจองสูงสุด & รายได้หลัก")
+        st.subheader("📌 ประเภทห้องพัก (Room Type) ยอดจองสูงสุด & รายได้หลัก")
         q9_query = f"""
             WITH ranked_fact AS (
                 SELECT b.total_revenue, b.booking_id, ROW_NUMBER() OVER () as rn
@@ -363,16 +366,16 @@ with tab3:
             ORDER BY total_revenue DESC
         """
         q9_df = conn.execute(q9_query).df()
-        if not q9_df.empty:
+        if q9_df is not None and not q9_df.empty:
             fig_q9 = px.bar(q9_df, x='room_type', y='total_revenue', text='total_revenue', title="รายได้แยกตามประเภทห้องพัก")
-            fig_q9.update_traces(texttemplate='%{text:,.0f}')
-            st.plotly_chart(clean_chart(fig_q9), use_container_width=True)
+            fig_q9.update_traces(texttemplate='Rp %{text:,.0f}')
+            st.plotly_chart(clean_chart(fig_q9), width='stretch')
         else:
             st.info("ไม่มีข้อมูลห้องพัก")
 
     with col_q10_11:
         # ข้อ 10
-        st.subheader("📌ระยะเวลาจองล่วงหน้าเฉลี่ย")
+        st.subheader("📌 ระยะเวลาจองล่วงหน้าเฉลี่ย")
         q10_query = f"""
             SELECT AVG(b.lead_time_days) as avg_lead_time
             FROM main.fact_hotel_bookings b
@@ -381,32 +384,35 @@ with tab3:
             {where_stmt}
         """
         q10_df = conn.execute(q10_query).df()
-        lead_time = q10_df['avg_lead_time'][0] if not q10_df.empty and pd.notna(q10_df['avg_lead_time'][0]) else 0
+        lead_time = q10_df['avg_lead_time'][0] if q10_df is not None and not q10_df.empty and pd.notna(q10_df['avg_lead_time'][0]) else 0
         st.metric("⏳ Lead Time เฉลี่ย", f"{lead_time:,.1f} วัน")
 
         st.markdown("---")
 
         # ข้อ 11
+        st.subheader("📌 ระยะเวลาเข้าพักเฉลี่ย ตามระดับสมาชิก")
         q11_query = f"""
-        SELECT 
-            g.loyalty_tier as guest_group,
-            AVG(b.nights) as avg_nights
-        FROM main.fact_hotel_bookings b
-        JOIN main.dim_guest g ON b.guest_key = g.guest_key
-        JOIN main.dim_property p ON b.property_key = p.property_key
-        JOIN main.dim_date d ON b.date_key = d.date_key
-        {where_stmt} AND g.loyalty_tier IS NOT NULL
-        GROUP BY g.loyalty_tier
-        ORDER BY avg_nights DESC
-    """
-    q11_df = conn.execute(q11_query).df()
-    if q11_df is not None and not q11_df.empty:
-        st.dataframe(q11_df.rename(columns={'guest_group':'ระดับสมาชิก', 'avg_nights':'ระยะเวลาเข้าพักเฉลี่ย (คืน)'}), width='stretch')
-    else:
-        st.info("ไม่มีข้อมูลประเภทกลุ่มลูกค้า")
+            SELECT 
+                g.loyalty_tier as guest_group,
+                AVG(b.nights) as avg_nights
+            FROM main.fact_hotel_bookings b
+            JOIN main.dim_guest g ON b.guest_key = g.guest_key
+            JOIN main.dim_property p ON b.property_key = p.property_key
+            JOIN main.dim_date d ON b.date_key = d.date_key
+            {where_stmt} AND g.loyalty_tier IS NOT NULL
+            GROUP BY g.loyalty_tier
+            ORDER BY avg_nights DESC
+        """
+        q11_df = conn.execute(q11_query).df()
+        if q11_df is not None and not q11_df.empty:
+            st.dataframe(q11_df.rename(columns={'guest_group':'ระดับสมาชิก', 'avg_nights':'ระยะเวลาเข้าพักเฉลี่ย (คืน)'}), width='stretch')
+        else:
+            st.info("ไม่มีข้อมูลประเภทกลุ่มลูกค้า")
     
+    st.markdown("---")
+
     # ข้อ 12
-    st.subheader("📌อัตราการยกเลิกการจอง (Cancellation Rate) แยกตามสาขา")
+    st.subheader("📌 อัตราการยกเลิกการจอง (Cancellation Rate) แยกตามสาขา")
     q12_query = f"""
         SELECT 
             p.property_name,
@@ -419,10 +425,10 @@ with tab3:
         ORDER BY cancel_rate DESC
     """
     q12_df = conn.execute(q12_query).df()
-    if not q12_df.empty:
+    if q12_df is not None and not q12_df.empty:
         fig_q12 = px.bar(q12_df, x='property_name', y='cancel_rate', text='cancel_rate', title="อัตราการยกเลิกการจอง (%)")
         fig_q12.update_traces(texttemplate='%{text:.2f}%', marker_color='#d62728')
-        st.plotly_chart(clean_chart(fig_q12), use_container_width=True)
+        st.plotly_chart(clean_chart(fig_q12), width='stretch')
     else:
         st.info("ไม่มีข้อมูลอัตราการยกเลิก")
 
@@ -433,7 +439,7 @@ with tab4:
     st.header("ด้านมิติเวลา สถานที่ และบริการเสริม (Time & Location Trends)")
     
     # ข้อ 13
-    st.subheader("📌รายได้และยอดจองสูงสุด แยกตามเดือน / ฤดูกาล")
+    st.subheader("📌 รายได้และยอดจองสูงสุด แยกตามเดือน / ฤดูกาล")
     col_q13_a, col_q13_b = st.columns(2)
     with col_q13_a:
         q13_month_query = f"""
@@ -449,9 +455,9 @@ with tab4:
             ORDER BY sort_date ASC
         """
         q13_m_df = conn.execute(q13_month_query).df()
-        if not q13_m_df.empty:
+        if q13_m_df is not None and not q13_m_df.empty:
             fig_q13_m = px.bar(q13_m_df, x='month_name', y='total_revenue', text='total_revenue', title="รายได้แยกตามเดือน (IDR)")
-            fig_q13_m.update_traces(texttemplate='%{text:,.0f}')
+            fig_q13_m.update_traces(texttemplate='Rp %{text:,.0f}')
             st.plotly_chart(clean_chart(fig_q13_m), width='stretch')
         else:
             st.info("ไม่มีข้อมูลเดือน")
@@ -469,16 +475,16 @@ with tab4:
             ORDER BY total_revenue DESC
         """
         q13_s_df = conn.execute(q13_season_query).df()
-        if not q13_s_df.empty:
+        if q13_s_df is not None and not q13_s_df.empty:
             fig_q13_s = px.pie(q13_s_df, values='total_revenue', names='season', title="สัดส่วนรายได้ตามฤดูกาล", hole=0.4)
-            st.plotly_chart(fig_q13_s, use_container_width=True)
+            st.plotly_chart(fig_q13_s, width='stretch')
         else:
             st.info("ไม่มีข้อมูลฤดูกาล")
 
     st.markdown("---")
 
     # ข้อ 14
-    st.subheader("📌ยอดขายเปรียบเทียบระหว่างวันธรรมดา vs วันหยุดสุดสัปดาห์ (Is Weekend)")
+    st.subheader("📌 ยอดขายเปรียบเทียบระหว่างวันธรรมดา vs วันหยุดสุดสัปดาห์ (Is Weekend)")
     q14_query = f"""
         SELECT 
             CASE WHEN d.is_weekend THEN 'Weekend (วันหยุด)' ELSE 'Weekday (วันธรรมดา)' END as day_type,
@@ -490,18 +496,17 @@ with tab4:
         GROUP BY 1
     """
     q14_df = conn.execute(q14_query).df()
-    if not q14_df.empty:
+    if q14_df is not None and not q14_df.empty:
         fig_q14 = px.bar(q14_df, x='day_type', y='total_revenue', text='total_revenue', color='day_type', title="เปรียบเทียบรายได้รวม (IDR)")
-        fig_q14.update_traces(texttemplate='%{text:,.0f}')
-        st.plotly_chart(clean_chart(fig_q14), use_container_width=True)
+        fig_q14.update_traces(texttemplate='Rp %{text:,.0f}')
+        st.plotly_chart(clean_chart(fig_q14), width='stretch')
     else:
         st.info("ไม่มีข้อมูลเปรียบเทียบวัน")
 
     st.markdown("---")
 
     # ข้อ 15
-    # ข้อ 15
-    st.subheader("📌ประสิทธิภาพสถานที่จัดงาน (Venue Type) - อัตราการใช้งานและกำไรต่อพื้นที่")
+    st.subheader("📌 ประสิทธิภาพสถานที่จัดงาน (Venue Type) - อัตราการใช้งานและกำไรต่อพื้นที่")
     q15_query = f"""
         SELECT 
             v.venue_type,
@@ -521,7 +526,7 @@ with tab4:
     if q15_df is not None and not q15_df.empty:
         fig_q15 = px.bar(q15_df, x='venue_type', y='revenue_per_capacity', text='revenue_per_capacity', 
                          title="รายได้เฉลี่ยต่อหน่วยความจุสถานที่ (Revenue per Capacity)", color='venue_type')
-        fig_q15.update_traces(texttemplate='%{text:,.1f}')
+        fig_q15.update_traces(texttemplate='Rp %{text:,.1f}')
         st.plotly_chart(clean_chart(fig_q15), width='stretch')
     else:
         st.info("ไม่มีข้อมูลสถานที่จัดงาน")
