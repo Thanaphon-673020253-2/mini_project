@@ -468,3 +468,32 @@ with tab5:
             st.plotly_chart(clean_chart(fig_q15), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูล Venue Performance")
+    with col_l:
+        st.markdown("**ข้อ 15: ประเภทสถานที่จัดงาน (Venue Type) ที่มีการจองมากที่สุด**")
+        q15_df = conn.execute(f"""
+            SELECT 
+                v.venue_type,
+                COUNT(CASE WHEN a.event_revenue > 0 THEN 1 END) as booking_count,
+                SUM(a.event_revenue) / 1e9 as rev_billions
+            FROM main.fact_ancillary_services a
+            JOIN main.dim_venue v ON a.venue_key = v.venue_key
+            JOIN main.dim_property p ON a.property_key = p.property_key
+            JOIN main.dim_date d ON a.date_key = d.date_key
+            {where_stmt}
+            GROUP BY v.venue_type 
+            ORDER BY booking_count DESC
+        """).df()
+        
+        if not q15_df.empty and q15_df['booking_count'].notna().any():
+            fig_q15 = px.bar(
+                q15_df, 
+                x='venue_type', 
+                y='booking_count', 
+                text='booking_count', 
+                color='venue_type',
+                labels={'venue_type': 'ประเภทสถานที่', 'booking_count': 'จำนวนการจอง (ครั้ง)'}
+            )
+            fig_q15.update_traces(texttemplate='%{text:,} ครั้ง')
+            st.plotly_chart(clean_chart(fig_q15), use_container_width=True)
+        else:
+            st.info("ไม่พบข้อมูล Venue Performance")
