@@ -185,7 +185,14 @@ with tab1:
             GROUP BY 1 ORDER BY avg_occ DESC
         """).df()
         if not q2_df.empty:
-            fig_q2 = px.bar(q2_df, x='property_name', y='avg_occ', text='avg_occ', color='property_name')
+            fig_q2 = px.bar(
+                q2_df, 
+                x='property_name', 
+                y='avg_occ', 
+                text='avg_occ', 
+                color='property_name',
+                range_y=[0, 100]  # <--- เพิ่มตรงนี้เพื่อล็อกแกน Y ให้เต็ม 100%
+            )
             fig_q2.update_traces(texttemplate='%{text:.1f}%')
             st.plotly_chart(clean_chart(fig_q2), use_container_width=True)
         else:
