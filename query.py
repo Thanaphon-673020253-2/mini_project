@@ -26,7 +26,7 @@ else:
 
     # 5. ดึงข้อมูล 20 แถวแรกแปลงเป็น DataFrame โดยตรง
     try:
-        df2 = conn.execute("SELECT room_type, COUNT(*) AS total_rooms FROM main.dim_room GROUP BY room_type").df()
+        df2 = conn.execute("SELECT status, COUNT(*) AS total_bookings FROM main.stg_bookings GROUP BY status").df()
         print(df2)
         #df2.to_csv("output.csv", index=False)
     except Exception as e:
