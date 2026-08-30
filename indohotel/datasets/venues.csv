@@ -1,0 +1,21 @@
+venue_id,property_id,venue_name,venue_type,max_capacity
+VN001,P01,Nirwana Grand Ballroom,Ballroom,400
+VN002,P01,Sunset Garden Venue,Outdoor,250
+VN003,P01,Beachfront Lawn,Outdoor,180
+VN004,P01,Frangipani Meeting Room,Meeting Room,60
+VN005,P02,Jakarta Grand Ballroom,Ballroom,800
+VN006,P02,Executive Ballroom,Ballroom,350
+VN007,P02,Meeting Room A,Meeting Room,80
+VN008,P02,Meeting Room B,Meeting Room,50
+VN009,P02,Meeting Room C,Meeting Room,30
+VN010,P02,Boardroom,Meeting Room,20
+VN011,P03,Pendopo Ballroom,Ballroom,300
+VN012,P03,Joglo Garden,Outdoor,150
+VN013,P03,Batik Meeting Room,Meeting Room,50
+VN014,P04,Pinus Ballroom,Ballroom,350
+VN015,P04,Hillside Garden,Outdoor,200
+VN016,P04,Cendana Meeting Room,Meeting Room,60
+VN017,P04,Melati Meeting Room,Meeting Room,35
+VN018,P05,Ombak Ballroom,Ballroom,250
+VN019,P05,Beach Wedding Lawn,Outdoor,150
+VN020,P05,Gili Meeting Room,Meeting Room,40
