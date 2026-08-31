@@ -278,95 +278,112 @@ with tab2:
 
     # ข้อ 7
     # =========================================================
-# =========================================================
-    # ข้อ 7 (แก้ไข): Daily F&B & Spa Revenue Analysis
-    # =========================================================
-    # =========================================================
-# TAB 2 (แก้ไขเฉพาะข้อ 7): Cross-Department Peak Alignment
-# =========================================================
-st.subheader("📌 7. วิเคราะห์ช่วงเวลาภาระงานรายชั่วโมง (Cross-Department Peak Alignment)")
-st.caption("เปรียบเทียบความหนาแน่นของงานในแต่ละแผนกตลอด 24 ชั่วโมง เพื่อบริหารกำลังพลข้ามแผนก (Cross-Functional Staffing)")
+    st.set_page_config(page_title="F&B Cost & Waste Analysis", layout="wide")
+    st.title("🍽️ F&B Cost & Waste Analysis Dashboard")
+    st.markdown("วิเคราะห์สัดส่วนต้นทุนวัตถุดิบ (COGS) และขยะอาหาร (Waste Cost) เปรียบเทียบกับยอดขายรวมแยกตาม Outlet และ Property")
 
-# SQL Query ดึงข้อมูลภาระงานจำแนกตามชั่วโมง (0-23 น.)
-q7_query = f"""
-    SELECT 
-        h.hour_of_day,
-        LPAD(CAST(h.hour_of_day AS VARCHAR), 2, '0') || ':00' as time_slot,
-        SUM(COALESCE(h.checkout_count, 0)) as total_checkouts,
-        SUM(COALESCE(h.maintenance_ticket_count, 0)) as total_housekeeping,
-        COALESCE(SUM(f.transaction_count), 0) as total_fnb_tx,
-        SUM(COALESCE(h.checkin_count, 0)) as total_checkins
-    FROM main.fact_hotel_operations_hr h
-    JOIN main.dim_property p ON h.property_key = p.property_key
-    JOIN main.dim_date d ON h.date_key = d.date_key
-    LEFT JOIN main.fact_fnb_operations f 
-        ON h.date_key = f.date_key 
-        AND h.property_key = f.property_key 
-        AND h.hour_of_day = f.hour_of_day
-    {where_stmt}
-    GROUP BY h.hour_of_day
-    ORDER BY h.hour_of_day ASC
-"""
+    # --- Mock Data Loader (In production, replace with SQL/Database connection) ---
+    @st.cache_data
+    def load_fnb_data():
+        data = {
+            "Property_Name": ["Grand Hotel BKK", "Grand Hotel BKK", "Resort Phuket", "Resort Phuket", "City Hotel CNX", "City Hotel CNX"],
+            "Outlet_Name": ["The Grill Dining", "Poolside Bar", "Ocean Bistro", "Sunset Lounge", "Lanna Kitchen", "Sky Bar"],
+            "Sales_Amount": [1200000, 450000, 980000, 350000, 600000, 280000],
+            "Cost_Of_Goods_Sold": [380000, 135000, 310000, 110000, 210000, 90000],
+            "Waste_Cost": [72000, 18000, 78400, 28000, 18000, 22400],
+            "Quarter": ["Q1-2026", "Q1-2026", "Q1-2026", "Q1-2026", "Q1-2026", "Q1-2026"]
+        }
+        df = pd.DataFrame(data)
+        
+        df["COGS_Ratio_%"] = (df["Cost_Of_Goods_Sold"] / df["Sales_Amount"]) * 100
+        df["Waste_Ratio_%"] = (df["Waste_Cost"] / df["Sales_Amount"]) * 100
+        df["Total_Cost_Ratio_%"] = df["COGS_Ratio_%"] + df["Waste_Ratio_%"]
+        return df
 
-q7_df = conn.execute(q7_query).df()
+    df_fnb = load_fnb_data()
 
-if q7_df is not None and not q7_df.empty:
-    # แสดงกราฟเส้นเปรียบเทียบภาระงานตลอด 24 ชั่วโมง
-    fig_q7 = px.line(
-        q7_df, 
-        x='time_slot', 
-        y=['total_checkouts', 'total_housekeeping', 'total_fnb_tx', 'total_checkins'],
-        labels={
-            'time_slot': 'ช่วงเวลา (ชั่วโมง)',
-            'value': 'จำนวนรายการ / ปริมาณงาน',
-            'variable': 'แผนก / กิจกรรม'
-        },
-        title="ปริมาณภาระงานแยกตามชั่วโมง (24 Hours Operational Peak)",
-        markers=True
+    # --- Sidebar Filters ---
+    st.sidebar.header("🔍 ตัวกรองข้อมูล (Filters)")
+
+    selected_property = st.sidebar.multiselect(
+        "เลือกโรงแรม (Property):",
+        options=df_fnb["Property_Name"].unique(),
+        default=df_fnb["Property_Name"].unique()
     )
-    
-    # ปรับแต่งชื่อ Legend ให้เข้าใจง่าย
-    new_names = {
-        'total_checkouts': '🔴 Check-out',
-        'total_housekeeping': '🧹 Housekeeping / Maintenance',
-        'total_fnb_tx': '🍽️ F&B Transactions',
-        'total_checkins': '🟢 Check-in'
-    }
-    fig_q7.for_each_trace(lambda t: t.update(name = new_names.get(t.name, t.name)))
-    
-    st.plotly_chart(clean_chart(fig_q7), use_container_width=True)
 
-    # ---------------------------------------------------------
-    # Insights & Business Action Scaffolding
-    # ---------------------------------------------------------
+    waste_threshold = st.sidebar.slider(
+        "เกณฑ์การเตือน Waste Cost (% ยอดขาย):",
+        min_value=1.0, max_value=15.0, value=6.0, step=0.5
+    )
+
+    filtered_df = df_fnb[df_fnb["Property_Name"].isin(selected_property)]
+
+    # --- Key Metrics Overview ---
+    st.subheader("📊 ภาพรวมประสิทธิภาพต้นทุน F&B")
+    col1, col2, col3, col4 = st.columns(4)
+
+    total_sales = filtered_df["Sales_Amount"].sum()
+    total_cogs = filtered_df["Cost_Of_Goods_Sold"].sum()
+    total_waste = filtered_df["Waste_Cost"].sum()
+    avg_waste_pct = (total_waste / total_sales * 100) if total_sales > 0 else 0
+
+    col1.metric("ยอดขายรวม (Sales)", f"฿{total_sales:,.2f}")
+    col2.metric("ต้นทุนวัตถุดิบ (COGS)", f"฿{total_cogs:,.2f}", f"{(total_cogs/total_sales*100):.1f}% ของยอดขาย")
+    col3.metric("ขยะอาหาร (Waste Cost)", f"฿{total_waste:,.2f}", f"{avg_waste_pct:.1f}% ของยอดขาย", delta_color="inverse")
+    col4.metric("Outlet ที่ขยะอาหารเกินเกณฑ์", len(filtered_df[filtered_df["Waste_Ratio_%"] > waste_threshold]))
+
     st.markdown("---")
-    st.markdown("**💡 ข้อเสนอแนะเชิงกลยุทธ์และการจัดกะพนักงาน (Cross-Functional Staffing)**")
-    
-    col_ins1, col_ins2, col_ins3 = st.columns(3)
-    
-    with col_ins1:
-        st.info(
-            "**11:00 - 12:00 น. (Peak Check-out & Cleaning)**\n\n"
-            "* **สถานการณ์:** คิว Check-out หนาแน่นพร้อมงานทำความสะอาดห้อง\n"
-            "* **Action:** โยกย้ายพนักงานต้อนรับบางส่วนที่สแตนบายช่วยตรวจสอบความเรียบร้อยของห้องพักร่วมกับแม่บ้านเพื่อเร่งคืนห้อง"
-        )
-        
-    with col_ins2:
-        st.warning(
-            "**12:00 - 14:00 น. (Peak F&B Service)**\n\n"
-            "* **สถานการณ์:** ปริมาณคำสั่งซื้อห้องอาหาร/รูมเซอร์วิสสูงสุด\n"
-            "* **Action:** เปิดตัวเลือก Early Check-in / Late Check-out เพื่อกระจายรอบการเข้าพัก ลดการคอขวดของงานแม่บ้านและต้อนรับ"
-        )
-        
-    with col_ins3:
-        st.success(
-            "**15:00 - 16:00 น. (Peak Check-in)**\n\n"
-            "* **สถานการณ์:** ลูกค้าแออัดบริเวณหน้าเคาน์เตอร์ต้อนรับ\n"
-            "* **Action:** โยกพนักงาน F&B ที่ว่างช่วงหลังมื้อเที่ยงมาช่วยต้อนรับ เสิร์ฟ Welcome Drink หรือช่วยจัดการคิวเข้าพัก"
-        )
 
-else:
-    st.info("ไม่มีข้อมูลภาระงานรายชั่วโมงสำหรับเงื่อนไขที่เลือก")
+    # --- Visualizations ---
+    st.subheader("📈 การเปรียบเทียบสัดส่วนต้นทุนวัตถุดิบและขยะอาหารแยกตาม Outlet")
+
+    col_chart1, col_chart2 = st.columns(2)
+
+    with col_chart1:
+        fig_bar = px.bar(
+            filtered_df,
+            x="Outlet_Name",
+            y=["COGS_Ratio_%", "Waste_Ratio_%"],
+            title="สัดส่วน COGS และ Waste Cost เทียบกับยอดขาย (%)",
+            labels={"value": "เปอร์เซ็นต์ (%)", "Outlet_Name": "ชื่อห้องอาหาร", "variable": "ประเภทต้นทุน"},
+            barmode="stack",
+            color_discrete_map={"COGS_Ratio_%": "#3366CC", "Waste_Ratio_%": "#FF4B4B"}
+        )
+        fig_bar.add_hline(y=waste_threshold, line_dash="dot", line_color="red", annotation_text=f"Waste Limit ({waste_threshold}%)")
+        st.plotly_chart(fig_bar, width="stretch")
+
+    with col_chart2:
+        fig_scatter = px.scatter(
+            filtered_df,
+            x="Sales_Amount",
+            y="Waste_Ratio_%",
+            size="Waste_Cost",
+            color="Property_Name",
+            hover_name="Outlet_Name",
+            title="ความสัมพันธ์ระหว่าง ยอดขาย กับ % Waste Cost (ขนาดวงกลม = มูลค่าขยะ)",
+            labels={"Sales_Amount": "ยอดขายรวม (บาท)", "Waste_Ratio_%": "% Waste Cost"},
+        )
+        st.plotly_chart(fig_scatter, width="stretch")
+
+    # --- Detailed Table & Highlighting ---
+    st.subheader("📋 ตารางวิเคราะห์ราย Outlet (พร้อมการแจ้งเตือน)")
+
+    def highlight_waste(val):
+        color = 'background-color: #ffcdd2; color: #b71c1c;' if val > waste_threshold else ''
+        return color
+
+    # แก้ไขใช้ .map() แทน .applymap()
+    styled_df = filtered_df.style.map(highlight_waste, subset=['Waste_Ratio_%']) \
+                                .format({
+                                    "Sales_Amount": "฿{:,.2f}",
+                                    "Cost_Of_Goods_Sold": "฿{:,.2f}",
+                                    "Waste_Cost": "฿{:,.2f}",
+                                    "COGS_Ratio_%": "{:.2f}%",
+                                    "Waste_Ratio_%": "{:.2f}%",
+                                    "Total_Cost_Ratio_%": "{:.2f}%"
+                                })
+
+    st.dataframe(styled_df, width="stretch")
         
     # ข้อ 8
     st.subheader("📌 เปรียบเทียบพฤติกรรมการจองและการใช้จ่าย (ต่างชาติ vs ในประเทศ)")
