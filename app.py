@@ -267,6 +267,7 @@ with tab2:
         
     st.markdown("---")
     col_e, col_f = st.columns(2)
+    
     with col_e:
         st.markdown("**ข้อ 8: เปรียบเทียบพฤติกรรมลูกค้า ต่างชาติ vs ในประเทศ**")
         q8_df = conn.execute(f"""
@@ -287,22 +288,50 @@ with tab2:
             st.info("ไม่พบข้อมูลเปรียบเทียบประเภทลูกค้า")
         
     with col_f:
-        st.markdown("**ข้อ 11: ระยะเวลาเข้าพักเฉลี่ย (Nights Stayed) ตามกลุ่มสิทธิประโยชน์ลูกค้า**")
+        st.markdown("**ข้อ 11: ระยะเวลาเข้าพักเฉลี่ย (Nights Stayed) ตามสาขาโรงแรม**")
+
         q11_df = conn.execute(f"""
-            SELECT COALESCE(g.loyalty_tier, 'Non-Member') as loyalty_tier, AVG(b.nights) as avg_nights
+            SELECT 
+                p.property_name,
+                AVG(b.nights) AS avg_nights
             FROM main.fact_hotel_bookings b
-            LEFT JOIN main.dim_guest g ON b.guest_key = g.guest_key
-            JOIN main.dim_property p ON b.property_key = p.property_key
-            JOIN main.dim_date d ON b.date_key = d.date_key
+            LEFT JOIN main.dim_guest g 
+                ON b.guest_key = g.guest_key
+            JOIN main.dim_property p 
+                ON b.property_key = p.property_key
+            JOIN main.dim_date d 
+                ON b.date_key = d.date_key
             {where_stmt}
-            GROUP BY 1 ORDER BY avg_nights DESC
+            GROUP BY p.property_name
+            ORDER BY avg_nights DESC
         """).df()
-        if not q11_df.empty:
-            fig_q11 = px.bar(q11_df, x='loyalty_tier', y='avg_nights', text='avg_nights')
-            fig_q11.update_traces(texttemplate='%{text:.1f} คืน', marker_color='#9467bd')
-            st.plotly_chart(clean_chart(fig_q11), use_container_width=True)
-        else:
-            st.info("ไม่พบข้อมูลระยะเวลาเข้าพักเฉลี่ย")
+
+    if not q11_df.empty:
+        fig_q11 = px.bar(
+            q11_df,
+            x='property_name',
+            y='avg_nights',
+            text='avg_nights'
+        )
+
+        fig_q11.update_traces(
+            texttemplate='%{text:.1f} คืน',
+            textposition='outside',
+            marker_color='#9467bd'
+        )
+
+        fig_q11.update_layout(
+            xaxis_title='สาขาโรงแรม',
+            yaxis_title='ระยะเวลาเข้าพักเฉลี่ย (คืน)'
+        )
+
+        st.plotly_chart(
+            clean_chart(fig_q11),
+            use_container_width=True
+        )
+
+    else:
+        st.info("ไม่พบข้อมูลระยะเวลาเข้าพักเฉลี่ย")
 
 # =========================================================
 # TAB 3: Room & Booking Patterns (ข้อ 9, 10, 12)
