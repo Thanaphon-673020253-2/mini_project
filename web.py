@@ -93,10 +93,10 @@ st.markdown("---")
 
 # Navigation Tabs
 tab1, tab2, tab3, tab4 = st.tabs([
-    "📊 1. รายได้ & ผลประกอบการ", 
-    "👥 2. ลูกค้า & พฤติกรรม", 
-    "🛏️ 3. การจอง & ประเภทห้อง", 
-    "🗓️ 4. เวลา สถานที่ & ปฏิบัติการ"
+    "📊 รายได้ & ผลประกอบการ", 
+    "👥 ลูกค้า & พฤติกรรม", 
+    "🛏️ การจอง & ประเภทห้อง", 
+    "🗓️ เวลา สถานที่ & ปฏิบัติการ"
 ])
 
 # =========================================================
@@ -210,7 +210,7 @@ with tab1:
     cross_pct = q3_df['cross_sell_pct'][0] if q3_df is not None and not q3_df.empty and pd.notna(q3_df['cross_sell_pct'][0]) else 0
     anc_rev = q3_df['avg_ancillary_revenue'][0] if q3_df is not None and not q3_df.empty and pd.notna(q3_df['avg_ancillary_revenue'][0]) else 0
     c3_1.metric("🔄 สัดส่วนลูกค้าที่ใช้ F&B/Spa (Cross-selling)", f"{cross_pct:,.2f}%")
-    c3_2.metric("💵 รายได้เสริมเฉลี่ยต่อการเข้าพัก", f"Rp {anc_rev:,.0f}")
+    c3_2.metric("💵 รายได้เสริมเฉลี่ยต่อการเข้าพัก", f"{anc_rev:,.0f}")
 
 # =========================================================
 # TAB 2: Customer Analysis (Q5 - Q8)
@@ -246,7 +246,7 @@ with tab2:
                 text='ltv_revenue', 
                 title="รายได้แยกตามระดับสมาชิก (Loyalty Tier)"
             )
-            fig_q5.update_traces(texttemplate='Rp %{text:,.0f}')
+            fig_q5.update_traces(texttemplate='%{text:,.0f}')
             st.plotly_chart(clean_chart(fig_q5), width='stretch')
         else:
             st.info("ไม่พบข้อมูลสัดส่วนสมาชิก")
@@ -324,7 +324,7 @@ with tab2:
         c8_1, c8_2 = st.columns(2)
         with c8_1:
             fig_q8_1 = px.bar(q8_df, x='guest_origin', y='avg_spending', text='avg_spending', title="ค่าใช้จ่ายเฉลี่ยต่อการจอง (IDR)")
-            fig_q8_1.update_traces(texttemplate='Rp %{text:,.0f}', marker_color='#9467bd')
+            fig_q8_1.update_traces(texttemplate='%{text:,.0f}', marker_color='#9467bd')
             st.plotly_chart(clean_chart(fig_q8_1), width='stretch')
         with c8_2:
             fig_q8_2 = px.bar(q8_df, x='guest_origin', y='avg_lead_time', text='avg_lead_time', title="ระยะเวลาจองล่วงหน้าเฉลี่ย (วัน)")
@@ -368,7 +368,7 @@ with tab3:
         q9_df = conn.execute(q9_query).df()
         if q9_df is not None and not q9_df.empty:
             fig_q9 = px.bar(q9_df, x='room_type', y='total_revenue', text='total_revenue', title="รายได้แยกตามประเภทห้องพัก")
-            fig_q9.update_traces(texttemplate='Rp %{text:,.0f}')
+            fig_q9.update_traces(texttemplate='%{text:,.0f}')
             st.plotly_chart(clean_chart(fig_q9), width='stretch')
         else:
             st.info("ไม่มีข้อมูลห้องพัก")
@@ -457,7 +457,7 @@ with tab4:
         q13_m_df = conn.execute(q13_month_query).df()
         if q13_m_df is not None and not q13_m_df.empty:
             fig_q13_m = px.bar(q13_m_df, x='month_name', y='total_revenue', text='total_revenue', title="รายได้แยกตามเดือน (IDR)")
-            fig_q13_m.update_traces(texttemplate='Rp %{text:,.0f}')
+            fig_q13_m.update_traces(texttemplate='%{text:,.0f}')
             st.plotly_chart(clean_chart(fig_q13_m), width='stretch')
         else:
             st.info("ไม่มีข้อมูลเดือน")
@@ -498,7 +498,7 @@ with tab4:
     q14_df = conn.execute(q14_query).df()
     if q14_df is not None and not q14_df.empty:
         fig_q14 = px.bar(q14_df, x='day_type', y='total_revenue', text='total_revenue', color='day_type', title="เปรียบเทียบรายได้รวม (IDR)")
-        fig_q14.update_traces(texttemplate='Rp %{text:,.0f}')
+        fig_q14.update_traces(texttemplate='%{text:,.0f}')
         st.plotly_chart(clean_chart(fig_q14), width='stretch')
     else:
         st.info("ไม่มีข้อมูลเปรียบเทียบวัน")
@@ -526,7 +526,7 @@ with tab4:
     if q15_df is not None and not q15_df.empty:
         fig_q15 = px.bar(q15_df, x='venue_type', y='revenue_per_capacity', text='revenue_per_capacity', 
                          title="รายได้เฉลี่ยต่อหน่วยความจุสถานที่ (Revenue per Capacity)", color='venue_type')
-        fig_q15.update_traces(texttemplate='Rp %{text:,.1f}')
+        fig_q15.update_traces(texttemplate='%{text:,.1f}')
         st.plotly_chart(clean_chart(fig_q15), width='stretch')
     else:
         st.info("ไม่มีข้อมูลสถานที่จัดงาน")
