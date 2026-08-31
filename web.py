@@ -278,112 +278,91 @@ with tab2:
 
     # ข้อ 7
     # =========================================================
-    st.set_page_config(page_title="F&B Cost & Waste Analysis", layout="wide")
-    st.title("🍽️ F&B Cost & Waste Analysis Dashboard")
-    st.markdown("วิเคราะห์สัดส่วนต้นทุนวัตถุดิบ (COGS) และขยะอาหาร (Waste Cost) เปรียบเทียบกับยอดขายรวมแยกตาม Outlet และ Property")
+    st.subheader(
+    "📌 สัดส่วนต้นทุนวัตถุดิบและขยะอาหาร (Food Cost & Waste Cost) เทียบยอดขาย")
 
-    # --- Mock Data Loader (In production, replace with SQL/Database connection) ---
-    @st.cache_data
-    def load_fnb_data():
-        data = {
-            "Property_Name": ["Grand Hotel BKK", "Grand Hotel BKK", "Resort Phuket", "Resort Phuket", "City Hotel CNX", "City Hotel CNX"],
-            "Outlet_Name": ["The Grill Dining", "Poolside Bar", "Ocean Bistro", "Sunset Lounge", "Lanna Kitchen", "Sky Bar"],
-            "Sales_Amount": [1200000, 450000, 980000, 350000, 600000, 280000],
-            "Cost_Of_Goods_Sold": [380000, 135000, 310000, 110000, 210000, 90000],
-            "Waste_Cost": [72000, 18000, 78400, 28000, 18000, 22400],
-            "Quarter": ["Q1-2026", "Q1-2026", "Q1-2026", "Q1-2026", "Q1-2026", "Q1-2026"]
-        }
-        df = pd.DataFrame(data)
-        
-        df["COGS_Ratio_%"] = (df["Cost_Of_Goods_Sold"] / df["Sales_Amount"]) * 100
-        df["Waste_Ratio_%"] = (df["Waste_Cost"] / df["Sales_Amount"]) * 100
-        df["Total_Cost_Ratio_%"] = df["COGS_Ratio_%"] + df["Waste_Ratio_%"]
-        return df
+# SQL Query ดึงข้อมูลต้นทุนวัตถุดิบและค่าขยะอาหารแยกตาม Outlet และ Property
+q_fnb_cost_query = f"""
+    SELECT 
+        p.property_name,
+        o.outlet_name,
+        o.outlet_type,
+        SUM(f.sales_amount) as total_sales,
+        SUM(f.cost_of_goods_sold) as total_cogs,
+        SUM(f.waste_cost) as total_waste,
+        (SUM(f.cost_of_goods_sold) * 100.0 / NULLIF(SUM(f.sales_amount), 0)) as cogs_pct,
+        (SUM(f.waste_cost) * 100.0 / NULLIF(SUM(f.sales_amount), 0)) as waste_pct,
+        (SUM(f.cost_of_goods_sold + f.waste_cost) * 100.0 / NULLIF(SUM(f.sales_amount), 0)) as total_cost_pct
+    FROM main.fact_fnb_operations f
+    JOIN main.dim_fnb_outlet o ON f.outlet_key = o.outlet_key
+    JOIN main.dim_property p ON f.property_key = p.property_key
+    JOIN main.dim_date d ON f.date_key = d.date_key
+    {where_stmt}
+    GROUP BY p.property_name, o.outlet_name, o.outlet_type
+    ORDER BY total_cost_pct DESC
+"""
 
-    df_fnb = load_fnb_data()
+q_fnb_df = conn.execute(q_fnb_cost_query).df()
 
-    # --- Sidebar Filters ---
-    st.sidebar.header("🔍 ตัวกรองข้อมูล (Filters)")
+if q_fnb_df is not None and not q_fnb_df.empty:
+    highest_cost_outlet = q_fnb_df.iloc[0]
 
-    selected_property = st.sidebar.multiselect(
-        "เลือกโรงแรม (Property):",
-        options=df_fnb["Property_Name"].unique(),
-        default=df_fnb["Property_Name"].unique()
+    # แจ้งเตือนสาขา/ห้องอาหารที่มีสัดส่วนต้นทุนรวมสูงสุด
+    st.warning(
+        f"⚠️ **ห้องอาหารที่มีสัดส่วนต้นทุนรวมสูงที่สุด:** "
+        f"**{highest_cost_outlet['outlet_name']}** ({highest_cost_outlet['property_name']})\n\n"
+        f"* **สัดส่วนต้นทุนรวม (Food Cost + Waste):** {highest_cost_outlet['total_cost_pct']:.2f}% ของยอดขาย\n"
+        f"* **ต้นทุนวัตถุดิบ (COGS):** {highest_cost_outlet['cogs_pct']:.2f}% | "
+        f"**ขยะอาหาร (Waste):** {highest_cost_outlet['waste_pct']:.2f}%"
     )
 
-    waste_threshold = st.sidebar.slider(
-        "เกณฑ์การเตือน Waste Cost (% ยอดขาย):",
-        min_value=1.0, max_value=15.0, value=6.0, step=0.5
+    # Metric Highlight
+    c_m1, c_m2, c_m3 = st.columns(3)
+    c_m1.metric("ห้องอาหารต้นทุนสูงสุด", highest_cost_outlet["outlet_name"])
+    c_m2.metric(
+        "สัดส่วนต้นทุนรวมสูงสุด", f"{highest_cost_outlet['total_cost_pct']:.2f}%"
+    )
+    c_m3.metric(
+        "สัดส่วนขยะอาหารสูงสุด", f"{highest_cost_outlet['waste_pct']:.2f}%"
     )
 
-    filtered_df = df_fnb[df_fnb["Property_Name"].isin(selected_property)]
-
-    # --- Key Metrics Overview ---
-    st.subheader("📊 ภาพรวมประสิทธิภาพต้นทุน F&B")
-    col1, col2, col3, col4 = st.columns(4)
-
-    total_sales = filtered_df["Sales_Amount"].sum()
-    total_cogs = filtered_df["Cost_Of_Goods_Sold"].sum()
-    total_waste = filtered_df["Waste_Cost"].sum()
-    avg_waste_pct = (total_waste / total_sales * 100) if total_sales > 0 else 0
-
-    col1.metric("ยอดขายรวม (Sales)", f"฿{total_sales:,.2f}")
-    col2.metric("ต้นทุนวัตถุดิบ (COGS)", f"฿{total_cogs:,.2f}", f"{(total_cogs/total_sales*100):.1f}% ของยอดขาย")
-    col3.metric("ขยะอาหาร (Waste Cost)", f"฿{total_waste:,.2f}", f"{avg_waste_pct:.1f}% ของยอดขาย", delta_color="inverse")
-    col4.metric("Outlet ที่ขยะอาหารเกินเกณฑ์", len(filtered_df[filtered_df["Waste_Ratio_%"] > waste_threshold]))
-
-    st.markdown("---")
-
-    # --- Visualizations ---
-    st.subheader("📈 การเปรียบเทียบสัดส่วนต้นทุนวัตถุดิบและขยะอาหารแยกตาม Outlet")
-
+    # Visualizations: Stacked Bar Chart แยก COGS % และ Waste %
     col_chart1, col_chart2 = st.columns(2)
 
     with col_chart1:
-        fig_bar = px.bar(
-            filtered_df,
-            x="Outlet_Name",
-            y=["COGS_Ratio_%", "Waste_Ratio_%"],
-            title="สัดส่วน COGS และ Waste Cost เทียบกับยอดขาย (%)",
-            labels={"value": "เปอร์เซ็นต์ (%)", "Outlet_Name": "ชื่อห้องอาหาร", "variable": "ประเภทต้นทุน"},
-            barmode="stack",
-            color_discrete_map={"COGS_Ratio_%": "#3366CC", "Waste_Ratio_%": "#FF4B4B"}
+        fig_fnb_cost = px.bar(
+            q_fnb_df,
+            x="outlet_name",
+            y=["cogs_pct", "waste_pct"],
+            title="สัดส่วน COGS % และ Waste % แยกตามห้องอาหาร",
+            labels={
+                "outlet_name": "ห้องอาหาร",
+                "value": "สัดส่วนเทียบยอดขาย (%)",
+                "variable": "ประเภทต้นทุน",
+            },
+            color_discrete_map={
+                "cogs_pct": "#1f77b4",
+                "waste_pct": "#d62728",
+            },
         )
-        fig_bar.add_hline(y=waste_threshold, line_dash="dot", line_color="red", annotation_text=f"Waste Limit ({waste_threshold}%)")
-        st.plotly_chart(fig_bar, width="stretch")
+        fig_fnb_cost.update_layout(barmode="stack")
+        st.plotly_chart(clean_chart(fig_fnb_cost), width="stretch")
 
     with col_chart2:
-        fig_scatter = px.scatter(
-            filtered_df,
-            x="Sales_Amount",
-            y="Waste_Ratio_%",
-            size="Waste_Cost",
-            color="Property_Name",
-            hover_name="Outlet_Name",
-            title="ความสัมพันธ์ระหว่าง ยอดขาย กับ % Waste Cost (ขนาดวงกลม = มูลค่าขยะ)",
-            labels={"Sales_Amount": "ยอดขายรวม (บาท)", "Waste_Ratio_%": "% Waste Cost"},
+        fig_waste = px.bar(
+            q_fnb_df,
+            x="outlet_name",
+            y="total_waste",
+            text="total_waste",
+            title="มูลค่าขยะอาหารรวม (IDR Waste Cost)",
+            color="outlet_name",
         )
-        st.plotly_chart(fig_scatter, width="stretch")
+        fig_waste.update_traces(texttemplate="%{text:,.0f}")
+        st.plotly_chart(clean_chart(fig_waste), width="stretch")
 
-    # --- Detailed Table & Highlighting ---
-    st.subheader("📋 ตารางวิเคราะห์ราย Outlet (พร้อมการแจ้งเตือน)")
-
-    def highlight_waste(val):
-        color = 'background-color: #ffcdd2; color: #b71c1c;' if val > waste_threshold else ''
-        return color
-
-    # แก้ไขใช้ .map() แทน .applymap()
-    styled_df = filtered_df.style.map(highlight_waste, subset=['Waste_Ratio_%']) \
-                                .format({
-                                    "Sales_Amount": "฿{:,.2f}",
-                                    "Cost_Of_Goods_Sold": "฿{:,.2f}",
-                                    "Waste_Cost": "฿{:,.2f}",
-                                    "COGS_Ratio_%": "{:.2f}%",
-                                    "Waste_Ratio_%": "{:.2f}%",
-                                    "Total_Cost_Ratio_%": "{:.2f}%"
-                                })
-
-    st.dataframe(styled_df, width="stretch")
+    # Data Table แสดงรายละเอียดเชิงลึก
+else:
+    st.info("ไม่พบข้อมูลการดำเนินงาน F&B ตามเงื่อนไขที่เลือก")
         
     # ข้อ 8
     st.subheader("📌 เปรียบเทียบพฤติกรรมการจองและการใช้จ่าย (ต่างชาติ vs ในประเทศ)")
