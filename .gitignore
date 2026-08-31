@@ -1,19 +1,55 @@
+# =========================
 # Python
+# =========================
 .venv/
+venv/
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
 # dbt
+# =========================
 target/
 dbt_packages/
 logs/
+dbt.log
 
+# =========================
 # DuckDB
-*.duckdb
+# =========================
 *.duckdb.wal
+*.duckdb.tmp
 
+<<<<<<< HEAD
 # Environment
 .env
 .env.*
 
 unique-bebop-506816-f5-895745f57e73.json
+=======
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Streamlit
+# =========================
+.streamlit/secrets.toml
+>>>>>>> hotel

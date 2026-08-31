@@ -2,7 +2,7 @@ import os
 import duckdb
 
 # 1. กำหนดพาธไฟล์ฐานข้อมูล
-db_path = "indohotel/indohotel.duckdb"
+db_path = "indohotel/dev.duckdb"
 
 # 2. เช็กว่าไฟล์มีอยู่จริงหรือไม่ก่อนเชื่อมต่อ
 if not os.path.exists(db_path):
@@ -26,8 +26,10 @@ else:
 
     # 5. ดึงข้อมูล 20 แถวแรกแปลงเป็น DataFrame โดยตรง
     try:
-        df2 = conn.execute("SELECT * FROM main.stg_bookings LIMIT 20").df()
+        df2 = conn.execute("select venue_type, count(*) as count ,sum(max_capacity) as full from main.dim_venue group by venue_type").df()
         print(df2)
+        print(df2.columns)
+        #df2.to_csv("output.csv", index=False)
     except Exception as e:
         print(f"เกิดข้อผิดพลาดขณะ Query: {e}")
 
