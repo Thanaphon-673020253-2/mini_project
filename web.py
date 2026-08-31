@@ -277,33 +277,97 @@ with tab2:
     st.markdown("---")
 
     # ข้อ 7
-    st.subheader("📌 ช่วงเวลาภาระงานแน่นที่สุด (Peak Operations)")
-    q7_query = f"""
-        SELECT 
-            d.day_of_week as day_name,
-            SUM(h.maintenance_ticket_count) as total_maintenance,
-            COALESCE(SUM(f.transaction_count), 0) as total_fnb_tx
-        FROM main.fact_hotel_operations_hr h
-        JOIN main.dim_property p ON h.property_key = p.property_key
-        JOIN main.dim_date d ON h.date_key = d.date_key
-        LEFT JOIN main.fact_fnb_operations f ON h.date_key = f.date_key AND h.property_key = f.property_key
-        {where_stmt}
-        GROUP BY d.day_of_week
-    """
-    q7_df = conn.execute(q7_query).df()
-    if q7_df is not None and not q7_df.empty:
-        day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-        q7_df['day_name'] = pd.Categorical(q7_df['day_name'], categories=day_order, ordered=True)
-        q7_df = q7_df.sort_values('day_name')
-        
-        fig_q7 = px.line(q7_df, x='day_name', y=['total_maintenance', 'total_fnb_tx'], 
-                         title="ปริมาณงานแยกตามวันในสัปดาห์", markers=True)
-        st.plotly_chart(clean_chart(fig_q7), width='stretch')
-    else:
-        st.info("ไม่มีข้อมูลภาระงาน")
+    # =========================================================
+# =========================================================
+    # ข้อ 7 (แก้ไข): Daily F&B & Spa Revenue Analysis
+    # =========================================================
+    # =========================================================
+# TAB 2 (แก้ไขเฉพาะข้อ 7): Cross-Department Peak Alignment
+# =========================================================
+st.subheader("📌 7. วิเคราะห์ช่วงเวลาภาระงานรายชั่วโมง (Cross-Department Peak Alignment)")
+st.caption("เปรียบเทียบความหนาแน่นของงานในแต่ละแผนกตลอด 24 ชั่วโมง เพื่อบริหารกำลังพลข้ามแผนก (Cross-Functional Staffing)")
 
+# SQL Query ดึงข้อมูลภาระงานจำแนกตามชั่วโมง (0-23 น.)
+q7_query = f"""
+    SELECT 
+        h.hour_of_day,
+        LPAD(CAST(h.hour_of_day AS VARCHAR), 2, '0') || ':00' as time_slot,
+        SUM(COALESCE(h.checkout_count, 0)) as total_checkouts,
+        SUM(COALESCE(h.maintenance_ticket_count, 0)) as total_housekeeping,
+        COALESCE(SUM(f.transaction_count), 0) as total_fnb_tx,
+        SUM(COALESCE(h.checkin_count, 0)) as total_checkins
+    FROM main.fact_hotel_operations_hr h
+    JOIN main.dim_property p ON h.property_key = p.property_key
+    JOIN main.dim_date d ON h.date_key = d.date_key
+    LEFT JOIN main.fact_fnb_operations f 
+        ON h.date_key = f.date_key 
+        AND h.property_key = f.property_key 
+        AND h.hour_of_day = f.hour_of_day
+    {where_stmt}
+    GROUP BY h.hour_of_day
+    ORDER BY h.hour_of_day ASC
+"""
+
+q7_df = conn.execute(q7_query).df()
+
+if q7_df is not None and not q7_df.empty:
+    # แสดงกราฟเส้นเปรียบเทียบภาระงานตลอด 24 ชั่วโมง
+    fig_q7 = px.line(
+        q7_df, 
+        x='time_slot', 
+        y=['total_checkouts', 'total_housekeeping', 'total_fnb_tx', 'total_checkins'],
+        labels={
+            'time_slot': 'ช่วงเวลา (ชั่วโมง)',
+            'value': 'จำนวนรายการ / ปริมาณงาน',
+            'variable': 'แผนก / กิจกรรม'
+        },
+        title="ปริมาณภาระงานแยกตามชั่วโมง (24 Hours Operational Peak)",
+        markers=True
+    )
+    
+    # ปรับแต่งชื่อ Legend ให้เข้าใจง่าย
+    new_names = {
+        'total_checkouts': '🔴 Check-out',
+        'total_housekeeping': '🧹 Housekeeping / Maintenance',
+        'total_fnb_tx': '🍽️ F&B Transactions',
+        'total_checkins': '🟢 Check-in'
+    }
+    fig_q7.for_each_trace(lambda t: t.update(name = new_names.get(t.name, t.name)))
+    
+    st.plotly_chart(clean_chart(fig_q7), use_container_width=True)
+
+    # ---------------------------------------------------------
+    # Insights & Business Action Scaffolding
+    # ---------------------------------------------------------
     st.markdown("---")
+    st.markdown("**💡 ข้อเสนอแนะเชิงกลยุทธ์และการจัดกะพนักงาน (Cross-Functional Staffing)**")
+    
+    col_ins1, col_ins2, col_ins3 = st.columns(3)
+    
+    with col_ins1:
+        st.info(
+            "**11:00 - 12:00 น. (Peak Check-out & Cleaning)**\n\n"
+            "* **สถานการณ์:** คิว Check-out หนาแน่นพร้อมงานทำความสะอาดห้อง\n"
+            "* **Action:** โยกย้ายพนักงานต้อนรับบางส่วนที่สแตนบายช่วยตรวจสอบความเรียบร้อยของห้องพักร่วมกับแม่บ้านเพื่อเร่งคืนห้อง"
+        )
+        
+    with col_ins2:
+        st.warning(
+            "**12:00 - 14:00 น. (Peak F&B Service)**\n\n"
+            "* **สถานการณ์:** ปริมาณคำสั่งซื้อห้องอาหาร/รูมเซอร์วิสสูงสุด\n"
+            "* **Action:** เปิดตัวเลือก Early Check-in / Late Check-out เพื่อกระจายรอบการเข้าพัก ลดการคอขวดของงานแม่บ้านและต้อนรับ"
+        )
+        
+    with col_ins3:
+        st.success(
+            "**15:00 - 16:00 น. (Peak Check-in)**\n\n"
+            "* **สถานการณ์:** ลูกค้าแออัดบริเวณหน้าเคาน์เตอร์ต้อนรับ\n"
+            "* **Action:** โยกพนักงาน F&B ที่ว่างช่วงหลังมื้อเที่ยงมาช่วยต้อนรับ เสิร์ฟ Welcome Drink หรือช่วยจัดการคิวเข้าพัก"
+        )
 
+else:
+    st.info("ไม่มีข้อมูลภาระงานรายชั่วโมงสำหรับเงื่อนไขที่เลือก")
+        
     # ข้อ 8
     st.subheader("📌 เปรียบเทียบพฤติกรรมการจองและการใช้จ่าย (ต่างชาติ vs ในประเทศ)")
     q8_query = f"""
