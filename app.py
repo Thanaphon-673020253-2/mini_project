@@ -565,23 +565,91 @@ with tab5:
     st.header("5. ด้านปฏิบัติการและสถานที่จัดงาน (Operations & Venues)")
     
     col_k, col_l = st.columns(2)
-    with col_k:
-        st.markdown("**ข้อ 7: ช่วงเวลา Peak Operations ของงานทำความสะอาด (Housekeeping)**")
-        q7_hk = conn.execute("""
-            SELECT 
-                EXTRACT(HOUR FROM cleaning_start_time) as peak_hour,
-                COUNT(log_id) as total_tasks
-            FROM main.stg_housekeeping_log
-            WHERE cleaning_start_time IS NOT NULL
-            GROUP BY 1 ORDER BY 1
-        """).df()
-        if not q7_hk.empty:
-            fig_q7 = px.bar(q7_hk, x='peak_hour', y='total_tasks', text='total_tasks')
-            fig_q7.update_traces(texttemplate='%{text}', marker_color='#ff7f0e')
-            fig_q7.update_layout(xaxis=dict(title="ช่วงเวลา (นาฬิกา)"))
-            st.plotly_chart(clean_chart(fig_q7), use_container_width=True)
-        else:
-            st.info("ไม่พบข้อมูล Housekeeping Log")
+    st.subheader(
+    "📌 ข้อ 7 สัดส่วนต้นทุนวัตถุดิบและขยะอาหาร (Food Cost & Waste Cost) เทียบยอดขาย")
+
+# SQL Query ดึงข้อมูลต้นทุนวัตถุดิบและค่าขยะอาหารแยกตาม Outlet และ Property
+    q_fnb_cost_query = f"""
+        SELECT 
+            p.property_name,
+            o.outlet_name,
+            o.outlet_type,
+            SUM(f.sales_amount) as total_sales,
+            SUM(f.cost_of_goods_sold) as total_cogs,
+            SUM(f.waste_cost) as total_waste,
+            (SUM(f.cost_of_goods_sold) * 100.0 / NULLIF(SUM(f.sales_amount), 0)) as cogs_pct,
+            (SUM(f.waste_cost) * 100.0 / NULLIF(SUM(f.sales_amount), 0)) as waste_pct,
+            (SUM(f.cost_of_goods_sold + f.waste_cost) * 100.0 / NULLIF(SUM(f.sales_amount), 0)) as total_cost_pct
+        FROM main.fact_fnb_operations f
+        JOIN main.dim_fnb_outlet o ON f.outlet_key = o.outlet_key
+        JOIN main.dim_property p ON f.property_key = p.property_key
+        JOIN main.dim_date d ON f.date_key = d.date_key
+        {where_stmt}
+        GROUP BY p.property_name, o.outlet_name, o.outlet_type
+        ORDER BY total_cost_pct DESC
+    """
+
+    q_fnb_df = conn.execute(q_fnb_cost_query).df()
+
+    if q_fnb_df is not None and not q_fnb_df.empty:
+        highest_cost_outlet = q_fnb_df.iloc[0]
+
+        # แจ้งเตือนสาขา/ห้องอาหารที่มีสัดส่วนต้นทุนรวมสูงสุด
+        st.warning(
+            f"⚠️ **ห้องอาหารที่มีสัดส่วนต้นทุนรวมสูงที่สุด:** "
+            f"**{highest_cost_outlet['outlet_name']}** ({highest_cost_outlet['property_name']})\n\n"
+            f"* **สัดส่วนต้นทุนรวม (Food Cost + Waste):** {highest_cost_outlet['total_cost_pct']:.2f}% ของยอดขาย\n"
+            f"* **ต้นทุนวัตถุดิบ (COGS):** {highest_cost_outlet['cogs_pct']:.2f}% | "
+            f"**ขยะอาหาร (Waste):** {highest_cost_outlet['waste_pct']:.2f}%"
+        )
+
+        # Metric Highlight
+        c_m1, c_m2, c_m3 = st.columns(3)
+        c_m1.metric("ห้องอาหารต้นทุนสูงสุด", highest_cost_outlet["outlet_name"])
+        c_m2.metric(
+            "สัดส่วนต้นทุนรวมสูงสุด", f"{highest_cost_outlet['total_cost_pct']:.2f}%"
+        )
+        c_m3.metric(
+            "สัดส่วนขยะอาหารสูงสุด", f"{highest_cost_outlet['waste_pct']:.2f}%"
+        )
+
+        # Visualizations: Stacked Bar Chart แยก COGS % และ Waste %
+        col_chart1, col_chart2 = st.columns(2)
+
+        with col_chart1:
+            fig_fnb_cost = px.bar(
+                q_fnb_df,
+                x="outlet_name",
+                y=["cogs_pct", "waste_pct"],
+                title="สัดส่วน COGS % และ Waste % แยกตามห้องอาหาร",
+                labels={
+                    "outlet_name": "ห้องอาหาร",
+                    "value": "สัดส่วนเทียบยอดขาย (%)",
+                    "variable": "ประเภทต้นทุน",
+                },
+                color_discrete_map={
+                    "cogs_pct": "#1f77b4",
+                    "waste_pct": "#d62728",
+                },
+            )
+            fig_fnb_cost.update_layout(barmode="stack")
+            st.plotly_chart(clean_chart(fig_fnb_cost), width="stretch")
+
+        with col_chart2:
+            fig_waste = px.bar(
+                q_fnb_df,
+                x="outlet_name",
+                y="total_waste",
+                text="total_waste",
+                title="มูลค่าขยะอาหารรวม (IDR Waste Cost)",
+                color="outlet_name",
+            )
+            fig_waste.update_traces(texttemplate="%{text:,.0f}")
+            st.plotly_chart(clean_chart(fig_waste), width="stretch")
+
+        # Data Table แสดงรายละเอียดเชิงลึก
+    else:
+        st.info("ไม่พบข้อมูลการดำเนินงาน F&B ตามเงื่อนไขที่เลือก")
 
     with col_l:
         st.markdown("**ข้อ 15: ประเภทสถานที่จัดงาน (Venue Type) ที่มีการจองมากที่สุด**")
