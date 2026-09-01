@@ -393,7 +393,52 @@ with tab2:
                 "ไม่พบข้อมูลการใช้บริการ Spa และ Food "
                 "ตามเงื่อนไขที่เลือก"
             )
-    
+    with col_f:
+        st.markdown("**ข้อ 11: ระยะเวลาเข้าพักเฉลี่ย (Nights Stayed) ตามสาขาโรงแรม**")
+
+        q11_df = conn.execute(f"""
+            SELECT 
+                p.property_name,
+                AVG(b.nights) AS avg_nights
+            FROM main.fact_hotel_bookings b
+            LEFT JOIN main.dim_guest g 
+                ON b.guest_key = g.guest_key
+            JOIN main.dim_property p 
+                ON b.property_key = p.property_key
+            JOIN main.dim_date d 
+                ON b.date_key = d.date_key
+            {where_stmt}
+            GROUP BY p.property_name
+            ORDER BY avg_nights DESC
+        """).df()
+
+        if not q11_df.empty:
+            fig_q11 = px.bar(
+                q11_df,
+                x='property_name',
+                y='avg_nights',
+                text='avg_nights'
+            )
+
+            fig_q11.update_traces(
+                texttemplate='%{text:.1f} คืน',
+                textposition='outside',
+                marker_color='#9467bd'
+            )
+
+            fig_q11.update_layout(
+                xaxis_title='สาขาโรงแรม',
+                yaxis_title='ระยะเวลาเข้าพักเฉลี่ย (คืน)'
+            )
+
+            st.plotly_chart(
+                clean_chart(fig_q11),
+                use_container_width=True
+            )
+
+        else:
+            st.info("ไม่พบข้อมูลระยะเวลาเข้าพักเฉลี่ย")
+
 # =========================================================
 # TAB 3: Room & Booking Patterns (ข้อ 9, 10, 12)
 # =========================================================
@@ -538,26 +583,6 @@ with tab5:
         else:
             st.info("ไม่พบข้อมูล Housekeeping Log")
 
-    with col_l:
-        st.markdown("**ข้อ 15: ประสิทธิภาพสถานที่จัดงาน (Venue Type) และรายได้ต่อความจุ (Max Capacity)**")
-        q15_df = conn.execute(f"""
-            SELECT 
-                v.venue_type,
-                SUM(a.event_revenue) / 1e9 as rev_billions,
-                SUM(a.event_revenue) * 1.0 / NULLIF(SUM(v.max_capacity), 0) as rev_per_cap
-            FROM main.fact_ancillary_services a
-            JOIN main.dim_venue v ON a.venue_key = v.venue_key
-            JOIN main.dim_property p ON a.property_key = p.property_key
-            JOIN main.dim_date d ON a.date_key = d.date_key
-            {where_stmt}
-            GROUP BY v.venue_type ORDER BY rev_per_cap DESC
-        """).df()
-        if not q15_df.empty and q15_df['rev_per_cap'].notna().any():
-            fig_q15 = px.bar(q15_df, x='venue_type', y='rev_per_cap', text='rev_per_cap', color='venue_type')
-            fig_q15.update_traces(texttemplate='Rp %{text:,.0f}/ที่นั่ง')
-            st.plotly_chart(clean_chart(fig_q15), use_container_width=True)
-        else:
-            st.info("ไม่พบข้อมูล Venue Performance")
     with col_l:
         st.markdown("**ข้อ 15: ประเภทสถานที่จัดงาน (Venue Type) ที่มีการจองมากที่สุด**")
         q15_df = conn.execute(f"""
