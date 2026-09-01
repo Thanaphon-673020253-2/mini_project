@@ -111,7 +111,7 @@ with tab1:
     
     st.markdown("---")
     
-    # Q3 Breakdown (ดึงตรงจาก Fact Tables และใช้นับจำนวนแถวของ Event & Venue)
+    # Q3 Breakdown
     st.markdown("**ข้อ 3: สัดส่วนรายได้และผู้ใช้บริการเสริม แยกตามประเภทบริการ**")
     q3_df = conn.execute(f"""
         SELECT 
@@ -191,7 +191,7 @@ with tab1:
                 y='avg_occ', 
                 text='avg_occ', 
                 color='property_name',
-                range_y=[0, 100]  # <--- เพิ่มตรงนี้เพื่อล็อกแกน Y ให้เต็ม 100%
+                range_y=[0, 100]
             )
             fig_q2.update_traces(texttemplate='%{text:.1f}%')
             st.plotly_chart(clean_chart(fig_q2), use_container_width=True)
@@ -217,7 +217,7 @@ with tab1:
             st.plotly_chart(clean_chart(fig_q4), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูล RevPAR")
-    
+
 # =========================================================
 # TAB 2: Customer Analysis (ข้อ 5, 6, 8, 11)
 # =========================================================
@@ -267,8 +267,6 @@ with tab2:
         
     st.markdown("---")
     col_e, col_f = st.columns(2)
-    
-   
 
     with col_e:
         st.markdown(
@@ -277,9 +275,6 @@ with tab2:
         )
 
         q8_df = conn.execute(f"""
-            -- =========================
-            -- Food & Beverage
-            -- =========================
             SELECT
                 'Food' AS service_type,
                 CASE
@@ -288,21 +283,15 @@ with tab2:
                 END AS guest_type,
                 COUNT(*) AS service_count
             FROM main.fact_fnb_operations f
-            JOIN main.dim_guest g
-                ON f.guest_key = g.guest_key
-            JOIN main.dim_date d
-                ON f.date_key = d.date_key
-            JOIN main.dim_property p
-                ON f.property_key = p.property_key
+            JOIN main.dim_guest g ON f.guest_key = g.guest_key
+            JOIN main.dim_date d ON f.date_key = d.date_key
+            JOIN main.dim_property p ON f.property_key = p.property_key
             {where_stmt}
                 AND f.sales_amount > 0
             GROUP BY 1, 2
 
             UNION ALL
 
-            -- =========================
-            -- Spa & Wellness
-            -- =========================
             SELECT
                 'Spa' AS service_type,
                 CASE
@@ -311,25 +300,20 @@ with tab2:
                 END AS guest_type,
                 COUNT(*) AS service_count
             FROM main.fact_ancillary_services a
-            JOIN main.dim_guest g
-                ON a.guest_key = g.guest_key
-            JOIN main.dim_date d
-                ON a.date_key = d.date_key
-            JOIN main.dim_property p
-                ON a.property_key = p.property_key
+            JOIN main.dim_guest g ON a.guest_key = g.guest_key
+            JOIN main.dim_date d ON a.date_key = d.date_key
+            JOIN main.dim_property p ON a.property_key = p.property_key
             {where_stmt}
                 AND a.spa_revenue > 0
             GROUP BY 1, 2
         """).df()
 
         if not q8_df.empty:
-
             q8_df["service_type"] = pd.Categorical(
                 q8_df["service_type"],
                 categories=["Spa", "Food"],
                 ordered=True
             )
-
             q8_df["guest_type"] = pd.Categorical(
                 q8_df["guest_type"],
                 categories=[
@@ -338,10 +322,7 @@ with tab2:
                 ],
                 ordered=True
             )
-
-            q8_df = q8_df.sort_values(
-                ["service_type", "guest_type"]
-            )
+            q8_df = q8_df.sort_values(["service_type", "guest_type"])
 
             fig_q8 = px.bar(
                 q8_df,
@@ -372,27 +353,18 @@ with tab2:
                 texttemplate="%{text:,.0f}",
                 textposition="outside"
             )
-
             fig_q8.update_layout(
                 xaxis_title="ประเภทบริการ",
                 yaxis_title="จำนวนครั้งการใช้บริการ",
                 legend_title="",
                 bargap=0.25,
-                yaxis=dict(
-                    showgrid=False
-                )
+                yaxis=dict(showgrid=False)
             )
 
-            st.plotly_chart(
-                clean_chart(fig_q8),
-                use_container_width=True
-            )
-
+            st.plotly_chart(clean_chart(fig_q8), use_container_width=True)
         else:
-            st.info(
-                "ไม่พบข้อมูลการใช้บริการ Spa และ Food "
-                "ตามเงื่อนไขที่เลือก"
-            )
+            st.info("ไม่พบข้อมูลการใช้บริการ Spa และ Food ตามเงื่อนไขที่เลือก")
+
     with col_f:
         st.markdown("**ข้อ 11: ระยะเวลาเข้าพักเฉลี่ย (Nights Stayed) ตามสาขาโรงแรม**")
 
@@ -401,12 +373,9 @@ with tab2:
                 p.property_name,
                 AVG(b.nights) AS avg_nights
             FROM main.fact_hotel_bookings b
-            LEFT JOIN main.dim_guest g 
-                ON b.guest_key = g.guest_key
-            JOIN main.dim_property p 
-                ON b.property_key = p.property_key
-            JOIN main.dim_date d 
-                ON b.date_key = d.date_key
+            LEFT JOIN main.dim_guest g ON b.guest_key = g.guest_key
+            JOIN main.dim_property p ON b.property_key = p.property_key
+            JOIN main.dim_date d ON b.date_key = d.date_key
             {where_stmt}
             GROUP BY p.property_name
             ORDER BY avg_nights DESC
@@ -419,23 +388,16 @@ with tab2:
                 y='avg_nights',
                 text='avg_nights'
             )
-
             fig_q11.update_traces(
                 texttemplate='%{text:.1f} คืน',
                 textposition='outside',
                 marker_color='#9467bd'
             )
-
             fig_q11.update_layout(
                 xaxis_title='สาขาโรงแรม',
                 yaxis_title='ระยะเวลาเข้าพักเฉลี่ย (คืน)'
             )
-
-            st.plotly_chart(
-                clean_chart(fig_q11),
-                use_container_width=True
-            )
-
+            st.plotly_chart(clean_chart(fig_q11), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูลระยะเวลาเข้าพักเฉลี่ย")
 
@@ -559,33 +521,12 @@ with tab4:
             st.info("ไม่พบข้อมูลสัดส่วนวันธรรมดา/วันหยุด")
 
 # =========================================================
-# TAB 5: Operations & Venues (ข้อ 7, 15)
+# TAB 5: Operations & Venues (ข้อ 7, 15 และการจัดงาน Event)
 # =========================================================
 with tab5:
     st.header("5. ด้านปฏิบัติการและสถานที่จัดงาน (Operations & Venues)")
-    
-    col_k, col_l = st.columns(2)
-    with col_k:
-        st.markdown("**ข้อ 7: ช่วงเวลา Peak Operations ของงานทำความสะอาด (Housekeeping)**")
-        q7_hk = conn.execute("""
-            SELECT 
-                EXTRACT(HOUR FROM cleaning_start_time) as peak_hour,
-                COUNT(log_id) as total_tasks
-            FROM main.stg_housekeeping_log
-            WHERE cleaning_start_time IS NOT NULL
-            GROUP BY 1 ORDER BY 1
-        """).df()
-        if not q7_hk.empty:
-            fig_q7 = px.bar(q7_hk, x='peak_hour', y='total_tasks', text='total_tasks')
-            fig_q7.update_traces(texttemplate='%{text}', marker_color='#ff7f0e')
-            fig_q7.update_layout(xaxis=dict(title="ช่วงเวลา (นาฬิกา)"))
-            st.plotly_chart(clean_chart(fig_q7), use_container_width=True)
-        else:
-            st.info("ไม่พบข้อมูล Housekeeping Log")
-
-    with col_l:
-        st.markdown("**ข้อ 15: ประเภทสถานที่จัดงาน (Venue Type) ที่มีการจองมากที่สุด**")
-        q15_df = conn.execute(f"""
+    st.markdown("**ข้อ 15: ประเภทสถานที่จัดงาน (Venue Type) ที่มีการจองมากที่สุด**")
+    q15_df = conn.execute(f"""
             SELECT 
                 v.venue_type,
                 COUNT(CASE WHEN a.event_revenue > 0 THEN 1 END) as booking_count,
@@ -599,7 +540,7 @@ with tab5:
             ORDER BY booking_count DESC
         """).df()
         
-        if not q15_df.empty and q15_df['booking_count'].notna().any():
+    if not q15_df.empty and q15_df['booking_count'].notna().any():
             fig_q15 = px.bar(
                 q15_df, 
                 x='venue_type', 
@@ -608,48 +549,53 @@ with tab5:
                 color='venue_type',
                 labels={'venue_type': 'ประเภทสถานที่', 'booking_count': 'จำนวนการจอง (ครั้ง)'}
             )
-            fig_q15.update_traces(texttemplate='%{text:,} ครั้ง')
+            fig_q15.update_traces(texttemplate='%{text:,} ครั้ง') 
             st.plotly_chart(clean_chart(fig_q15), use_container_width=True)
-        else:
+    else:
             st.info("ไม่พบข้อมูล Venue Performance")
-        st.markdown("---")
-        st.markdown("**แนวโน้มราคาเฉลี่ยของวัตถุดิบ (Ingredient Price Trends) ในแต่ละเดือน**")
 
-    # คิวรีดึงข้อมูลราคาวัตถุดิบ (ปรับชื่อตารางให้ตรงกับ DuckDB ของคุณ)
-        query_ingredient = f"""
-            SELECT 
-                CAST(d.year AS VARCHAR) || '-' || LPAD(CAST(d.month AS VARCHAR), 2, '0') AS year_month,
-                i.ingredient_name,
-                AVG(f.unit_price) AS avg_price
-            FROM main.fact_ingredient_prices f
-            JOIN main.dim_date d ON f.date_key = d.date_key
-            JOIN main.dim_ingredient i ON f.ingredient_key = i.ingredient_key
-            {where_stmt}
-            GROUP BY 1, 2
-            ORDER BY year_month
-        """
-
-        try:
-            ingredient_df = conn.execute(query_ingredient).df()
+    st.markdown("---")
+    st.markdown("**📌 รายละเอียดประเภทกิจกรรมจัดงาน (Event Type Breakdown)**")
+    
+    # Query สรุปจำนวนครั้งและรายได้ตามประเภท Event จาก stg_event_bookings
+    q_event_type = conn.execute("""
+        SELECT 
+            TRIM(event_type) AS event_type,
+            COUNT(*) AS total_bookings,
+            SUM(total_revenue) / 1e9 AS rev_billions
+        FROM main.stg_event_bookings
+        WHERE event_type IS NOT NULL 
+          AND TRIM(event_type) != ''
+        GROUP BY 1 
+        ORDER BY total_bookings DESC
+    """).df()
+    
+    if not q_event_type.empty:
+        col_m, col_n = st.columns(2)
+        with col_m:
+            fig_evt_count = px.bar(
+                q_event_type, 
+                x='event_type', 
+                y='total_bookings', 
+                text='total_bookings',
+                color='event_type',
+                labels={'event_type': 'ประเภท Event', 'total_bookings': 'จำนวนครั้งที่จัด (ครั้ง)'},
+                title="จำนวนครั้งที่จัดแยกตามประเภท Event"
+            )
+            fig_evt_count.update_traces(texttemplate='%{text:,} ครั้ง')
+            st.plotly_chart(clean_chart(fig_evt_count), use_container_width=True)
             
-            if not ingredient_df.empty:
-                fig_ing = px.line(
-                    ingredient_df, 
-                    x='year_month', 
-                    y='avg_price', 
-                    color='ingredient_name',
-                    markers=True,
-                    labels={
-                        'year_month': 'ช่วงเวลา (ปี-เดือน)', 
-                        'avg_price': 'ราคาเฉลี่ย (Rp)', 
-                        'ingredient_name': 'ประเภทวัตถุดิบ'
-                    },
-                    title="การเปลี่ยนแปลงของราคาวัตถุดิบรายเดือน"
-                )
-                fig_ing.update_traces(line_width=3)
-                fig_ing.update_xaxes(type='category', tickangle=-45)
-                st.plotly_chart(clean_chart(fig_ing), use_container_width=True)
-            else:
-                st.info("ไม่พบข้อมูลราคาวัตถุดิบตามเงื่อนไขที่เลือก")
-        except duckdb.CatalogException:
-            st.warning("⚠️ ไม่สามารถสร้างกราฟได้: ตรวจสอบชื่อตาราง fact_ingredient_prices หรือ dim_ingredient ในฐานข้อมูล DuckDB ว่าถูกต้องหรือไม่")
+        with col_n:
+            fig_evt_rev = px.bar(
+                q_event_type, 
+                x='event_type', 
+                y='rev_billions', 
+                text='rev_billions',
+                color='event_type',
+                labels={'event_type': 'ประเภท Event', 'rev_billions': 'รายได้ (พันล้านรูเปียห์)'},
+                title="รายได้รวมแยกตามประเภท Event"
+            )
+            fig_evt_rev.update_traces(texttemplate='Rp %{y:.2f}B')
+            st.plotly_chart(clean_chart(fig_evt_rev), use_container_width=True)
+    else:
+        st.info("ไม่พบข้อมูลประเภทกิจกรรมจัดงาน (stg_event_bookings)")
