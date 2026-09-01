@@ -411,3 +411,4 @@ models:
       - name: attendees_count
         description: "Number of attendees for the booked event or service."
         data_type: integer
+      - name: dim_event_type
