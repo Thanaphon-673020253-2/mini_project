@@ -203,7 +203,7 @@ with tab2:
     
     col_c, col_d = st.columns(2)
     with col_c:
-        st.markdown("**การเข้าพักซ้ำ ตามระดับสมาชิก (Loyalty Tier)**")
+        st.markdown("**ค่าเฉลี่ยการเข้าพักซ้ำ จำแนกตามระดับ Loyalty Tier**")
         q5_df = conn.execute(f"""
             SELECT 
                 CASE 
@@ -235,7 +235,7 @@ with tab2:
                     'loyalty_tier': 'ระดับสมาชิก',
                     'repeat_rate': 'อัตราการเข้าพักซ้ำ (ครั้ง/คน)' 
                 },
-                title='ค่าเฉลี่ยการเข้าพักซ้ำ จำแนกตามระดับ Loyalty Tier'
+
             )
             
             # ปรับให้แสดงทศนิยม 2 ตำแหน่งบนกราฟแท่ง
