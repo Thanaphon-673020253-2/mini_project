@@ -198,26 +198,6 @@ with tab1:
         else:
             st.info("ไม่พบข้อมูล Occupancy Rate")
 
-    with col_b:
-        st.markdown("**ข้อ 4: รายได้เฉลี่ยต่อห้องพักที่มีทั้งหมด (RevPAR) แยกตามสาขา**")
-        q4_df = conn.execute(f"""
-            SELECT 
-                p.property_name,
-                SUM(b.total_revenue) / NULLIF(MAX(p.total_rooms), 0) as revpar
-            FROM main.fact_hotel_bookings b
-            JOIN main.dim_property p ON b.property_key = p.property_key
-            JOIN main.dim_date d ON b.date_key = d.date_key
-            {where_stmt}
-            GROUP BY p.property_name ORDER BY revpar DESC
-        """).df()
-        if not q4_df.empty:
-            q4_df['revpar_k'] = q4_df['revpar'] / 1e3
-            fig_q4 = px.bar(q4_df, x='property_name', y='revpar_k', text='revpar_k')
-            fig_q4.update_traces(texttemplate='Rp %{text:,.0f}K', marker_color='#2ca02c')
-            st.plotly_chart(clean_chart(fig_q4), use_container_width=True)
-        else:
-            st.info("ไม่พบข้อมูล RevPAR")
-
 # =========================================================
 # TAB 2: Customer Analysis (ข้อ 5, 6, 8, 11)
 # =========================================================
