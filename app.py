@@ -217,7 +217,7 @@ with tab1:
             st.plotly_chart(clean_chart(fig_q4), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูล RevPAR")
-
+    
 # =========================================================
 # TAB 2: Customer Analysis (ข้อ 5, 6, 8, 11)
 # =========================================================
@@ -612,3 +612,44 @@ with tab5:
             st.plotly_chart(clean_chart(fig_q15), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูล Venue Performance")
+        st.markdown("---")
+        st.markdown("**แนวโน้มราคาเฉลี่ยของวัตถุดิบ (Ingredient Price Trends) ในแต่ละเดือน**")
+
+    # คิวรีดึงข้อมูลราคาวัตถุดิบ (ปรับชื่อตารางให้ตรงกับ DuckDB ของคุณ)
+        query_ingredient = f"""
+            SELECT 
+                CAST(d.year AS VARCHAR) || '-' || LPAD(CAST(d.month AS VARCHAR), 2, '0') AS year_month,
+                i.ingredient_name,
+                AVG(f.unit_price) AS avg_price
+            FROM main.fact_ingredient_prices f
+            JOIN main.dim_date d ON f.date_key = d.date_key
+            JOIN main.dim_ingredient i ON f.ingredient_key = i.ingredient_key
+            {where_stmt}
+            GROUP BY 1, 2
+            ORDER BY year_month
+        """
+
+        try:
+            ingredient_df = conn.execute(query_ingredient).df()
+            
+            if not ingredient_df.empty:
+                fig_ing = px.line(
+                    ingredient_df, 
+                    x='year_month', 
+                    y='avg_price', 
+                    color='ingredient_name',
+                    markers=True,
+                    labels={
+                        'year_month': 'ช่วงเวลา (ปี-เดือน)', 
+                        'avg_price': 'ราคาเฉลี่ย (Rp)', 
+                        'ingredient_name': 'ประเภทวัตถุดิบ'
+                    },
+                    title="การเปลี่ยนแปลงของราคาวัตถุดิบรายเดือน"
+                )
+                fig_ing.update_traces(line_width=3)
+                fig_ing.update_xaxes(type='category', tickangle=-45)
+                st.plotly_chart(clean_chart(fig_ing), use_container_width=True)
+            else:
+                st.info("ไม่พบข้อมูลราคาวัตถุดิบตามเงื่อนไขที่เลือก")
+        except duckdb.CatalogException:
+            st.warning("⚠️ ไม่สามารถสร้างกราฟได้: ตรวจสอบชื่อตาราง fact_ingredient_prices หรือ dim_ingredient ในฐานข้อมูล DuckDB ว่าถูกต้องหรือไม่")
