@@ -268,71 +268,132 @@ with tab2:
     st.markdown("---")
     col_e, col_f = st.columns(2)
     
+   
+
     with col_e:
-        st.markdown("**ข้อ 8: เปรียบเทียบพฤติกรรมลูกค้า ต่างชาติ vs ในประเทศ**")
+        st.markdown(
+            "**ข้อ 8: เปรียบเทียบจำนวนครั้งการใช้บริการ Food และ Spa "
+            "ระหว่างลูกค้าในประเทศและต่างชาติ**"
+        )
+
         q8_df = conn.execute(f"""
-            SELECT 
-                CASE WHEN g.is_domestic THEN 'ในประเทศ (Domestic)' ELSE 'ต่างชาติ (International)' END as guest_type,
-                AVG(b.lead_time_days) as avg_lead,
-                AVG(b.total_revenue) as avg_spend
-            FROM main.fact_hotel_bookings b
-            LEFT JOIN main.dim_guest g ON b.guest_key = g.guest_key
-            JOIN main.dim_property p ON b.property_key = p.property_key
-            JOIN main.dim_date d ON b.date_key = d.date_key
+            -- =========================
+            -- Food & Beverage
+            -- =========================
+            SELECT
+                'Food' AS service_type,
+                CASE
+                    WHEN g.is_domestic = TRUE THEN 'ในประเทศ (Domestic)'
+                    ELSE 'ต่างชาติ (International)'
+                END AS guest_type,
+                COUNT(*) AS service_count
+            FROM main.fact_fnb_operations f
+            JOIN main.dim_guest g
+                ON f.guest_key = g.guest_key
+            JOIN main.dim_date d
+                ON f.date_key = d.date_key
+            JOIN main.dim_property p
+                ON f.property_key = p.property_key
             {where_stmt}
-            GROUP BY 1
+                AND f.sales_amount > 0
+            GROUP BY 1, 2
+
+            UNION ALL
+
+            -- =========================
+            -- Spa & Wellness
+            -- =========================
+            SELECT
+                'Spa' AS service_type,
+                CASE
+                    WHEN g.is_domestic = TRUE THEN 'ในประเทศ (Domestic)'
+                    ELSE 'ต่างชาติ (International)'
+                END AS guest_type,
+                COUNT(*) AS service_count
+            FROM main.fact_ancillary_services a
+            JOIN main.dim_guest g
+                ON a.guest_key = g.guest_key
+            JOIN main.dim_date d
+                ON a.date_key = d.date_key
+            JOIN main.dim_property p
+                ON a.property_key = p.property_key
+            {where_stmt}
+                AND a.spa_revenue > 0
+            GROUP BY 1, 2
         """).df()
+
         if not q8_df.empty:
-            st.dataframe(q8_df.style.format({"avg_lead": "{:.1f} วัน", "avg_spend": "Rp {:,.0f}"}), use_container_width=True)
+
+            q8_df["service_type"] = pd.Categorical(
+                q8_df["service_type"],
+                categories=["Spa", "Food"],
+                ordered=True
+            )
+
+            q8_df["guest_type"] = pd.Categorical(
+                q8_df["guest_type"],
+                categories=[
+                    "ในประเทศ (Domestic)",
+                    "ต่างชาติ (International)"
+                ],
+                ordered=True
+            )
+
+            q8_df = q8_df.sort_values(
+                ["service_type", "guest_type"]
+            )
+
+            fig_q8 = px.bar(
+                q8_df,
+                x="service_type",
+                y="service_count",
+                color="guest_type",
+                barmode="group",
+                text="service_count",
+                category_orders={
+                    "service_type": ["Spa", "Food"],
+                    "guest_type": [
+                        "ในประเทศ (Domestic)",
+                        "ต่างชาติ (International)"
+                    ]
+                },
+                labels={
+                    "service_type": "ประเภทบริการ",
+                    "service_count": "จำนวนครั้งการใช้บริการ",
+                    "guest_type": "ประเภทลูกค้า"
+                },
+                color_discrete_map={
+                    "ในประเทศ (Domestic)": "#87CEEB",
+                    "ต่างชาติ (International)": "#FFF2B2"
+                }
+            )
+
+            fig_q8.update_traces(
+                texttemplate="%{text:,.0f}",
+                textposition="outside"
+            )
+
+            fig_q8.update_layout(
+                xaxis_title="ประเภทบริการ",
+                yaxis_title="จำนวนครั้งการใช้บริการ",
+                legend_title="",
+                bargap=0.25,
+                yaxis=dict(
+                    showgrid=False
+                )
+            )
+
+            st.plotly_chart(
+                clean_chart(fig_q8),
+                use_container_width=True
+            )
+
         else:
-            st.info("ไม่พบข้อมูลเปรียบเทียบประเภทลูกค้า")
-        
-    with col_f:
-        st.markdown("**ข้อ 11: ระยะเวลาเข้าพักเฉลี่ย (Nights Stayed) ตามสาขาโรงแรม**")
-
-        q11_df = conn.execute(f"""
-            SELECT 
-                p.property_name,
-                AVG(b.nights) AS avg_nights
-            FROM main.fact_hotel_bookings b
-            LEFT JOIN main.dim_guest g 
-                ON b.guest_key = g.guest_key
-            JOIN main.dim_property p 
-                ON b.property_key = p.property_key
-            JOIN main.dim_date d 
-                ON b.date_key = d.date_key
-            {where_stmt}
-            GROUP BY p.property_name
-            ORDER BY avg_nights DESC
-        """).df()
-
-    if not q11_df.empty:
-        fig_q11 = px.bar(
-            q11_df,
-            x='property_name',
-            y='avg_nights',
-            text='avg_nights'
-        )
-
-        fig_q11.update_traces(
-            texttemplate='%{text:.1f} คืน',
-            textposition='outside',
-            marker_color='#9467bd'
-        )
-
-        fig_q11.update_layout(
-            xaxis_title='สาขาโรงแรม',
-            yaxis_title='ระยะเวลาเข้าพักเฉลี่ย (คืน)'
-        )
-
-        st.plotly_chart(
-            clean_chart(fig_q11),
-            use_container_width=True
-        )
-
-    else:
-        st.info("ไม่พบข้อมูลระยะเวลาเข้าพักเฉลี่ย")
-
+            st.info(
+                "ไม่พบข้อมูลการใช้บริการ Spa และ Food "
+                "ตามเงื่อนไขที่เลือก"
+            )
+    
 # =========================================================
 # TAB 3: Room & Booking Patterns (ข้อ 9, 10, 12)
 # =========================================================
