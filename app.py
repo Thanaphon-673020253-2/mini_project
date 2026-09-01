@@ -206,23 +206,55 @@ with tab2:
         st.markdown("**การเข้าพักซ้ำ ตามระดับสมาชิก (Loyalty Tier)**")
         q5_df = conn.execute(f"""
             SELECT 
-                COALESCE(g.loyalty_tier, 'Non-Member') as loyalty_tier,
-                SUM(b.total_revenue) / 1e9 as ltv_billions,
+                CASE 
+                    WHEN g.loyalty_tier IS NULL OR LOWER(g.loyalty_tier) = 'none' THEN 'Non-Member'
+                    ELSE g.loyalty_tier 
+                END as loyalty_tier,
+                
+                -- คำนวณอัตราการเข้าพักซ้ำ: จำนวนการจองทั้งหมด / จำนวนลูกค้า (หัว)
                 COUNT(b.booking_id) * 1.0 / NULLIF(COUNT(DISTINCT g.guest_key), 0) as repeat_rate
+                
             FROM main.fact_hotel_bookings b
             LEFT JOIN main.dim_guest g ON b.guest_key = g.guest_key
             JOIN main.dim_property p ON b.property_key = p.property_key
             JOIN main.dim_date d ON b.date_key = d.date_key
             {where_stmt}
-            GROUP BY 1 ORDER BY ltv_billions DESC
+            GROUP BY 1 
+            ORDER BY repeat_rate DESC -- เรียงตามกลุ่มที่มาพักซ้ำบ่อยที่สุดขึ้นก่อน
         """).df()
+
         if not q5_df.empty:
-            fig_q5 = px.bar(q5_df, x='loyalty_tier', y='ltv_billions', text='repeat_rate', color='loyalty_tier')
-            fig_q5.update_traces(texttemplate='พักซ้ำเฉลี่ย %{text:.1f} ครั้ง')
+            # สร้างกราฟแท่งโดยใช้ repeat_rate เป็นแกน Y
+            fig_q5 = px.bar(
+                q5_df, 
+                x='loyalty_tier', 
+                y='repeat_rate', 
+                text='repeat_rate', 
+                color='loyalty_tier',
+                labels={
+                    'loyalty_tier': 'ระดับสมาชิก',
+                    'repeat_rate': 'อัตราการเข้าพักซ้ำ (ครั้ง/คน)' 
+                },
+                title='ค่าเฉลี่ยการเข้าพักซ้ำ จำแนกตามระดับ Loyalty Tier'
+            )
+            
+            # ปรับให้แสดงทศนิยม 2 ตำแหน่งบนกราฟแท่ง
+            fig_q5.update_traces(
+                texttemplate='%{text:.2f} ครั้ง', 
+                textposition='outside'
+            )
+            
+            # ปรับแต่งแกน Y
+            fig_q5.update_layout(
+                showlegend=False, 
+                yaxis=dict(title='จำนวนครั้งที่เข้าพักเฉลี่ย'), 
+                margin=dict(t=50) 
+            )
+            
             st.plotly_chart(clean_chart(fig_q5), use_container_width=True)
         else:
-            st.info("ไม่พบข้อมูล Loyalty Tier")
-        
+            st.info("ไม่พบข้อมูล Loyalty Tier ในช่วงเวลาที่เลือก")
+            
     with col_d:
         st.markdown("**สัญชาติลูกค้าที่มียอดจองสูงสุด Top 5**")
         nat_where = where_stmt + (" AND " if where_stmt else "WHERE ") + "g.nationality IS NOT NULL AND g.nationality != 'Others'"
