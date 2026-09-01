@@ -77,24 +77,23 @@ where_stmt = "WHERE " + " AND ".join(where_clauses) if where_clauses else ""
 # Main Title & Navigation
 # ---------------------------------------------------------
 st.title("🏨 IndoHotel 360 Analytics Dashboard")
-st.caption("ระบบวิเคราะห์ข้อมูลเชิงยุทธศาสตร์ ครอบคลุมคำถามการดำเนินงาน 15 ข้อหลัก")
+st.caption("ระบบวิเคราะห์ข้อมูลเชิงยุทธศาสตร์ ครอบคลุมการดำเนินงานรอบด้าน")
 st.markdown("---")
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "📊 1. รายได้และผลประกอบการ (Q1-Q4)", 
-    "👥 2. ลูกค้าและพฤติกรรม (Q5, Q6, Q8, Q11)", 
-    "🛏️ 3. ห้องพักและการจอง (Q9, Q10, Q12)", 
-    "📅 4. มิติเวลาและสถานที่ (Q13-Q14)",
-    "⚙️ 5. ปฏิบัติการและสถานที่ (Q7, Q15)"
+tab1, tab2, tab3, tab4 = st.tabs([
+    "📊 รายได้และผลประกอบการ", 
+    "👥 ลูกค้าและพฤติกรรม", 
+    "🛏️ ห้องพักและการจอง", 
+    "📅 ปฏิบัติการและสถานที่"
 ])
 
 # =========================================================
-# TAB 1: Revenue & Performance (ข้อ 1 - 4)
+# TAB 1: Revenue & Performance
 # =========================================================
 with tab1:
-    st.header("1. ด้านรายได้และผลประกอบการ (Revenue & Performance)")
+    st.header("ด้านรายได้และผลประกอบการ (Revenue & Performance)")
     
-    # Q1 Metrics
+    # Metrics
     q1_df = conn.execute(f"""
         SELECT 
             SUM(b.total_revenue) as total_rev,
@@ -106,13 +105,13 @@ with tab1:
     """).df()
     
     c1, c2 = st.columns(2)
-    c1.metric("ข้อ 1: ยอดขายรวม (Total Revenue)", f"Rp {q1_df['total_rev'][0]:,.0f}" if not q1_df.empty and pd.notna(q1_df['total_rev'][0]) else "Rp 0")
-    c2.metric("ข้อ 1: จำนวนคืนที่จอง (Nights)", f"{q1_df['total_nights'][0]:,.0f} คืน" if not q1_df.empty and pd.notna(q1_df['total_nights'][0]) else "0 คืน")
+    c1.metric("ยอดขายรวม (Total Revenue)", f"Rp {q1_df['total_rev'][0]:,.0f}" if not q1_df.empty and pd.notna(q1_df['total_rev'][0]) else "Rp 0")
+    c2.metric("จำนวนคืนที่จอง (Nights)", f"{q1_df['total_nights'][0]:,.0f} คืน" if not q1_df.empty and pd.notna(q1_df['total_nights'][0]) else "0 คืน")
     
     st.markdown("---")
     
-    # Q3 Breakdown
-    st.markdown("**ข้อ 3: สัดส่วนรายได้และผู้ใช้บริการเสริม แยกตามประเภทบริการ**")
+    # Breakdown
+    st.markdown("**สัดส่วนรายได้และผู้ใช้บริการเสริม แยกตามประเภทบริการ**")
     q3_df = conn.execute(f"""
         SELECT 
             'Food & Beverage' AS service_type,
@@ -175,7 +174,7 @@ with tab1:
 
     st.markdown("---")
     
-    st.markdown("**ข้อ 2: อัตราการเข้าพักเฉลี่ย (Occupancy Rate) แยกตามสาขา**")
+    st.markdown("**อัตราการเข้าพักเฉลี่ย (Occupancy Rate) แยกตามสาขา**")
     q2_df = conn.execute(f"""
              SELECT p.property_name, AVG(o.occupancy_rate) * 100 as avg_occ
              FROM main.stg_daily_occupancy o
@@ -197,14 +196,14 @@ with tab1:
              st.info("ไม่พบข้อมูล Occupancy Rate")       
 
 # =========================================================
-# TAB 2: Customer Analysis (ข้อ 5, 6, 8, 11)
+# TAB 2: Customer Analysis
 # =========================================================
 with tab2:
-    st.header("2. ด้านลูกค้าและพฤติกรรม (Customer Analysis)")
+    st.header("ด้านลูกค้าและพฤติกรรม (Customer Analysis)")
     
     col_c, col_d = st.columns(2)
     with col_c:
-        st.markdown("**ข้อ 5: มูลค่าลูกค้า (LTV) และความถี่การเข้าพักซ้ำ ตามระดับสมาชิก (Loyalty Tier)**")
+        st.markdown("**การเข้าพักซ้ำ ตามระดับสมาชิก (Loyalty Tier)**")
         q5_df = conn.execute(f"""
             SELECT 
                 COALESCE(g.loyalty_tier, 'Non-Member') as loyalty_tier,
@@ -225,7 +224,7 @@ with tab2:
             st.info("ไม่พบข้อมูล Loyalty Tier")
         
     with col_d:
-        st.markdown("**ข้อ 6: สัญชาติลูกค้าที่มียอดจองสูงสุด Top 5**")
+        st.markdown("**สัญชาติลูกค้าที่มียอดจองสูงสุด Top 5**")
         nat_where = where_stmt + (" AND " if where_stmt else "WHERE ") + "g.nationality IS NOT NULL AND g.nationality != 'Others'"
         q6_df = conn.execute(f"""
             SELECT g.nationality, COUNT(b.booking_id) as bookings
@@ -247,11 +246,7 @@ with tab2:
     col_e, col_f = st.columns(2)
 
     with col_e:
-        st.markdown(
-            "**ข้อ 8: เปรียบเทียบจำนวนครั้งการใช้บริการ Food และ Spa "
-            "ระหว่างลูกค้าในประเทศและต่างชาติ**"
-        )
-
+        st.markdown("**เปรียบเทียบจำนวนครั้งการใช้บริการ Food และ Spa ระหว่างลูกค้าในประเทศและต่างชาติ**")
         q8_df = conn.execute(f"""
             SELECT
                 'Food' AS service_type,
@@ -344,7 +339,7 @@ with tab2:
             st.info("ไม่พบข้อมูลการใช้บริการ Spa และ Food ตามเงื่อนไขที่เลือก")
 
     with col_f:
-        st.markdown("**ข้อ 11: ระยะเวลาเข้าพักเฉลี่ย (Nights Stayed) ตามสาขาโรงแรม**")
+        st.markdown("**ระยะเวลาเข้าพักเฉลี่ย (Nights Stayed) ตามสาขาโรงแรม**")
 
         q11_df = conn.execute(f"""
             SELECT 
@@ -380,10 +375,10 @@ with tab2:
             st.info("ไม่พบข้อมูลระยะเวลาเข้าพักเฉลี่ย")
 
 # =========================================================
-# TAB 3: Room & Booking Patterns (ข้อ 9, 10, 12)
+# TAB 3: Room & Booking Patterns
 # =========================================================
 with tab3:
-    st.header("3. ด้านประเภทห้องพักและการจอง (Room & Booking Patterns)")
+    st.header("ด้านประเภทห้องพักและการจอง (Room & Booking Patterns)")
     
     q10_df = conn.execute(f"""
         SELECT AVG(b.lead_time_days) as avg_lead
@@ -394,13 +389,13 @@ with tab3:
     """).df()
     
     lead_val = q10_df['avg_lead'][0] if not q10_df.empty and pd.notna(q10_df['avg_lead'][0]) else 0
-    st.metric("ข้อ 10: ระยะเวลาการจองล่วงหน้าเฉลี่ย (Lead Time)", f"{lead_val:,.1f} วัน")
+    st.metric("ระยะเวลาการจองล่วงหน้าเฉลี่ย (Lead Time)", f"{lead_val:,.1f} วัน")
     
     st.markdown("---")
     col_g, col_h = st.columns(2)
     
     with col_g:
-        st.markdown("**ข้อ 9: ประเภทห้องพักที่สร้างรายได้หลักและมียอดจองสูงสุด**")
+        st.markdown("**ประเภทห้องพักที่สร้างรายได้หลักและมียอดจองสูงสุด**")
         q9_df = conn.execute(f"""
             SELECT 
                 s.room_type, 
@@ -423,7 +418,7 @@ with tab3:
             st.warning("⚠️ ไม่พบข้อมูลประเภทห้องพักตามเงื่อนไขที่เลือก")
         
     with col_h:
-        st.markdown("**ข้อ 12: อัตราการยกเลิกการจอง (%) แยกตามประเภทห้องพัก**")
+        st.markdown("**อัตราการยกเลิกการจอง (%) แยกตามประเภทห้องพัก**")
         q12_df = conn.execute(f"""
             SELECT 
                 s.room_type,
@@ -445,14 +440,14 @@ with tab3:
             st.warning("⚠️ ไม่พบข้อมูลอัตราการยกเลิกตามเงื่อนไขที่เลือก")
 
 # =========================================================
-# TAB 4: Time & Location Trends (ข้อ 13 - 14)
+# TAB 4: Time & Location Trends
 # =========================================================
 with tab4:
-    st.header("4. ด้านมิติเวลาและสถานที่ (Time & Location Trends)")
+    st.header("")
     
     col_i, col_j = st.columns([2, 1])
     with col_i:
-        st.markdown("**ข้อ 13: แนวโน้มรายได้ตามช่วงเดือน / ฤดูกาล (เรียงต่อกันตามลำดับเวลา)**")
+        st.markdown("**แนวโน้มรายได้ตามช่วงเดือน / ฤดูกาล (เรียงต่อกันตามลำดับเวลา)**")
         q13_df = conn.execute(f"""
             SELECT 
                 CAST(d.year AS VARCHAR) || ' ' || d.month_name AS year_month,
@@ -480,7 +475,7 @@ with tab4:
             st.info("ไม่พบข้อมูลแนวโน้มรายได้")
         
     with col_j:
-        st.markdown("**ข้อ 14: ยอดขาย วันธรรมดา vs วันหยุดสุดสัปดาห์**")
+        st.markdown("**ยอดขาย วันธรรมดา vs วันหยุดสุดสัปดาห์**")
         q14_df = conn.execute(f"""
             SELECT 
                 CASE WHEN d.is_weekend THEN 'Weekend' ELSE 'Weekday' END as day_type,
@@ -498,12 +493,7 @@ with tab4:
         else:
             st.info("ไม่พบข้อมูลสัดส่วนวันธรรมดา/วันหยุด")
 
-# =========================================================
-# TAB 5: Operations & Venues (ข้อ 7, 15 และการจัดงาน Event)
-# =========================================================
-with tab5:
-    st.header("5. ด้านปฏิบัติการและสถานที่จัดงาน (Operations & Venues)")
-    st.markdown("**ข้อ 15: ประเภทสถานที่จัดงาน (Venue Type) ที่มีการจองมากที่สุด**")
+    st.markdown("**ประเภทสถานที่จัดงาน (Venue Type) ที่มีการจองมากที่สุด**")
     q15_df = conn.execute(f"""
         SELECT 
             v.venue_type,
@@ -533,10 +523,7 @@ with tab5:
         st.info("ไม่พบข้อมูล Venue Performance")
 
     st.markdown("---")
-    st.markdown("**📌 รายละเอียดประเภทกิจกรรมจัดงาน (Event Type Breakdown)**")
-    
-    st.markdown("---")
-    st.markdown("**📌 รายละเอียดประเภทกิจกรรมจัดงาน (Event Type Breakdown)**")
+    st.markdown("**รายละเอียดประเภทกิจกรรมจัดงาน (Event Type Breakdown)**")
     
     evt_where = where_stmt + (" AND " if where_stmt else "WHERE ") + "a.event_revenue > 0"
     
