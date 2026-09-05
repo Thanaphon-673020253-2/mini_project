@@ -527,7 +527,7 @@ with tab4:
 
     q_event_type = conn.execute(
         f"""
-        SELECT COALESCE(e.event_type_name) AS event_type, COUNT(*) AS total_bookings, COALESCE(SUM(a.event_revenue), 0) / 1e9 AS rev_billions
+        SELECT COALESCE(e.event_type_name, 'Unknown') AS event_type, COUNT(*) AS total_bookings, COALESCE(SUM(a.event_revenue), 0) / 1e9 AS rev_billions
         FROM main.fact_ancillary_services a
         LEFT JOIN main.dim_event_type e ON a.event_type_key = e.event_type_key
         JOIN main.dim_date d ON a.date_key = d.date_key
