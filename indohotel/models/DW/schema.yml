@@ -413,4 +413,3 @@ models:
         data_type: integer
   - name: dim_event_type
   - name: fact_daily_occupancy
-  - name: fact_financial_summary
