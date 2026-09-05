@@ -1,8 +1,13 @@
+# Operational Database
+
+<img src=".\mini_project\Figure\ER_Data Warehouse-ER final.drawio.png" width="400" >
+
+
 # Question 
 
 ---
 
-### **Tab 1: 📊 รายได้และผลประกอบการ (Revenue & Performance)**
+### 📊 รายได้และผลประกอบการ (Revenue & Performance)**
 
 #### **1. Total Revenue & Nights Sold**
 * **Question:** ภาพรวมผลประกอบการด้านรายได้รวม (Total Revenue) และจำนวนคืนที่มีการเข้าพักรวม (Total Nights Sold) ของโรงแรมทั้ง 5 สาขา อยู่ที่ระดับใด
@@ -31,7 +36,7 @@
 
 ---
 
-### **Tab 2: 👥 ลูกค้าและพฤติกรรม (Customer Analysis)**
+### **👥 ลูกค้าและพฤติกรรม (Customer Analysis)**
 
 #### **6. Loyalty Program Repeat Stay Trends**
 * **Question:** อัตราการเข้าพักซ้ำมีแนวโน้มการเติบโตอย่างไรเมื่อจำแนกตามระดับสมาชิก (Loyalty Tier)
@@ -55,7 +60,7 @@
 
 ---
 
-### **Tab 3: 🛏️ ห้องพักและการจอง (Room & Booking Patterns)**
+### **🛏️ ห้องพักและการจอง (Room & Booking Patterns)**
 
 #### **10. Booking Lead Time Patterns**
 * **Question:** พฤติกรรมการวางแผนเดินทางของลูกค้าผ่านระยะเวลาการจองล่วงหน้าเฉลี่ย (Lead Time) มีระยะเวลากี่วัน
@@ -74,7 +79,7 @@
 
 ---
 
-### **Tab 4: 📅 ปฏิบัติการและสถานที่ (Operations & Venue)**
+### **📅 ปฏิบัติการและสถานที่ (Operations & Venue)**
 
 #### **13. Venue Utilization Volume**
 * **Question:** พื้นที่จัดงานประเภทใด (Ballroom, Meeting Room, Outdoor) ที่ได้รับการจองใช้บริการสูงสุด

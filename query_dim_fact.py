@@ -175,9 +175,6 @@ else:
         print("===================== daily_occupancy =====================")
         print(df_f_daily_occupancy.columns)
         print(df_f_daily_occupancy)
-        print("===================== financials =====================")
-        print(df_f_financials.columns)
-        print(df_f_financials)
     except Exception as e:
         print(f"เกิดข้อผิดพลาดขณะ Query: {e}")
 
