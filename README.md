@@ -1,6 +1,6 @@
 # Operational Database
 
-!(./mini_project/Figure/ER_Data_Warehouse_ER_final.png)
+(./Figure/ER_Data_Warehouse_ER_final.png)
 
 # Question 
 
