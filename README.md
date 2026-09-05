@@ -1,7 +1,6 @@
 # Operational Database
 
-<img src="./mini_project/Figure/ER_Data_Warehouse_ER_final.png" width="400" alt="ER Diagram">
-
+!(./mini_project/Figure/ER_Data_Warehouse_ER_final.png)
 
 # Question 
 
