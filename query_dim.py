@@ -132,6 +132,8 @@ else:
         df_f_hotel_bookings = conn.execute("SELECT * FROM main.fact_hotel_bookings ").df()
         df_f_hotel_operations_hr = conn.execute("SELECT * FROM main.fact_hotel_operations_hr ").df()
         df_event_type = conn.execute("SELECT * FROM main.dim_event_type ").df()
+        df_f_daily_occupancy = conn.execute("SELECT * FROM main.fact_daily_occupancy ").df()
+        df_f_financials = conn.execute("SELECT * FROM main.fact_financial_summary ").df()
 
         print("DataFrames loaded successfully:")
         print("===================== date =====================")
@@ -170,6 +172,12 @@ else:
         print("===================== event_type =====================")
         print(df_event_type.columns)
         print(df_event_type)
+        print("===================== daily_occupancy =====================")
+        print(df_f_daily_occupancy.columns)
+        print(df_f_daily_occupancy)
+        print("===================== financials =====================")
+        print(df_f_financials.columns)
+        print(df_f_financials)
     except Exception as e:
         print(f"เกิดข้อผิดพลาดขณะ Query: {e}")
 

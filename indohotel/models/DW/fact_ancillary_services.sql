@@ -1,36 +1,127 @@
-with stg_spa_booking as (
-    select 
+WITH stg_spa_booking AS (
+
+    SELECT 
         property_id,
         guest_id,
-        null as venue_id, -- ใน ERD spa_booking ไม่ได้เชื่อม venue_id
-        service_date as booking_date,
-        price as spa_revenue,
-        1 as attendees
-    from {{ ref('stg_spa_bookings') }}
+        NULL AS venue_id,
+        NULL AS event_type_name,
+        service_date AS booking_date,
+        price AS spa_revenue,
+        0 AS event_revenue,
+        1 AS attendees
+
+    FROM {{ ref('stg_spa_bookings') }}
+
 ),
-stg_event_booking as (
-    select
+
+stg_event_booking AS (
+
+    SELECT
         property_id,
-        null as guest_id,
+        NULL AS guest_id,
         venue_id,
-        event_date as booking_date,
-        total_revenue as event_revenue,
-        capacity_booked as attendees
-    from {{ ref('stg_event_bookings') }}
+        event_type AS event_type_name,
+        event_date AS booking_date,
+        0 AS spa_revenue,
+        total_revenue AS event_revenue,
+        capacity_booked AS attendees
+
+    FROM {{ ref('stg_event_bookings') }}
+
 ),
-combined_services as (
-    select property_id, guest_id, venue_id, booking_date, spa_revenue, 0 as event_revenue, attendees from stg_spa_booking
-    union all
-    select property_id, guest_id, venue_id, booking_date, 0 as spa_revenue, event_revenue, attendees from stg_event_booking
+
+combined_services AS (
+
+    SELECT
+        property_id,
+        guest_id,
+        venue_id,
+        event_type_name,
+        booking_date,
+        spa_revenue,
+        event_revenue,
+        attendees
+
+    FROM stg_spa_booking
+
+    UNION ALL
+
+    SELECT
+        property_id,
+        guest_id,
+        venue_id,
+        event_type_name,
+        booking_date,
+        spa_revenue,
+        event_revenue,
+        attendees
+
+    FROM stg_event_booking
+
+),
+
+mapped_services AS (
+
+    SELECT
+        cs.property_id,
+        cs.guest_id,
+        cs.venue_id,
+        cs.event_type_name,
+        cs.booking_date,
+        cs.spa_revenue,
+        cs.event_revenue,
+        cs.attendees,
+
+        et.event_type_key
+
+    FROM combined_services cs
+
+    LEFT JOIN {{ ref('dim_event_type') }} et
+        ON md5(
+            COALESCE(
+                LOWER(TRIM(cs.event_type_name)),
+                'unknown'
+            )
+        ) = et.event_type_key
+
 )
 
-select
-    cast(strftime(booking_date, '%Y%m%d') as integer) as date_key,
-    md5(cast(property_id as varchar)) as property_key,
-    md5(cast(guest_id as varchar)) as guest_key,
-    md5(cast(venue_id as varchar)) as venue_key,
-    sum(spa_revenue) as spa_revenue,
-    sum(event_revenue) as event_revenue,
-    sum(attendees) as attendees_count
-from combined_services
-group by 1, 2, 3, 4
+SELECT
+
+    CAST(
+        strftime(booking_date, '%Y%m%d')
+        AS INTEGER
+    ) AS date_key,
+
+    md5(
+        CAST(property_id AS VARCHAR)
+    ) AS property_key,
+
+    CASE
+        WHEN guest_id IS NOT NULL
+        THEN md5(CAST(guest_id AS VARCHAR))
+        ELSE NULL
+    END AS guest_key,
+
+    CASE
+        WHEN venue_id IS NOT NULL
+        THEN md5(CAST(venue_id AS VARCHAR))
+        ELSE NULL
+    END AS venue_key,
+
+    event_type_key,
+
+    SUM(spa_revenue) AS spa_revenue,
+
+    SUM(event_revenue) AS event_revenue,
+
+    SUM(attendees) AS attendees_count
+
+FROM mapped_services
+
+GROUP BY
+    1,
+    2,
+    3,
+    4,
+    5
