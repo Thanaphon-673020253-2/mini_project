@@ -17,7 +17,7 @@ st.set_page_config(
 
 
 # =========================================================
-# CUSTOM CSS & THEME STYLING
+# CUSTOM CSS & ADAPTIVE THEME STYLING
 # =========================================================
 
 st.markdown(
@@ -27,50 +27,45 @@ st.markdown(
         .block-container {
             padding-top: 2rem;
             padding-bottom: 3rem;
-            padding-left: 3rem;
-            padding-right: 3rem;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
         }
 
-        /* Metric Card Styling */
+        /* Adaptive Metric Card for Light & Dark Mode */
         div[data-testid="stMetric"] {
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 16px 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+            background-color: rgba(128, 128, 128, 0.05);
+            border: 1px solid rgba(128, 128, 128, 0.15);
+            padding: 18px 22px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
             transition: all 0.3s ease;
         }
         div[data-testid="stMetric"]:hover {
-            border-color: #cbd5e1;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
         }
 
         /* Tab styling */
         .stTabs [data-baseweb="tab-list"] {
-            gap: 8px;
-            background-color: #f1f5f9;
-            padding: 6px;
+            gap: 10px;
+            background-color: rgba(128, 128, 128, 0.08);
+            padding: 8px;
             border-radius: 12px;
         }
         .stTabs [data-baseweb="tab"] {
             border-radius: 8px;
-            padding: 8px 16px;
-            font-weight: 500;
-            color: #475569;
-        }
-        .stTabs [aria-selected="true"] {
-            background-color: #ffffff !important;
-            color: #0f172a !important;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            font-weight: 600;
         }
 
-        /* Section Dividers */
+        /* Divider */
         hr {
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
             border: none;
             height: 1px;
-            background-color: #e2e8f0;
+            background: linear-gradient(90deg, rgba(128,128,128,0) 0%, rgba(128,128,128,0.3) 50%, rgba(128,128,128,0) 100%);
         }
     </style>
     """,
@@ -84,37 +79,16 @@ st.markdown(
 
 def clean_chart(fig):
     """
-    ปรับรูปแบบกราฟให้สะอาด ทันสมัย และอ่านง่ายขึ้น
+    ปรับรูปแบบกราฟให้โปร่งใส เพื่อให้กลมกลืนไปกับทั้ง Theme ขาวและดำอัตโนมัติ
     """
     fig.update_layout(
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        xaxis=dict(
-            showgrid=False,
-            title="",
-            tickfont=dict(color="#64748b", size=11)
-        ),
-        yaxis=dict(
-            showgrid=True,
-            gridcolor="#f1f5f9",
-            title="",
-            tickfont=dict(color="#64748b", size=11)
-        ),
-        margin=dict(t=50, b=20, l=20, r=20),
-        font=dict(
-            family="Inter, sans-serif",
-            size=12,
-            color="#334155"
-        ),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.02,
-            xanchor="right",
-            x=1,
-            title=None
-        ),
-        colorway=["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899"]
+        xaxis=dict(showgrid=False, title=""),
+        yaxis=dict(showgrid=True, gridcolor="rgba(128,128,128,0.15)", title=""),
+        margin=dict(t=40, b=20, l=20, r=20),
+        font=dict(family="Inter, sans-serif", size=12),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, title=None)
     )
     return fig
 
@@ -169,40 +143,16 @@ with st.sidebar:
     st.markdown("### 🎛️ ตัวกรองข้อมูล")
     st.markdown("---")
 
-    # YEAR
-    years_df = conn.execute(
-        """
-        SELECT DISTINCT year FROM main.dim_date 
-        WHERE year BETWEEN 2023 AND 2026 ORDER BY year DESC
-        """
-    ).df()
-    year_options = ["ทั้งหมด"]
-    if not years_df.empty:
-        year_options += [str(int(y)) for y in years_df["year"] if pd.notna(y)]
+    years_df = conn.execute("SELECT DISTINCT year FROM main.dim_date WHERE year BETWEEN 2023 AND 2026 ORDER BY year DESC").df()
+    year_options = ["ทั้งหมด"] + ([str(int(y)) for y in years_df["year"]] if not years_df.empty else [])
     selected_year = st.selectbox("📅 เลือกปี", year_options)
 
-    # PROPERTY
-    properties_df = conn.execute(
-        """
-        SELECT DISTINCT property_name FROM main.dim_property 
-        WHERE property_name IS NOT NULL ORDER BY property_name
-        """
-    ).df()
-    property_options = ["ทั้งหมด"]
-    if not properties_df.empty:
-        property_options += properties_df["property_name"].dropna().astype(str).tolist()
+    properties_df = conn.execute("SELECT DISTINCT property_name FROM main.dim_property WHERE property_name IS NOT NULL ORDER BY property_name").df()
+    property_options = ["ทั้งหมด"] + (properties_df["property_name"].dropna().astype(str).tolist() if not properties_df.empty else [])
     selected_property = st.selectbox("🏨 เลือกสาขา", property_options)
 
-    # SEASON
-    seasons_df = conn.execute(
-        """
-        SELECT DISTINCT season FROM main.dim_date 
-        WHERE season IS NOT NULL ORDER BY season
-        """
-    ).df()
-    season_options = ["ทั้งหมด"]
-    if not seasons_df.empty:
-        season_options += seasons_df["season"].dropna().astype(str).tolist()
+    seasons_df = conn.execute("SELECT DISTINCT season FROM main.dim_date WHERE season IS NOT NULL ORDER BY season").df()
+    season_options = ["ทั้งหมด"] + (seasons_df["season"].dropna().astype(str).tolist() if not seasons_df.empty else [])
     selected_season = st.selectbox("🌤️ เลือกฤดูกาล", season_options)
 
 
@@ -211,7 +161,6 @@ with st.sidebar:
 # =========================================================
 
 where_clauses = []
-
 if selected_year != "ทั้งหมด":
     where_clauses.append(f"d.year = {int(selected_year)}")
 else:
@@ -252,7 +201,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
 # =========================================================
 
 with tab1:
-    st.markdown("### ด้านรายได้และผลประกอบการ (Revenue & Performance)")
+    st.markdown("### 📊 ภาพรวมรายได้และผลประกอบการ")
 
     q1_df = conn.execute(
         f"""
@@ -280,7 +229,7 @@ with tab1:
     col_i, col_j = st.columns(2, gap="large")
 
     with col_i:
-        st.markdown("**แนวโน้มรายได้ตามช่วงเดือน / ฤดูกาล**")
+        st.markdown("**📈 แนวโน้มรายได้ตามช่วงเดือน / ฤดูกาล**")
         q13_df = conn.execute(
             f"""
             SELECT 
@@ -291,21 +240,20 @@ with tab1:
             JOIN main.dim_date d ON b.date_key = d.date_key
             JOIN main.dim_property p ON b.property_key = p.property_key
             {where_stmt}
-            GROUP BY d.year, d.month_name
-            ORDER BY sort_key
+            GROUP BY d.year, d.month_name ORDER BY sort_key
             """
         ).df()
 
         if not q13_df.empty:
             fig_q13 = px.line(q13_df, x="year_month", y="revenue_b", markers=True)
-            fig_q13.update_traces(line_width=3, marker_size=6)
+            fig_q13.update_traces(line_width=3, marker_size=7, line_color="#3b82f6")
             fig_q13.update_xaxes(type="category", tickangle=-45)
             st.plotly_chart(clean_chart(fig_q13), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูลแนวโน้มรายได้")
 
     with col_j:
-        st.markdown("**ยอดขาย วันธรรมดา vs วันหยุดสุดสัปดาห์**")
+        st.markdown("**🍩 สัดส่วนยอดขาย วันธรรมดา vs วันหยุดสุดสัปดาห์**")
         q14_df = conn.execute(
             f"""
             SELECT 
@@ -314,20 +262,19 @@ with tab1:
             FROM main.fact_hotel_bookings b
             JOIN main.dim_date d ON b.date_key = d.date_key
             JOIN main.dim_property p ON b.property_key = p.property_key
-            {where_stmt}
-            GROUP BY 1
+            {where_stmt} GROUP BY 1
             """
         ).df()
 
         if not q14_df.empty:
-            fig_q14 = px.pie(q14_df, values="revenue", names="day_type", hole=0.5)
+            fig_q14 = px.pie(q14_df, values="revenue", names="day_type", hole=0.5, color_discrete_sequence=["#3b82f6", "#60a5fa"])
             fig_q14.update_traces(textinfo="percent+label")
             st.plotly_chart(clean_chart(fig_q14), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูลสัดส่วนวันธรรมดา/วันหยุด")
 
     st.markdown("---")
-    st.markdown("**สัดส่วนรายได้และผู้ใช้บริการเสริม แยกตามประเภทบริการ**")
+    st.markdown("**🛎️ สัดส่วนรายได้และผู้ใช้บริการเสริมแยกตามประเภทบริการ**")
 
     q3_df = conn.execute(
         f"""
@@ -355,7 +302,7 @@ with tab1:
             metric_cols[idx].metric(f"บริการ {row['service_type']}", f"Rp {rev_b:,.2f}B", f"{g_count:,} {unit_label}")
 
         q3_df["revenue_b"] = pd.to_numeric(q3_df["revenue"], errors="coerce").fillna(0) / 1e9
-        fig_q3 = px.bar(q3_df, x="service_type", y="revenue_b", text="revenue_b", color="service_type")
+        fig_q3 = px.bar(q3_df, x="service_type", y="revenue_b", text="revenue_b", color="service_type", color_discrete_sequence=["#2563eb", "#38bdf8", "#93c5fd"])
         fig_q3.update_traces(texttemplate="Rp %{y:.2f}B", textposition="outside")
         fig_q3.update_layout(showlegend=False)
         st.plotly_chart(clean_chart(fig_q3), use_container_width=True)
@@ -363,7 +310,7 @@ with tab1:
         st.info("ไม่พบข้อมูลบริการเสริม")
 
     st.markdown("---")
-    st.markdown("**อัตราการเข้าพักเฉลี่ย (Occupancy Rate) แยกตามสาขา**")
+    st.markdown("**🏨 อัตราการเข้าพักเฉลี่ย (Occupancy Rate) แยกตามสาขา**")
 
     q2_df = conn.execute(
         f"""
@@ -371,17 +318,15 @@ with tab1:
         FROM main.fact_daily_occupancy f
         JOIN main.dim_property p ON f.property_key = p.property_key
         JOIN main.dim_date d ON f.date_key = d.date_key
-        {where_stmt}
-        GROUP BY p.property_name
-        ORDER BY avg_occ DESC
+        {where_stmt} GROUP BY p.property_name ORDER BY avg_occ DESC
         """
     ).df()
 
     if not q2_df.empty:
         q2_df["avg_occ"] = pd.to_numeric(q2_df["avg_occ"], errors="coerce").fillna(0)
-        fig_q2 = px.bar(q2_df, x="property_name", y="avg_occ", text="avg_occ", color="property_name", range_y=[0, 100])
+        fig_q2 = px.bar(q2_df, x="property_name", y="avg_occ", text="avg_occ", color="avg_occ", color_continuous_scale="Blues", range_y=[0, 100])
         fig_q2.update_traces(texttemplate="%{text:.1f}%", textposition="outside")
-        fig_q2.update_layout(showlegend=False)
+        fig_q2.update_layout(coloraxis_showscale=False)
         st.plotly_chart(clean_chart(fig_q2), use_container_width=True)
     else:
         st.info("ไม่พบข้อมูล Occupancy Rate")
@@ -392,12 +337,12 @@ with tab1:
 # =========================================================
 
 with tab2:
-    st.markdown("### ด้านลูกค้าและพฤติกรรม (Customer Analysis)")
+    st.markdown("### 👥 การวิเคราะห์ลูกค้าและพฤติกรรม")
 
     col_c, col_d = st.columns(2, gap="large")
 
     with col_c:
-        st.markdown("**ค่าเฉลี่ยการเข้าพักซ้ำ จำแนกตามระดับ Loyalty Tier**")
+        st.markdown("**🥇 ค่าเฉลี่ยการเข้าพักซ้ำตามระดับ Loyalty Tier**")
         q5_df = conn.execute(
             f"""
             SELECT 
@@ -407,21 +352,20 @@ with tab2:
             LEFT JOIN main.dim_guest g ON b.guest_key = g.guest_key
             JOIN main.dim_property p ON b.property_key = p.property_key
             JOIN main.dim_date d ON b.date_key = d.date_key
-            {where_stmt}
-            GROUP BY 1 ORDER BY repeat_rate DESC
+            {where_stmt} GROUP BY 1 ORDER BY repeat_rate DESC
             """
         ).df()
 
         if not q5_df.empty:
-            fig_q5 = px.bar(q5_df, x="loyalty_tier", y="repeat_rate", text="repeat_rate", color="loyalty_tier")
+            fig_q5 = px.bar(q5_df, x="loyalty_tier", y="repeat_rate", text="repeat_rate", color="repeat_rate", color_continuous_scale="Purples")
             fig_q5.update_traces(texttemplate="%{text:.2f} ครั้ง", textposition="outside")
-            fig_q5.update_layout(showlegend=False)
+            fig_q5.update_layout(coloraxis_showscale=False)
             st.plotly_chart(clean_chart(fig_q5), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูล Loyalty Tier")
 
     with col_d:
-        st.markdown("**สัญชาติลูกค้าที่มียอดจองสูงสุด Top 5**")
+        st.markdown("**🌍 สัญชาติลูกค้าที่มียอดจองสูงสุด Top 5**")
         q6_df = conn.execute(
             f"""
             SELECT g.nationality, COUNT(b.booking_id) AS bookings
@@ -436,9 +380,9 @@ with tab2:
         ).df()
 
         if not q6_df.empty:
-            fig_q6 = px.bar(q6_df, x="bookings", y="nationality", orientation="h", text="bookings")
+            fig_q6 = px.bar(q6_df, x="bookings", y="nationality", orientation="h", text="bookings", color="bookings", color_continuous_scale="Tealgrn")
             fig_q6.update_traces(texttemplate="%{text:,.0f} รายการ", textposition="outside")
-            fig_q6.update_layout(yaxis=dict(autorange="reversed"))
+            fig_q6.update_layout(yaxis=dict(autorange="reversed"), coloraxis_showscale=False)
             st.plotly_chart(clean_chart(fig_q6), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูลสัญชาติลูกค้า")
@@ -447,7 +391,7 @@ with tab2:
     col_e, col_f = st.columns(2, gap="large")
 
     with col_e:
-        st.markdown("**เปรียบเทียบการใช้บริการ Food และ Spa ระหว่างลูกค้าในประเทศและต่างชาติ**")
+        st.markdown("**🥗 เปรียบเทียบการใช้บริการ Food และ Spa (ในประเทศ vs ต่างชาติ)**")
         q8_df = conn.execute(
             f"""
             SELECT 'Food' AS service_type, CASE WHEN g.is_domestic = TRUE THEN 'ในประเทศ (Domestic)' ELSE 'ต่างชาติ (International)' END AS guest_type, COUNT(*) AS service_count
@@ -459,28 +403,28 @@ with tab2:
         ).df()
 
         if not q8_df.empty:
-            fig_q8 = px.bar(q8_df, x="service_type", y="service_count", color="guest_type", barmode="group", text="service_count")
+            fig_q8 = px.bar(q8_df, x="service_type", y="service_count", color="guest_type", barmode="group", text="service_count", color_discrete_sequence=["#38bdf8", "#fb7185"])
             fig_q8.update_traces(texttemplate="%{text:,.0f}", textposition="outside")
             st.plotly_chart(clean_chart(fig_q8), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูลการใช้บริการ Spa และ Food")
 
     with col_f:
-        st.markdown("**ระยะเวลาเข้าพักเฉลี่ย (Nights Stayed) ตามสาขาโรงแรม**")
+        st.markdown("**🛌 ระยะเวลาเข้าพักเฉลี่ย (Nights Stayed) ตามสาขาโรงแรม**")
         q11_df = conn.execute(
             f"""
             SELECT p.property_name, AVG(b.nights) AS avg_nights
             FROM main.fact_hotel_bookings b
             JOIN main.dim_property p ON b.property_key = p.property_key
             JOIN main.dim_date d ON b.date_key = d.date_key
-            {where_stmt}
-            GROUP BY p.property_name ORDER BY avg_nights DESC
+            {where_stmt} GROUP BY p.property_name ORDER BY avg_nights DESC
             """
         ).df()
 
         if not q11_df.empty:
-            fig_q11 = px.bar(q11_df, x="property_name", y="avg_nights", text="avg_nights")
+            fig_q11 = px.bar(q11_df, x="property_name", y="avg_nights", text="avg_nights", color="avg_nights", color_continuous_scale="Oranges")
             fig_q11.update_traces(texttemplate="%{text:.1f} คืน", textposition="outside")
+            fig_q11.update_layout(coloraxis_showscale=False)
             st.plotly_chart(clean_chart(fig_q11), use_container_width=True)
         else:
             st.info("ไม่พบข้อมูลระยะเวลาเข้าพักเฉลี่ย")
@@ -491,7 +435,7 @@ with tab2:
 # =========================================================
 
 with tab3:
-    st.markdown("### ด้านประเภทห้องพักและการจอง (Room & Booking Patterns)")
+    st.markdown("### 🛏️ ประเภทห้องพักและพฤติกรรมการจอง")
 
     q10_df = conn.execute(
         f"""
@@ -509,7 +453,7 @@ with tab3:
     col_g, col_h = st.columns(2, gap="large")
 
     with col_g:
-        st.markdown("**ประเภทห้องพักที่สร้างรายได้หลัก และมียอดจองสูงสุด**")
+        st.markdown("**💰 ประเภทห้องพักที่สร้างรายได้หลักสูงสุด**")
         q9_df = conn.execute(
             f"""
             SELECT COALESCE(r.room_type, b.room_type, 'Unknown') AS room_type, COUNT(b.booking_id) AS bookings, COALESCE(SUM(b.total_revenue), 0) / 1e9 AS revenue_b
@@ -517,21 +461,20 @@ with tab3:
             LEFT JOIN main.dim_room r ON b.room_key = r.room_key
             JOIN main.dim_property p ON b.property_key = p.property_key
             JOIN main.dim_date d ON b.date_key = d.date_key
-            {where_stmt}
-            GROUP BY 1 ORDER BY revenue_b DESC
+            {where_stmt} GROUP BY 1 ORDER BY revenue_b DESC
             """
         ).df()
 
         if not q9_df.empty and q9_df["revenue_b"].notna().any():
-            fig_q9 = px.bar(q9_df, x="room_type", y="revenue_b", text="bookings", color="room_type")
+            fig_q9 = px.bar(q9_df, x="room_type", y="revenue_b", text="bookings", color="revenue_b", color_continuous_scale="Greens")
             fig_q9.update_traces(texttemplate="Rp %{y:.2f}B (%{text:,} จอง)", textposition="outside")
-            fig_q9.update_layout(showlegend=False)
+            fig_q9.update_layout(coloraxis_showscale=False)
             st.plotly_chart(clean_chart(fig_q9), use_container_width=True)
         else:
             st.warning("⚠️ ไม่พบข้อมูลประเภทห้องพักตามเงื่อนไขที่เลือก")
 
     with col_h:
-        st.markdown("**อัตราการยกเลิกการจอง (%) แยกตามประเภทห้องพัก**")
+        st.markdown("**❌ อัตราการยกเลิกการจอง (%) แยกตามประเภทห้องพัก**")
         q12_df = conn.execute(
             f"""
             SELECT COALESCE(r.room_type, b.room_type, 'Unknown') AS room_type, AVG(CAST(b.is_canceled AS INTEGER)) * 100 AS cancel_rate
@@ -539,15 +482,14 @@ with tab3:
             LEFT JOIN main.dim_room r ON b.room_key = r.room_key
             JOIN main.dim_property p ON b.property_key = p.property_key
             JOIN main.dim_date d ON b.date_key = d.date_key
-            {where_stmt}
-            GROUP BY 1 ORDER BY cancel_rate DESC
+            {where_stmt} GROUP BY 1 ORDER BY cancel_rate DESC
             """
         ).df()
 
         if not q12_df.empty and q12_df["cancel_rate"].notna().any():
-            fig_q12 = px.bar(q12_df, x="room_type", y="cancel_rate", text="cancel_rate", color="room_type")
+            fig_q12 = px.bar(q12_df, x="room_type", y="cancel_rate", text="cancel_rate", color="cancel_rate", color_continuous_scale="Reds")
             fig_q12.update_traces(texttemplate="%{text:.1f}%", textposition="outside")
-            fig_q12.update_layout(showlegend=False)
+            fig_q12.update_layout(coloraxis_showscale=False)
             st.plotly_chart(clean_chart(fig_q12), use_container_width=True)
         else:
             st.warning("⚠️ ไม่พบข้อมูลอัตราการยกเลิกตามเงื่อนไขที่เลือก")
@@ -558,8 +500,8 @@ with tab3:
 # =========================================================
 
 with tab4:
-    st.markdown("### ด้านปฏิบัติการและสถานที่จัดงาน (Operations & Venue)")
-    st.markdown("**ประเภทสถานที่จัดงาน (Venue Type) ที่มีการจองมากที่สุด**")
+    st.markdown("### 📅 ปฏิบัติการและสถานที่จัดงานประชุม")
+    st.markdown("**🏢 ประเภทสถานที่จัดงาน (Venue Type) ที่มีการจองสูงสุด**")
 
     q15_df = conn.execute(
         f"""
@@ -568,31 +510,29 @@ with tab4:
         LEFT JOIN main.dim_venue v ON a.venue_key = v.venue_key
         JOIN main.dim_property p ON a.property_key = p.property_key
         JOIN main.dim_date d ON a.date_key = d.date_key
-        {where_stmt}
-        GROUP BY 1 ORDER BY booking_count DESC
+        {where_stmt} GROUP BY 1 ORDER BY booking_count DESC
         """
     ).df()
 
     if not q15_df.empty and q15_df["booking_count"].notna().any():
-        fig_q15 = px.bar(q15_df, x="venue_type", y="booking_count", text="booking_count", color="venue_type")
+        fig_q15 = px.bar(q15_df, x="venue_type", y="booking_count", text="booking_count", color="booking_count", color_continuous_scale="Viridis")
         fig_q15.update_traces(texttemplate="%{text:,} ครั้ง", textposition="outside")
-        fig_q15.update_layout(showlegend=False)
+        fig_q15.update_layout(coloraxis_showscale=False)
         st.plotly_chart(clean_chart(fig_q15), use_container_width=True)
     else:
         st.info("ไม่พบข้อมูล Venue Performance")
 
     st.markdown("---")
-    st.markdown("**รายละเอียดประเภทกิจกรรมจัดงาน (Event Type Breakdown)**")
+    st.markdown("**📋 รายละเอียดประเภทกิจกรรมจัดงาน (Event Type Breakdown)**")
 
     q_event_type = conn.execute(
         f"""
-        SELECT COALESCE(e.event_type_name, 'Unknown') AS event_type, COUNT(*) AS total_bookings, COALESCE(SUM(a.event_revenue), 0) / 1e9 AS rev_billions
+        SELECT COALESCE(e.event_type_name) AS event_type, COUNT(*) AS total_bookings, COALESCE(SUM(a.event_revenue), 0) / 1e9 AS rev_billions
         FROM main.fact_ancillary_services a
         LEFT JOIN main.dim_event_type e ON a.event_type_key = e.event_type_key
         JOIN main.dim_date d ON a.date_key = d.date_key
         JOIN main.dim_property p ON a.property_key = p.property_key
-        {where_stmt} AND a.event_revenue > 0
-        GROUP BY 1 ORDER BY total_bookings DESC
+        {where_stmt} AND a.event_revenue > 0 GROUP BY 1 ORDER BY total_bookings DESC
         """
     ).df()
 
@@ -600,15 +540,15 @@ with tab4:
         col_m, col_n = st.columns(2, gap="large")
 
         with col_m:
-            fig_evt_count = px.bar(q_event_type, x="event_type", y="total_bookings", text="total_bookings", color="event_type")
+            fig_evt_count = px.bar(q_event_type, x="event_type", y="total_bookings", text="total_bookings", color="total_bookings", color_continuous_scale="Blues")
             fig_evt_count.update_traces(texttemplate="%{text:,} ครั้ง", textposition="outside")
-            fig_evt_count.update_layout(showlegend=False, title="จำนวนครั้งที่จัดแยกตามประเภท Event")
+            fig_evt_count.update_layout(coloraxis_showscale=False, title="จำนวนครั้งที่จัดแยกตามประเภท Event")
             st.plotly_chart(clean_chart(fig_evt_count), use_container_width=True)
 
         with col_n:
-            fig_evt_rev = px.bar(q_event_type, x="event_type", y="rev_billions", text="rev_billions", color="event_type")
+            fig_evt_rev = px.bar(q_event_type, x="event_type", y="rev_billions", text="rev_billions", color="rev_billions", color_continuous_scale="YlGnBu")
             fig_evt_rev.update_traces(texttemplate="Rp %{y:.2f}B", textposition="outside")
-            fig_evt_rev.update_layout(showlegend=False, title="รายได้รวมแยกตามประเภท Event")
+            fig_evt_rev.update_layout(coloraxis_showscale=False, title="รายได้รวมแยกตามประเภท Event")
             st.plotly_chart(clean_chart(fig_evt_rev), use_container_width=True)
     else:
         st.info("ไม่พบข้อมูลประเภทกิจกรรมจัดงานตามเงื่อนไขที่เลือก")
